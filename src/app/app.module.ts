@@ -9,7 +9,6 @@ import { HttpHeadersInterceptor } from './crux/helpers/http.interceptor';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { CredResetComponent } from './pages/cred-reset/cred-reset.component';
 import { RequestComponent } from './pages/registration/request/request.component';
-import { CreationComponent } from './pages/registration/creation/creation.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { CreationComponent } from './pages/registration/creation/creation.compon
     LoginComponent,
     RegistrationComponent,
     CredResetComponent,
-    RequestComponent,
-    CreationComponent
+    RequestComponent
   ],
   imports: [
     BrowserModule,
