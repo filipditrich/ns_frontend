@@ -1,0 +1,35 @@
+<div class="container-fluid page-wrapper-c-all">
+  <div class="col-lg-10 bg-white p-5">
+    <header>
+      <h1 class="text-center text-uppercase color-main">Reset</h1>
+    </header>
+    <form action="#" class="form login-form row">
+      <div class="group form-group col-sm-12 d-flex flex-wrap align-items-center justify-content-between">
+        <label for="cred-reset" class="">I forgot my: </label>
+        <select class="form-control col-sm-12 col-md-8" id="cred-reset">
+          <option>Password</option>
+          <option>Username</option>
+        </select>
+      </div>
+      <hr class="col-md-11">
+      <div class="group d-flex flex-column col-lg-5">
+        <input type="text" id="username" placeholder="Username">
+        <!--<small class="text-danger">Wrong Username</small>-->
+      </div>
+      <div class="group d-flex col-xl-2 text-center flex-column justify-content-center">
+        <p class="m-0">or</p>
+      </div>
+      <div class="group d-flex flex-column col-lg-5">
+        <input type="email" id="email" placeholder="Email">
+        <!--<small class="text-danger">Wrong Password</small>-->
+      </div>
+      <div class="group d-flex flex-column col-sm-12">
+        <input class="button" type="submit" value="Send request">
+      </div>
+    </form>
+    <footer class="row">
+      <a [routerLink]="['/login']" class="col-sm-6 text-muted">Already have an account?</a>
+      <a [routerLink]="['/request/registration']" class="col-sm-6 text-muted text-sm-right">Don't have an Account?</a>
+    </footer>
+  </div>
+</div>

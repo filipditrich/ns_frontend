@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/styles/forms";
+@import "assets/styles/buttons";
 
 .page-wrapper {
-  min-width: 100vw;
-  min-height: 100vh;
-  //padding: 25px;
+  width: 100%;
+  height: 100%;
+}
+
+.page-wrapper-c-all {
+  @extend .page-wrapper;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.color-main {
+  color: $main;
 }
 

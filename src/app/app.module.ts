@@ -8,8 +8,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { HttpHeadersInterceptor } from './midpoint/helpers/http.interceptor';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { CredResetComponent } from './pages/cred-reset/cred-reset.component';
-import { RequestComponent } from './pages/registration/request/request.component';
 import {AppService} from './app.service';
+import { AlertsComponent } from './midpoint/alerts/alerts.component';
+import {AlertsService} from './midpoint/alerts/alerts.service';
+import { RegistrationRequestComponent } from './pages/registration/registration-request/registration-request.component';
+import { RequestCredResetComponent } from './pages/cred-reset/request-cred-reset/request-cred-reset.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import {AppService} from './app.service';
     LoginComponent,
     RegistrationComponent,
     CredResetComponent,
-    RequestComponent
+    AlertsComponent,
+    RegistrationRequestComponent,
+    RequestCredResetComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import {AppService} from './app.service';
     HttpClientModule
   ],
   providers: [
+    AlertsService,
     AppService,
     HttpClient,
     {

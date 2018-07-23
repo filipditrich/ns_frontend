@@ -1,3 +1,43 @@
-<p>
-  registration works!
-</p>
+<div class="container-fluid page-wrapper-c-all">
+  <div class="col-lg-10 bg-white p-5">
+    <header>
+      <h1 class="text-center text-uppercase color-main">Finish Registration</h1>
+    </header>
+    <form action="#" class="form login-form row">
+      <div class="group d-flex flex-column col-lg-6">
+        <input type="text" id="name">
+        <label for="name">Name</label>
+      </div>
+      <div class="group d-flex flex-column col-lg-6">
+        <input type="email" id="email">
+        <label for="email">Email</label>
+      </div>
+      <div class="group d-flex flex-column col-lg-6">
+        <input type="username" id="username">
+        <label for="username">Username</label>
+      </div>
+      <div class="group d-flex flex-column col-lg-6">
+        <select class="form-control" id="team">
+          <option>Northern Stars</option>
+          <option>Other</option>
+        </select>
+        <label for="team">Team</label>
+      </div>
+      <div class="group d-flex flex-column col-lg-6">
+        <input type="password" id="password">
+        <label for="password">Password</label>
+      </div>
+      <div class="group d-flex flex-column col-lg-6">
+        <input type="password" id="password-2">
+        <label for="password-2">Confirm Password</label>
+      </div>
+      <div class="group d-flex flex-column col-lg-12">
+        <input class="button" type="submit" value="Send request">
+      </div>
+    </form>
+    <footer class="row">
+      <a [routerLink]="['/login']" class="col-sm-6 text-muted">Already have an account?</a>
+      <a [routerLink]="['/request/credentials-reset']" class="col-sm-6 text-sm-right text-muted">Forgot Credentials?</a>
+    </footer>
+  </div>
+</div>

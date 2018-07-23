@@ -1,0 +1,36 @@
+import { Component, OnInit, Input } from '@angular/core';
+import {AlertsService} from './alerts.service';
+import {Alert} from './alerts.interface';
+import { filter } from 'rxjs/operators';
+
+@Component({
+  selector: 'ns-alerts',
+  templateUrl: './alerts.component.html',
+  styleUrls: ['./alerts.component.scss']
+})
+export class AlertsComponent implements OnInit {
+
+  @Input() id: string;
+  alerts: Alert[] = [];
+
+  constructor(private alertsService: AlertsService) { }
+
+  ngOnInit() {
+
+    this.alertsService.getAlert(this.id).subscribe((alert: Alert) => {
+      if (!alert.payload) { this.alerts = []; return; }
+      this.alerts.push(alert);
+      if (alert.ttl !== Infinity) {
+        setTimeout(() => {
+          this.removeAlert(alert);
+        }, alert.ttl);
+      }
+    });
+
+  }
+
+  removeAlert(alert: Alert) {
+    this.alerts = this.alerts.filter(x => x !== alert);
+  }
+
+}

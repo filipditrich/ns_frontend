@@ -2,15 +2,7 @@ import { forEach } from 'lodash';
 import { findByProp } from '../../helpers/general.helper';
 // TODO - code interface
 
-export let APP_CODES = {
-
-  TEST: {
-    name: 'TEST_CODE',
-    status: 419,
-    success: false
-  }
-
-};
+export let APP_CODES = {};
 
 export function updateCodes(input) {
   APP_CODES = input;

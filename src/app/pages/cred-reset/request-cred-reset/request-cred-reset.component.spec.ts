@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequestComponent } from './request.component';
+import { RequestCredResetComponent } from './request-cred-reset.component';
 
-describe('RequestComponent', () => {
-  let component: RequestComponent;
-  let fixture: ComponentFixture<RequestComponent>;
+describe('RequestCredResetComponent', () => {
+  let component: RequestCredResetComponent;
+  let fixture: ComponentFixture<RequestCredResetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestComponent ]
+      declarations: [ RequestCredResetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestComponent);
+    fixture = TestBed.createComponent(RequestCredResetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

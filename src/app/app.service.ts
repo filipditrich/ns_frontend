@@ -12,8 +12,7 @@ export class AppService {
   // TODO - code model ?
   obtainCodes(): Promise<any> {
     const headers = new HttpHeaders()
-      .append('X-Secret', '937a43fc73c501dfa94d7dcf0cf668e0')
-      .append('X-Secret-Index', '5');
+      .append('X-Secret', '937a43fc73c501dfa94d7dcf0cf668e0x7');
 
     // TODO - <any> => resource interface
     return this.httpClient.get<any>('http://localhost:3001/api/assembly/codes', { headers })
@@ -21,12 +20,13 @@ export class AppService {
       .then(result => {
         if (result.codes) {
           CODE_CONF.updateCodes(result.codes);
-          CODE_CONF.getCodeByName('REQUEST_USER_REGISTERED')
+          console.log(CODE_CONF.getCodeByName('RESOURCE_LOADED'));
+
         } else {
-          // codes were not received
+          // codes were not
         }
       }, error => {
-        // TODO - popups / alerts
+        // TODO - popups / alerts ???
         console.log(error);
       });
   }
