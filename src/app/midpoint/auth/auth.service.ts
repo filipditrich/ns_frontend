@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ICredentials} from './credentials.interface';
+import {ICredentials, IRegCredentials, IRegReqCredentials} from './credentials.interface';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -36,6 +36,18 @@ export class AuthService {
 
     return token ? !new JwtHelperService().isTokenExpired(token) : false;
 
+  }
+
+  requestRegistration(credentials: IRegReqCredentials): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/auth/request/registration`, credentials);
+  }
+
+  checkRegistrationRequest(hash: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/auth/register/${hash}`);
+  }
+
+  sendRegistrationRequest(hash: string, credentials: IRegCredentials): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/auth/register/${hash}`, credentials);
   }
 
 

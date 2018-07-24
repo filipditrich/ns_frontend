@@ -5,24 +5,15 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {AuthService} from '../../midpoint/auth/auth.service';
 import { Router } from '@angular/router';
 import * as CODE_CONF from '../../midpoint/config/codes/codes.dev';
-import {animate, keyframes, query, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'ns-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [
-    trigger('errorWiggle', [
-      state('error-in', style({ background: 'red' })),
-      state('error-out', style({ color: 'yellow' }))
-    ])
-  ]
 })
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-
-  errorWiggle = 'error-in';
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -42,10 +33,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(input) {
-    if (!this.loginForm.valid) { /* TODO - trigger wiggle animation */ } else {
-      console.log(input);
+
+    if (!input.username || !input.password) {
+      this.loginForm.controls['username'].markAsTouched();
+      this.loginForm.controls['password'].markAsTouched();
+    }
+
+    if (!this.loginForm.valid) { /* TODO - trigger wiggle animation ? */ } else {
       this.authService.logIn(input).subscribe(response => {
-        console.log(response);
 
         if (response.response.success && response.token) {
           this.authService.storeUserData(response.user, response.token);

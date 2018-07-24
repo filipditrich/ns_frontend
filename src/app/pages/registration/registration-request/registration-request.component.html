@@ -3,19 +3,21 @@
     <header>
       <h1 class="text-center text-uppercase color-main">Request Registration</h1>
     </header>
-    <form action="#" class="form login-form row">
-      <div class="group d-flex flex-column col-lg-6">
-        <input type="text" id="name">
+    <form [formGroup]="regReqForm" (submit)="onSubmit(regReqForm.value)" class="form login-form row">
+      <div class="group d-flex flex-column col-lg-6" [ngClass]="{'error' : !regReqForm.controls['name'].valid && regReqForm.controls['name'].touched}">
+        <input type="text" id="name" formControlName="name" autocomplete="name">
         <label for="name">Name</label>
-        <!--<small class="text-danger">Wrong Username</small>-->
+        <small class="text-danger" *ngIf="!regReqForm.controls['name'].valid && regReqForm.controls['name'].touched">Name is required</small>
+        <small class="text-danger" *ngIf="!regReqForm.controls['name'].valid && regReqForm.controls['name'].touched">Invalid name</small>
       </div>
-      <div class="group d-flex flex-column col-lg-6">
-        <input type="email" id="email">
+      <div class="group d-flex flex-column col-lg-6" [ngClass]="{'error' : !regReqForm.controls['email'].valid && regReqForm.controls['email'].touched}">
+        <input type="email" id="email" formControlName="email" autocomplete="email">
         <label for="email">Email</label>
-        <!--<small class="text-danger">Wrong Password</small>-->
+        <small class="text-danger" *ngIf="!regReqForm.controls['email'].valid && regReqForm.controls['email'].touched">Email is required</small>
+        <small class="text-danger" *ngIf="!regReqForm.controls['email'].valid && regReqForm.controls['email'].touched">Invalid Email</small>
       </div>
       <div class="group d-flex flex-column col-xl-12">
-        <input class="button" type="submit" value="Send request">
+        <input class="button" [ngClass]="{'btn-disabled': !regReqForm.valid && regReqForm.touched}" type="submit" value="Send Request">
       </div>
     </form>
     <footer class="row">

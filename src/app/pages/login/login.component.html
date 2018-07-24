@@ -3,9 +3,9 @@
     <header>
       <h1 class="text-center text-uppercase color-main">Login</h1>
     </header>
-    <form class="form login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+    <form class="form login-form" [formGroup]="loginForm" (submit)="onSubmit(loginForm.value)">
       <div class="group d-flex flex-column" [ngClass]="{'error' : !loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
-        <input type="text" id="username" formControlName="username" autocomplete="username" [@errorWiggle]="errorWiggle">
+        <input type="text" id="username" formControlName="username" autocomplete="username">
         <label for="username">Username</label>
         <small class="text-danger" *ngIf="!loginForm.controls['username'].valid && !loginForm.controls['username'].errors['no-match'] && loginForm.controls['username'].touched">Username is required</small>
         <small class="text-danger" *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].errors['no-match'] && loginForm.controls['username'].touched">Invalid Username</small>
