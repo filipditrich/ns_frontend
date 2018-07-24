@@ -13,6 +13,10 @@ import { AlertsComponent } from './midpoint/alerts/alerts.component';
 import {AlertsService} from './midpoint/alerts/alerts.service';
 import { RegistrationRequestComponent } from './pages/registration/registration-request/registration-request.component';
 import { RequestCredResetComponent } from './pages/cred-reset/request-cred-reset/request-cred-reset.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthGuard, PreventLogged} from './midpoint/auth/auth.guard';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +30,18 @@ import { RequestCredResetComponent } from './pages/cred-reset/request-cred-reset
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRouting,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AlertsService,
     AppService,
     HttpClient,
+    [AuthGuard],
+    [PreventLogged],
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHeadersInterceptor,

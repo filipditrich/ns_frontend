@@ -14,12 +14,8 @@ export class AlertsService {
 
   constructor(private router: Router) {
     router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.persistent = true;
-      } else {
-        this.clearAlerts();
-      }
-    })
+      this.persistent = event instanceof NavigationStart;
+    });
   }
 
   getAlert(id: string): Observable<any> {
@@ -28,6 +24,14 @@ export class AlertsService {
 
   alertInfo(payload: AlertPayload, ttl: number = Infinity, redirectUrl: string = null) {
     this.sendAlert(new Alert({ type: AlertType.Info, payload, ttl, redirectUrl }));
+  }
+
+  alertDanger(payload: AlertPayload, ttl: number = Infinity, redirectUrl: string = null) {
+    this.sendAlert(new Alert({ type: AlertType.Danger, payload, ttl, redirectUrl }));
+  }
+
+  alertSuccess(payload: AlertPayload, ttl: number = Infinity, redirectUrl: string = null) {
+    this.sendAlert(new Alert({ type: AlertType.Success, payload, ttl, redirectUrl }));
   }
 
   sendAlert(alert: Alert) {

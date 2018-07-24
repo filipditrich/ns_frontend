@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {AlertsService} from './alerts.service';
-import {Alert} from './alerts.interface';
+import {Alert, AlertType} from './alerts.interface';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -31,6 +31,19 @@ export class AlertsComponent implements OnInit {
 
   removeAlert(alert: Alert) {
     this.alerts = this.alerts.filter(x => x !== alert);
+  }
+
+  alertClass(alert: Alert) {
+    if (!alert) { return; }
+
+    switch (alert.type) {
+      case AlertType.Danger:
+        return 'alert-danger';
+      case AlertType.Info:
+        return 'alert-info';
+      case AlertType.Success:
+        return 'alert-success';
+    }
   }
 
 }

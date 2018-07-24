@@ -19,9 +19,11 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
     // Preserve originally passed headers
     for (const key of req.headers.keys()) { newHeaders = newHeaders.set(key, req.headers.getAll(key)); }
 
+    const token = sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')).token : false;
+
     // Append additional headers
     newHeaders = newHeaders.set('Content-Type', 'application/json');
-    newHeaders = newHeaders.set('Authorization', JSON.parse(sessionStorage.getItem('user')) || false);
+    newHeaders = newHeaders.set('Authorization', token);
     newHeaders = newHeaders.set('Application-ID', '6e6f7274-6865-726e-7374-6172732e637a');
 
     const modifiedReq = req.clone({ headers: newHeaders });

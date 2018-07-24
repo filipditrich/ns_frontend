@@ -3,19 +3,21 @@
     <header>
       <h1 class="text-center text-uppercase color-main">Login</h1>
     </header>
-    <form action="#" class="form login-form">
-      <div class="group d-flex flex-column">
-        <input type="text" id="username">
+    <form class="form login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <div class="group d-flex flex-column" [ngClass]="{'error' : !loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
+        <input type="text" id="username" formControlName="username" autocomplete="username" [@errorWiggle]="errorWiggle">
         <label for="username">Username</label>
-        <!--<small class="text-danger">Wrong Username</small>-->
+        <small class="text-danger" *ngIf="!loginForm.controls['username'].valid && !loginForm.controls['username'].errors['no-match'] && loginForm.controls['username'].touched">Username is required</small>
+        <small class="text-danger" *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].errors['no-match'] && loginForm.controls['username'].touched">Invalid Username</small>
       </div>
-      <div class="group d-flex flex-column">
-        <input type="password" id="password">
+      <div class="group d-flex flex-column" [ngClass]="{'error' : !loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+        <input type="password" id="password" formControlName="password" autocomplete="current-password">
         <label for="password">Password</label>
-        <!--<small class="text-danger">Wrong Password</small>-->
+        <small class="text-danger" *ngIf="!loginForm.controls['password'].valid && !loginForm.controls['password'].errors['no-match'] && loginForm.controls['password'].touched">Pasword is required</small>
+        <small class="text-danger" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].errors['no-match'] && loginForm.controls['password'].touched">Invalid Password</small>
       </div>
       <div class="group d-flex flex-column">
-        <input class="button" type="submit" value="Login">
+        <input class="button" [ngClass]="{'btn-disabled': !loginForm.valid && loginForm.touched}" type="submit" value="Login">
       </div>
     </form>
     <footer class="row">
