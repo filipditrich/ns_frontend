@@ -64,7 +64,7 @@ export class RequestCredResetComponent implements OnInit {
          this.alertsService.alertSuccess({ title: 'Success', body: 'A password reset link has been sent to your email.' }, 5000);
          this.router.navigate(['/login']); // TODO - navigate to custom page?
       } else {
-        this.alertService.alertDanger({ title: response.response.name || 'Error', body: response.response.message || 'Unexpected error occurred.' }, 5000);
+        this.alertsService.alertDanger({ title: response.response.name || 'Error', body: response.response.message || 'Unexpected error occurred.' }, 5000);
       }
 
     }, error => {
