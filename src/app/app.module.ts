@@ -19,6 +19,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {DashboardModule} from './pages/dashboard/dashboard.module';
 import { AdminComponent } from './pages/admin/admin.component';
 
+export function AppServiceProviderFactory(provider: AppService) {
+  return () => provider.startupConfig();
+}
 
 @NgModule({
   declarations: [
@@ -54,7 +57,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     },
     {
       provide: APP_INITIALIZER,
-      useFactory: (appService: AppService) => () => appService.obtainCodes(),
+      useFactory: AppServiceProviderFactory,
       deps: [AppService],
       multi: true
     }

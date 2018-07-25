@@ -84,7 +84,7 @@ export class RegistrationComponent implements OnInit {
       }
 
     }, error => {
-      error = error.error.response;
+      error = error.error.response || error.error;
       console.log(error);
 
       switch (error.name) {
