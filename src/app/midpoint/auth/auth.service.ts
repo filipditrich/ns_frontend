@@ -54,5 +54,9 @@ export class AuthService {
     return this.http.post(getUrl('PWD_R'), payload);
   }
 
+  sendUsernameToEmail(payload): Observable<any> {
+    return this.http.post(getUrl('USN_R'), payload);
+  }
+
 
 }

@@ -64,6 +64,9 @@ export class RegistrationRequestComponent implements OnInit {
         case CODE_CONF.getCodeByName('REQUEST_WITH_EMAIL_ALREADY_MADE').name: {
           this.email.setErrors({ 'in-use' : true }); break;
         }
+        case CODE_CONF.getCodeByName('EMAIL_ALREADY_IN_USE').name: {
+          this.email.setErrors({ 'in-use' : true }); break;
+        }
         default: {
           this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
           break;

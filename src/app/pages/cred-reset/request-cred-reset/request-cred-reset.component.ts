@@ -50,7 +50,7 @@ export class RequestCredResetComponent implements OnInit {
       if (input.type === 'password') {
         this.requestPassword(input);
       } else if (input.type === 'username') {
-
+        this.requestUsername(input);
       }
 
     }
@@ -100,7 +100,34 @@ export class RequestCredResetComponent implements OnInit {
   }
 
   requestUsername(input) {
+    this.authService.sendUsernameToEmail(input).subscribe(response => {
 
+      console.log(response);
+
+      if (response.response.success) {
+        this.alertsService.alertSuccess({title: 'Email sent', body: 'We\'ve sent you an email with your username!'}, 2500);
+        this.router.navigate(['/']) // TODO - redirect to some custom page
+      } else {
+        this.alertsService.alertDanger({ title: response.response.name || 'Unexpected', body: response.response.message || 'Unexpected error occurred.' }, 5000);
+      }
+
+    }, error => {
+      error = error.error.response || error.error;
+      console.log(error);
+
+      switch (error.name) {
+
+        case CODE_CONF.getCodeByName('EMAIL_NOT_FOUND').name: {
+          this.email.setErrors({ 'not-found' : true }); break;
+        }
+        default: {
+          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          break;
+        }
+
+      }
+
+    })
   }
 
 }
