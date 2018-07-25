@@ -58,5 +58,13 @@ export class AuthService {
     return this.http.post(getUrl('USN_R'), payload);
   }
 
+  checkPasswordResetRequest(hash: string): Observable<any> {
+    return this.http.get(`${getUrl('PWD_R_CHECK')}/${hash}`);
+  }
+
+  createNewPassword(hash: string, payload): Observable<any> {
+    return this.http.post(`${getUrl('PWD_R')}/${hash}`, payload);
+  }
+
 
 }

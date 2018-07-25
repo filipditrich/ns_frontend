@@ -35,7 +35,7 @@ export class AppService {
           CODE_CONF.updateCodes(result.codes);
           console.log(CODE_CONF.getCodeByName('RESOURCE_LOADED'));
         } else {
-          // codes were not
+          // codes were not received
         }
       }, error => {
         // TODO - popups / alerts ???
