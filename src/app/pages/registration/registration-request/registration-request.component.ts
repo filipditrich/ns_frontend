@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../../midpoint/auth/auth.service';
-import {AlertsService} from '../../../midpoint/alerts/alerts.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../midpoint/auth/auth.service';
+import { AlertsService } from '../../../midpoint/alerts/alerts.service';
 
 @Component({
   selector: 'ns-registration-request',
@@ -36,7 +36,6 @@ export class RegistrationRequestComponent implements OnInit {
       this.regReqForm.controls['email'].markAsTouched();
     } else {
       this.authService.requestRegistration(input).subscribe(response => {
-
         if (response.response.success) {
           this.alertsService.alertSuccess({ title: response.response.name || 'Success', body: response.response.message || 'Sent' }, 2500);
         } else {

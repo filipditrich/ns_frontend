@@ -5,8 +5,11 @@
 export const environment = {
   name: 'dev',
   production: false,
-  apiUrl: 'http://localhost:3000/api'
 };
+
+export function API(port: number = 3000) {
+  return `http://localhost:${port}`;
+}
 
 /*
  * In development mode, to ignore zone related error stack frames such as

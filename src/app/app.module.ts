@@ -17,6 +17,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard, PreventLogged} from './midpoint/auth/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+export function AppServiceProviderFactory(provider: AppService) {
+  return () => provider.startupConfig();
+}
 
 @NgModule({
   declarations: [
@@ -49,7 +52,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     },
     {
       provide: APP_INITIALIZER,
-      useFactory: (appService: AppService) => () => appService.obtainCodes(),
+      useFactory: AppServiceProviderFactory,
       deps: [AppService],
       multi: true
     }
