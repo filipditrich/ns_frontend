@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {AlertsService} from '../../midpoint/alerts/alerts.service';
-import {FormBuilder, Validators, FormGroup, FormControl} from '@angular/forms';
-import {AuthService} from '../../midpoint/auth/auth.service';
+import { AlertsService } from '../../base/alerts/alerts.service';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../../base/auth/auth.service';
 import { Router } from '@angular/router';
-import * as CODE_CONF from '../../midpoint/config/codes/codes.dev';
+import * as CODE_CONF from '../../base/config/codes/codes.dev';
 
 @Component({
   selector: 'ns-login',
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
   get password() { return this.loginForm.get('password'); }
 
   ngOnInit() {
-
   }
 
   onSubmit(input) {

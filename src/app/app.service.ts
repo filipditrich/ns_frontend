@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import * as CODE_CONF from './midpoint/config/codes/codes.dev';
-import * as ENDPOINTS_CONF from './midpoint/config/endpoints/endpoints.dev';
+import * as CODE_CONF from './base/config/codes/codes.dev';
+import * as ENDPOINTS_CONF from './base/config/endpoints/endpoints.dev';
 import { API } from '../environments/environment';
-import { IResource } from './midpoint/models/config.interface';
+import { IResource } from './base/models/config.interface';
 
 @Injectable({
   providedIn: 'root'

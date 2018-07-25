@@ -1,0 +1,60 @@
+@import "../../../assets/styles/variables";
+
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 999;
+  word-break: break-word;
+
+  @media screen and (max-width: 768px) {
+    .alert {
+      opacity: 0.95 !important;
+    }
+  }
+
+  .alert-container {
+    max-height: calc(100vh - 30px);
+    max-width: calc(100vw - 30px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .alert {
+
+    max-width: 300px;
+    opacity: 0.65;
+    box-shadow: 0 10px 15px -5px rgba(black, 0.05);
+    transition: all 250ms;
+    margin: 5px;
+    &:hover {
+      opacity: 0.95;
+      box-shadow: 0 10px 15px -5px rgba(black, 0.1);
+      transform: scale(1.025);
+    }
+
+    header {
+      display: flex;
+      strong {
+        flex: 1 1 auto;
+        margin-right: 10px;
+      }
+      button {
+        font-size: $fs_small;
+      }
+    }
+
+    p {
+      font-size: $fs_smaller;
+      margin: 0;
+      line-height: 1.25;
+    }
+
+  }
+
+}
+

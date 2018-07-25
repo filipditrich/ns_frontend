@@ -5,7 +5,7 @@ import {RegistrationComponent} from './pages/registration/registration.component
 import {CredResetComponent} from './pages/cred-reset/cred-reset.component';
 import { RegistrationRequestComponent } from './pages/registration/registration-request/registration-request.component';
 import {RequestCredResetComponent} from './pages/cred-reset/request-cred-reset/request-cred-reset.component';
-import {AuthGuard, PreventLogged} from './midpoint/auth/auth.guard';
+import {AuthGuard, PreventLogged} from './base/auth/auth.guard';
 
 const routes: Routes = [
   {

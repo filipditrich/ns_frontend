@@ -5,17 +5,18 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/h
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { HttpHeadersInterceptor } from './midpoint/helpers/http.interceptor';
+import { HttpHeadersInterceptor } from './base/helpers/http.interceptor';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { CredResetComponent } from './pages/cred-reset/cred-reset.component';
 import {AppService} from './app.service';
-import { AlertsComponent } from './midpoint/alerts/alerts.component';
-import {AlertsService} from './midpoint/alerts/alerts.service';
+import { AlertsComponent } from './base/alerts/alerts.component';
+import {AlertsService} from './base/alerts/alerts.service';
 import { RegistrationRequestComponent } from './pages/registration/registration-request/registration-request.component';
 import { RequestCredResetComponent } from './pages/cred-reset/request-cred-reset/request-cred-reset.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthGuard, PreventLogged} from './midpoint/auth/auth.guard';
+import {AuthGuard, PreventLogged} from './base/auth/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { OncreateDirective } from './base/directives/oncreate.directive';
 
 export function AppServiceProviderFactory(provider: AppService) {
   return () => provider.startupConfig();
@@ -29,7 +30,8 @@ export function AppServiceProviderFactory(provider: AppService) {
     CredResetComponent,
     AlertsComponent,
     RegistrationRequestComponent,
-    RequestCredResetComponent
+    RequestCredResetComponent,
+    OncreateDirective
   ],
   imports: [
     BrowserModule,
