@@ -14,9 +14,10 @@ import * as CODE_CONF from '../../base/config/codes/codes.dev';
 })
 export class RegistrationComponent implements OnInit {
 
-  hash: string;
-  request: any;
-  registrationForm: FormGroup;
+  public hash: string;
+  public request: any;
+  public registrationForm: FormGroup;
+  public submitted = false;
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -66,33 +67,47 @@ export class RegistrationComponent implements OnInit {
       this.password.markAsTouched();
       this.passwordSubmit.markAsTouched();
     } else {
-      this.callRegistrationSvc(input);
+      if (!this.submitted) {
+        this.callRegistrationSvc(input);
+        this.submitted = true;
+      }
     }
+
 
   }
 
   // TODO - interface
   callRegistrationSvc(input) {
     this.authService.sendRegistrationRequest(this.hash, input).subscribe(response => {
-      console.log(response);
+      this.submitted = false;
 
       if (response.response.success && response.user) {
-        this.alertsService.alertSuccess({title: 'User Registered', body: 'You\'ve been successfully Registered! <a [routerLink]="[\'/login\']">Login here</a>'}, 7500);
+        this.alertsService.alertSuccess({
+          title: 'User Registered',
+          body: 'You\'ve been successfully Registered! <a [routerLink]="[\'/login\']">Login here</a>'
+        }, 7500);
         this.router.navigate(['/login']);
       } else {
-        this.alertsService.alertDanger({ title: response.response.name || 'Error', body: response.response.status || 'Couldn\'t process' }, 5000);
+        this.submitted = false;
+        this.alertsService.alertDanger({
+          title: response.response.name || 'Error',
+          body: response.response.status || 'Couldn\'t process'
+        }, 5000);
       }
 
     }, error => {
       error = error.error.response || error.error;
-      console.log(error);
+      this.submitted = false;
 
       switch (error.name) {
         case CODE_CONF.getCodeByName('USERNAME_IN_USE').name: {
           this.username.setErrors({ 'in-use' : true }); break;
         }
         default: {
-          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          this.alertsService.alertDanger({
+            title: error.name || error.status || 'Error',
+            body: error.message || JSON.stringify(error) || 'Unidentified error'
+          }, 5000);
           break;
         }
       }

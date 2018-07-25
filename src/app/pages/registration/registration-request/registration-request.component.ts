@@ -14,6 +14,7 @@ import * as CODE_CONF from '../../../base/config/codes/codes.dev';
 export class RegistrationRequestComponent implements OnInit {
 
   public regReqForm: FormGroup;
+  public submitted = false;
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -43,22 +44,31 @@ export class RegistrationRequestComponent implements OnInit {
       this.name.markAsTouched();
       this.email.markAsTouched();
     } else {
-      this.makeRequest(input);
+      if (!this.submitted) {
+        this.makeRequest(input);
+        this.submitted = true;
+      }
     }
 
   }
 
+  // TODO - interface
   makeRequest(input) {
     this.authService.requestRegistration(input).subscribe(response => {
       if (response.response.success) {
         this.alertsService.alertSuccess({ title: response.response.name || 'Success', body: response.response.message || 'Sent' }, 7500);
         this.router.navigate(['/login']); // TODO - page with you username is waiting to be accepted blah blah blah...
       } else {
-        this.alertsService.alertDanger({ title: response.response.name || 'Error', body: response.response.message || response.response }, 5000);
+        this.submitted = false;
+        this.alertsService.alertDanger({
+          title: response.response.name || 'Error',
+          body: response.response.message || response.response
+        }, 5000);
       }
 
     }, error => {
       error = error.error.response || error.error;
+      this.submitted = false;
 
       switch (error.name) {
         case CODE_CONF.getCodeByName('REQUEST_WITH_EMAIL_ALREADY_MADE').name: {
@@ -68,7 +78,10 @@ export class RegistrationRequestComponent implements OnInit {
           this.email.setErrors({ 'in-use' : true }); break;
         }
         default: {
-          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          this.alertsService.alertDanger({
+            title: error.name || error.status || 'Error',
+            body: error.message || JSON.stringify(error) || 'Unidentified error'
+          }, 5000);
           break;
         }
       }

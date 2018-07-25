@@ -13,7 +13,8 @@ import * as CODE_CONF from '../../../base/config/codes/codes.dev';
 })
 export class RequestCredResetComponent implements OnInit {
 
-  resetReqForm: FormGroup;
+  public resetReqForm: FormGroup;
+  public submitted = false;
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -34,7 +35,12 @@ export class RequestCredResetComponent implements OnInit {
   get type() { return this.resetReqForm.get('type'); }
 
   ngOnInit() {
-    this.type.setValue('password', { onlySelf: true })
+    this.type.setValue('password', { onlySelf: true });
+  }
+
+  onChange() {
+    this.email.setErrors(null);
+    this.username.setErrors(null);
   }
 
   onSubmit(input) {
@@ -47,10 +53,14 @@ export class RequestCredResetComponent implements OnInit {
       if (input.username === '') { input.username = false; }
       if (input.email === '') { input.email = false; }
 
-      if (input.type === 'password') {
-        this.requestPassword(input);
-      } else if (input.type === 'username') {
-        this.requestUsername(input);
+      if (!this.submitted) {
+        if (input.type === 'password') {
+          this.requestPassword(input);
+          this.submitted = true;
+        } else if (input.type === 'username') {
+          this.requestUsername(input);
+          this.submitted = true;
+        }
       }
 
     }
@@ -61,15 +71,23 @@ export class RequestCredResetComponent implements OnInit {
     this.authService.requestPasswordReset(input).subscribe(response => {
 
       if (response.response.success) {
-         this.alertsService.alertSuccess({ title: 'Success', body: 'A password reset link has been sent to your email.' }, 5000);
+         this.alertsService.alertSuccess({
+           title: 'Success',
+           body: 'A password reset link has been sent to your email.'
+         }, 5000);
          this.router.navigate(['/login']); // TODO - navigate to custom page?
       } else {
-        this.alertsService.alertDanger({ title: response.response.name || 'Error', body: response.response.message || 'Unexpected error occurred.' }, 5000);
+        this.submitted = false;
+        this.alertsService.alertDanger({
+          title: response.response.name || 'Error',
+          body: response.response.message || 'Unexpected error occurred.'
+        }, 5000);
       }
 
     }, error => {
 
       error = error.error.response || error.error;
+      this.submitted = false;
 
       switch (error.name) {
 
@@ -90,7 +108,10 @@ export class RequestCredResetComponent implements OnInit {
           break;
         }
         default: {
-          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          this.alertsService.alertDanger({
+            title: error.name || error.status || 'Error',
+            body: error.message || JSON.stringify(error) || 'Unidentified error'
+          }, 5000);
           break;
         }
 
@@ -105,15 +126,23 @@ export class RequestCredResetComponent implements OnInit {
       console.log(response);
 
       if (response.response.success) {
-        this.alertsService.alertSuccess({title: 'Email sent', body: 'We\'ve sent you an email with your username!'}, 2500);
-        this.router.navigate(['/']) // TODO - redirect to some custom page
+        this.alertsService.alertSuccess({
+          title: 'Email sent',
+          body: 'We\'ve sent you an email with your username!'
+        }, 2500);
+        this.router.navigate(['/']); // TODO - redirect to some custom page
       } else {
-        this.alertsService.alertDanger({ title: response.response.name || 'Unexpected', body: response.response.message || 'Unexpected error occurred.' }, 5000);
+        this.submitted = false;
+        this.alertsService.alertDanger({
+          title: response.response.name || 'Unexpected',
+          body: response.response.message || 'Unexpected error occurred.'
+        }, 5000);
       }
 
     }, error => {
       error = error.error.response || error.error;
       console.log(error);
+      this.submitted = false;
 
       switch (error.name) {
 
@@ -121,13 +150,16 @@ export class RequestCredResetComponent implements OnInit {
           this.email.setErrors({ 'not-found' : true }); break;
         }
         default: {
-          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          this.alertsService.alertDanger({
+            title: error.name || error.status || 'Error',
+            body: error.message || JSON.stringify(error) || 'Unidentified error'
+          }, 5000);
           break;
         }
 
       }
 
-    })
+    });
   }
 
 }

@@ -2,33 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e5d730d-6b4f-48a3-a61a-4b32c95cd37c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/alerts/alerts.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/alerts/alerts.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/auth/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/auth/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/auth/auth.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/auth/auth.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/config/codes/codes.dev.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/config/codes/codes.dev.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/config/endpoints/endpoints.dev.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/config/endpoints/endpoints.dev.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/helpers/endpoint.helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/helpers/endpoint.helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/helpers/general.helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/helpers/general.helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/helpers/http.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/helpers/http.interceptor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/helpers/validator.helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/helpers/validator.helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/models/config.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/models/config.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/midpoint/models/credentials.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/base/models/credentials.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/_spinner.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/registration/registration.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/pages/registration/registration.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/registration/registration.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
@@ -45,29 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="styles.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <file leaf-file-name="request-cred-reset.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="general.helper.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/base/helpers/general.helper.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/pages/login/login.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="425">
+              <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -78,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -96,28 +63,30 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html" />
         <option value="$PROJECT_DIR$/src/app/midpoint/auth/auth.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.ts" />
         <option value="$PROJECT_DIR$/src/app/app.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.html" />
-        <option value="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.html" />
         <option value="$PROJECT_DIR$/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/src/app/midpoint/helpers/validator.helper.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/registration/registration.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/registration/registration.component.html" />
         <option value="$PROJECT_DIR$/src/app/base/alerts/alerts.component.scss" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/base/directives/oncreate.directive.ts" />
         <option value="$PROJECT_DIR$/src/app/base/alerts/alerts.component.html" />
         <option value="$PROJECT_DIR$/src/app/base/alerts/alerts.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/login/login.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/pages/login/login.component.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/styles.scss" />
         <option value="$PROJECT_DIR$/src/app/base/helpers/general.helper.ts" />
+        <option value="$PROJECT_DIR$/src/assets/styles/_spinner.scss" />
+        <option value="$PROJECT_DIR$/src/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/pages/login/login.component.html" />
+        <option value="$PROJECT_DIR$/src/app/pages/registration/registration.component.html" />
+        <option value="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.html" />
+        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.html" />
+        <option value="$PROJECT_DIR$/src/app/pages/registration/registration.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/login/login.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/base/auth/auth.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html" />
       </list>
     </option>
   </component>
@@ -171,15 +140,24 @@
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="cred-reset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="cred-reset" type="462c0819:PsiDirectoryNode" />
+              <item name="request-cred-reset" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -190,6 +168,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="$PROJECT_DIR$/node_modules/tslint" />
@@ -226,12 +205,12 @@
       <updated>1532524187687</updated>
       <workItem from="1532524188992" duration="9226000" />
       <workItem from="1532539518713" duration="10893000" />
-      <workItem from="1532556949539" duration="586000" />
+      <workItem from="1532556949539" duration="3137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20705000" />
+    <option name="totallyTimeSpent" value="23256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -247,7 +226,7 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="5" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15389487" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.259658" />
       <window_info anchor="bottom" id="TODO" order="11" weight="0.32941177" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -255,7 +234,7 @@
       <window_info anchor="bottom" id="Run" order="7" weight="0.32941177" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.19084968" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.19084968" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -295,6 +274,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="141" selection-start-line="34" selection-start-column="141" selection-end-line="34" selection-end-column="141" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -302,13 +284,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="71" column="16" lean-forward="true" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -322,31 +297,10 @@
     <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="55" lean-forward="true" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/base/config/endpoints/endpoints.dev.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/base/auth/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="61" column="61" lean-forward="true" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -357,45 +311,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/environments/environment.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="26" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -429,13 +348,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/pages/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/base/alerts/alerts.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -457,6 +369,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="21" column="94" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -474,24 +389,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/base/helpers/general.helper.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/_spinner.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/pages/login/login.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="4" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        <state relative-caret-position="285">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/base/helpers/general.helper.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="27" column="36" lean-forward="true" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration-request/registration-request.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/registration/registration.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="2" selection-end-line="78" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/cred-reset.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1455">
+          <caret line="97" column="7" lean-forward="true" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/base/auth/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/cred-reset/request-cred-reset/request-cred-reset.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
         </state>
       </provider>
     </entry>

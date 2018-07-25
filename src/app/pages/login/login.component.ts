@@ -14,6 +14,7 @@ import * as CODE_CONF from '../../base/config/codes/codes.dev';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
+  public submitted = false;
 
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
@@ -40,25 +41,37 @@ export class LoginComponent implements OnInit {
       this.username.markAsTouched();
       this.password.markAsTouched();
     } else {
-      this.callLoginSvc(input);
+      if (!this.submitted) {
+        this.callLoginSvc(input);
+        this.submitted = true;
+      }
     }
 
   }
 
+  // TODO - interface
   callLoginSvc(input) {
     this.authService.logIn(input).subscribe(response => {
 
       if (response.response.success && response.token) {
         this.authService.storeUserData(response.user, response.token);
-        this.alertsService.alertSuccess({title: 'Logged In', body: 'You\'ve been successfully logged in!'}, 2500);
-        this.router.navigate(['/'])
+        this.alertsService.alertSuccess({
+          title: 'Logged In',
+          body: 'You\'ve been successfully logged in!'
+        }, 2500);
+        this.router.navigate(['/']);
       } else {
         // no token or success
-        this.alertsService.alertDanger({ title: response.response.name || 'Unexpected', body: response.response.message || 'Unexpected error occurred.' }, 5000);
+        this.submitted = false;
+        this.alertsService.alertDanger({
+          title: response.response.name || 'Unexpected',
+          body: response.response.message || 'Unexpected error occurred.'
+        }, 5000);
       }
 
     }, error => {
       error = error.error.response || error.error;
+      this.submitted = false;
 
       switch (error.name) {
         case CODE_CONF.getCodeByName('USERNAME_MISMATCH').name: {
@@ -68,12 +81,15 @@ export class LoginComponent implements OnInit {
           this.password.setErrors({ 'no-match' : true }); break;
         }
         default: {
-          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          this.alertsService.alertDanger({
+            title: error.name || error.status || 'Error',
+            body: error.message || JSON.stringify(error) || 'Unidentified error'
+          }, 5000);
           break;
         }
       }
 
-    })
+    });
   }
 
 }
