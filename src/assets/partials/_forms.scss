@@ -1,0 +1,43 @@
+@import "variables";
+
+.form{
+  input{
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  textarea, input{
+    outline: none;
+    font-size: $fs_small;
+    color: $black;
+    line-height: 24px;
+    background-color: $text_5;
+    border: 1px solid $text_3;
+    border-radius: 5px;
+    transition: all 250ms;
+
+    &[type="reset"], &[type="submit"]{
+      color: $white;
+      border: none;
+    }
+
+    &[type="submit"]{
+      background-color: $main;
+    }
+
+    &[type="reset"]{
+      background-color: $grey;
+    }
+
+    &:focus{
+      border-color: $main;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active{
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: $black;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "variables";
+
+.tag{
+  background: $main;
+  color: $white;
+  &.small{
+    font-size: $fs_tiny;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+}

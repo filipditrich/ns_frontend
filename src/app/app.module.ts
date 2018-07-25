@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
-
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -16,6 +15,9 @@ import { RequestCredResetComponent } from './pages/cred-reset/request-cred-reset
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard, PreventLogged} from './midpoint/auth/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {DashboardModule} from './pages/dashboard/dashboard.module';
+import { AdminComponent } from './pages/admin/admin.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     CredResetComponent,
     AlertsComponent,
     RegistrationRequestComponent,
-    RequestCredResetComponent
+    RequestCredResetComponent,
+    DashboardComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRouting,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DashboardModule
   ],
   providers: [
     AlertsService,

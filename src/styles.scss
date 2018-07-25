@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/styles/forms";
 @import "assets/styles/buttons";
+@import "assets/partials/variables";
+@import "assets/partials/icons";
+@import "assets/partials/buttons";
+@import "assets/partials/tags";
+@import "assets/partials/tooltips";
+@import "assets/partials/profile-picture";
+@import "assets/partials/lists";
+@import "assets/partials/links";
+
 
 .page-wrapper {
   width: 100%;

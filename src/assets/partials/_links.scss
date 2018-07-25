@@ -1,0 +1,11 @@
+@import "variables";
+
+.link{
+  color: lighten($main, 15%);
+  &:hover{
+    color: $main;
+  }
+  &.alt{
+    color: lighten($grey, 10%);
+  }
+}

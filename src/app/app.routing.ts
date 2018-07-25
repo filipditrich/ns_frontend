@@ -6,6 +6,10 @@ import {CredResetComponent} from './pages/cred-reset/cred-reset.component';
 import { RegistrationRequestComponent } from './pages/registration/registration-request/registration-request.component';
 import {RequestCredResetComponent} from './pages/cred-reset/request-cred-reset/request-cred-reset.component';
 import {AuthGuard, PreventLogged} from './midpoint/auth/auth.guard';
+import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {AdminComponent} from './pages/admin/admin.component';
+import {promise} from 'selenium-webdriver';
+import fullyResolved = promise.fullyResolved;
 
 const routes: Routes = [
   {
@@ -27,6 +31,17 @@ const routes: Routes = [
       { path: 'credentials-reset', component: RequestCredResetComponent },
       { path: 'password-reset/:hash', component: CredResetComponent }
     ]
+  },
+  {
+    path: 'dashboard',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   }
 ];
 

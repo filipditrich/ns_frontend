@@ -1,0 +1,19 @@
+[ns-role="icon"]{
+  font-style: normal;
+  text-decoration: none;
+
+  &[icon-type="ionicons"]{
+    font-family: 'Ionicons', sans-serif;
+    &[icon-size="xlg"]{ font-size: 1.75rem; }
+    &[icon-size="lg"]{ font-size: 1.5rem; }
+    &[icon-size="md"]{ font-size: 1.25rem; }
+    &[icon-size="nm"]{ font-size: 1rem; }
+    &[icon-size="sm"]{ font-size: 0.85rem; }
+    &[icon-size="xsm"]{ font-size: 0.75rem; }
+
+    &[icon-code]::before{
+      content: attr(icon-code);
+    }
+
+  }
+}

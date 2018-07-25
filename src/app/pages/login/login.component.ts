@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         if (response.response.success && response.token) {
           this.authService.storeUserData(response.user, response.token);
           this.alertsService.alertSuccess({title: 'Logged In', body: 'You\'ve been successfully logged in!'}, 2500);
-          this.router.navigate(['/']);
+          this.router.navigate(['/dashboard']);
         } else {
           this.alertsService.alertDanger({title: 'Unexpected Error', body: 'An unexpected error occurred: 0x00E'}, 5000);
         }

@@ -1,0 +1,118 @@
+<div class="container-fluid" style="height: 50px;">
+  <nav id="menu" [attr.ns-menu-open]="">
+    <ul class="reset">
+      <li [routerLinkActive]="['selected']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/navbar']" [attr.ns-tooltip]="'Your Dashboard'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf447;'" [attr.icon-size]="'lg'"></i>Dashboard</a></li>
+      <li [routerLinkActive]="['selected']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/matches']" [attr.ns-tooltip]="'Organize your Matches'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf3dd;'" [attr.icon-size]="'lg'"></i>Matches</a></li>
+      <li [routerLinkActive]="['selected']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/help']" [attr.ns-tooltip]="'Need help? Go right here'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf196;'" [attr.icon-size]="'lg'"></i>Help Center</a></li>
+      <li [routerLinkActive]="['selected']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/settings']" [attr.ns-tooltip]="'App and Account Settings'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf411;'" [attr.icon-size]="'lg'"></i>Settings</a></li>
+    </ul>
+  </nav>
+
+  <nav id="nav">
+    <button (click)="a()" class="reset hoverable" [attr.ns-tooltip]="'Return'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf3cf;'" [attr.icon-size]="'lg'"></i></button>
+    <button (click)="b()" class="reset hoverable" [attr.ns-tooltip]="'Search'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf20a;'" [attr.icon-size]="'lg'"></i></button>
+    <h1 class="heading">{{innerWidth > mobileSize ? 'Northern Stars' : 'NS'}} <span class="tag small" [attr.ns-tooltip]="'Version 0.2b'" [attr.ns-tooltip-position]="'bottom'">beta</span></h1>
+    <div class="dropdown dropdown-profile" [attr.ns-dropdown-open]="">
+      <button class="reset hoverable" (click)="dropdownActive = !dropdownActive" [attr.ns-tooltip]="'Profile Dropdown'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf419;'" [attr.icon-size]="'lg'"></i></button>
+      <div class="dropdown-container" *ngIf="dropdownActive">
+        <div class="arrow"></div>
+        <header>
+          <div class="profile-picture large round" [attr.ns-jersey-number]="'MV'"></div>
+          <span>Martin Vide<span>Moderator</span></span>
+        </header>
+        <ul class="reset">
+          <li>
+            <a [routerLink]="['/profile']">
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf47e;'" [attr.icon-size]="'lg'"></i>
+              <span>Your Profile</span>
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf119;'" [attr.icon-size]="'lg'"></i>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/profile/edit']">
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf164;'" [attr.icon-size]="'lg'"></i>
+              <span>Edit Profile</span>
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf119;'" [attr.icon-size]="'lg'"></i>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/profile/security']">
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf1af;'" [attr.icon-size]="'lg'"></i>
+              <span>Account Security</span>
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf119;'" [attr.icon-size]="'lg'"></i>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/report/bug']">
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf133;'" [attr.icon-size]="'lg'"></i>
+              <span>Report a Problem</span>
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf119;'" [attr.icon-size]="'lg'"></i>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/logout']">
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf1b2;'" [attr.icon-size]="'lg'"></i>
+              <span>Log Out</span>
+              <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf119;'" [attr.icon-size]="'lg'"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--<div class="dropdown dropdown-notifications" [attr.ns-dropdown-open]="dropdowns.notifications.isOpen">-->
+    <!--<button class="reset hoverable" (click)="toggleDropdowns('notifications')" [attr.ns-tooltip]="'Notifications Dropdown'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf1d2;'" [attr.icon-size]="'lg'"><span class="notification-count">1</span></i><div class="arrow"></div></button>-->
+    <!--<div class="dropdown-container">-->
+    <!--<header>-->
+    <!--<span>Notifications</span>-->
+    <!--</header>-->
+    <!--<ul class="reset">-->
+    <!--<li class="notification" [attr.ns-notification-read]="'false'">-->
+    <!--<a href="#">-->
+    <!--<div class="profile-picture medium round" [attr.ns-jersey-number]="16"></div>-->
+    <!--<div class="notification-content">-->
+    <!--<p><span class="user">Billie Jean</span> is not going to your next training on 3rd of June.</p>-->
+    <!--<time>Just Now</time>-->
+    <!--</div>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--<li class="notification" [attr.ns-notification-read]="'true'">-->
+    <!--<a href="#">-->
+    <!--<div class="profile-picture medium round" [attr.ns-jersey-number]="68"></div>-->
+    <!--<div class="notification-content">-->
+    <!--<p><span class="user">Johnny Cash</span> has shared a photo gallery with you.</p>-->
+    <!--<time>Today, 8:16am</time>-->
+    <!--</div>-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<footer>-->
+    <!--<a class="link" [routerLink]="['/notifications']">open notification center</a>-->
+    <!--</footer>-->
+    <!--</div>-->
+    <!--</div>-->
+    <button class="reset hoverable" (click)="toggleMenu()" id="menu-toggle" [attr.ns-tooltip]="'Menu'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf1c3;'" [attr.icon-size]="'lg'"></i></button>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
