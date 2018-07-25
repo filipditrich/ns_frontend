@@ -20,6 +20,7 @@
         <small class="text-danger" *ngIf="username.hasError('minlength')">Username is too short (min 5 characters)</small>
         <small class="text-danger" *ngIf="username.hasError('maxlength')">Username is too long (max 20 characters)</small>
         <small class="text-danger" *ngIf="username.hasError('in-use')">Username is in use. Please choose different.</small>
+        <small class="text-danger" *ngIf="username.hasError('is-upper-case') && username.value">For security reasons we only allow lowercase alphanumerics </small>
       </div>
       <div class="group d-flex flex-column col-lg-6"
            [ngClass]="{ 'error' : team.invalid && (team.dirty || team.touched) }">

@@ -33,3 +33,14 @@ export function passwordConfirmation(t?: any): ValidatorFn {
 
 }
 
+export function isUpperCase(): ValidatorFn {
+
+  return (control: AbstractControl): {[key: string]: any | null} => {
+
+    const isLower = control.value ? /^[a-z0-9_]+$/.test(control.value) : false;
+
+    return isLower ? null : { 'is-upper-case' : true };
+
+  };
+
+}

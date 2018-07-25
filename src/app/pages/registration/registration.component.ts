@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../midpoint/auth/auth.service';
-import {AlertsService} from '../../midpoint/alerts/alerts.service';
-import {passwordConfirmation, passwordStrength} from '../../midpoint/helpers/validator.helper';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../midpoint/auth/auth.service';
+import { AlertsService } from '../../midpoint/alerts/alerts.service';
+import { isUpperCase, passwordConfirmation, passwordStrength } from '../../midpoint/helpers/validator.helper';
 import * as CODE_CONF from '../../midpoint/config/codes/codes.dev';
 
 @Component({
@@ -27,7 +27,7 @@ export class RegistrationComponent implements OnInit {
     // TODO - Validators import settings from server (minlength, maxlength etc...)
     this.registrationForm = new FormGroup({
       username: new FormControl(null, [
-        Validators.required, Validators.minLength(5), Validators.maxLength(20)
+        Validators.required, Validators.minLength(5), Validators.maxLength(32), isUpperCase()
       ]),
       team: new FormControl(),
       password: new FormControl(null, [
