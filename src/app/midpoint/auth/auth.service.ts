@@ -50,5 +50,9 @@ export class AuthService {
     return this.http.post(`${getUrl('REG')}/${hash}`, credentials);
   }
 
+  requestPasswordReset(payload): Observable<any> {
+    return this.http.post(getUrl('PWD_R'), payload);
+  }
+
 
 }
