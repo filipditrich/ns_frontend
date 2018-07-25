@@ -4,17 +4,18 @@
       <h1 class="text-center text-uppercase color-main">Request Registration</h1>
     </header>
     <form [formGroup]="regReqForm" (submit)="onSubmit(regReqForm.value)" class="form login-form row">
-      <div class="group d-flex flex-column col-lg-6" [ngClass]="{'error' : !regReqForm.controls['name'].valid && regReqForm.controls['name'].touched}">
+      <div class="group d-flex flex-column col-lg-6" [ngClass]="{'error' : name.invalid && (name.dirty || name.touched) }">
         <input type="text" id="name" formControlName="name" autocomplete="name">
         <label for="name">Name</label>
-        <small class="text-danger" *ngIf="!regReqForm.controls['name'].valid && regReqForm.controls['name'].touched">Name is required</small>
-        <small class="text-danger" *ngIf="!regReqForm.controls['name'].valid && regReqForm.controls['name'].touched">Invalid name</small>
+        <small class="text-danger" *ngIf="name.hasError('required') && (name.dirty || name.touched)">Name is required</small>
+        <small class="text-danger" *ngIf="name.hasError('minlength')">Your full name must be at least 5 characters long!</small>
       </div>
-      <div class="group d-flex flex-column col-lg-6" [ngClass]="{'error' : !regReqForm.controls['email'].valid && regReqForm.controls['email'].touched}">
+      <div class="group d-flex flex-column col-lg-6" [ngClass]="{ 'error' : email.invalid && (email.dirty || email.touched) }">
         <input type="email" id="email" formControlName="email" autocomplete="email">
         <label for="email">Email</label>
-        <small class="text-danger" *ngIf="!regReqForm.controls['email'].valid && regReqForm.controls['email'].touched">Email is required</small>
-        <small class="text-danger" *ngIf="!regReqForm.controls['email'].valid && regReqForm.controls['email'].touched">Invalid Email</small>
+        <small class="text-danger" *ngIf="email.hasError('required') && (email.dirty || email.touched)">Email is required</small>
+        <small class="text-danger" *ngIf="email.hasError('email')">Invalid Email</small>
+        <small class="text-danger" *ngIf="email.hasError('in-use')">Email is already in use</small>
       </div>
       <div class="group d-flex flex-column col-xl-12">
         <input class="button" [ngClass]="{'btn-disabled': !regReqForm.valid && regReqForm.touched}" type="submit" value="Send Request">

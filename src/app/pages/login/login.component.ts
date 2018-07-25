@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {AlertsService} from '../../midpoint/alerts/alerts.service';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import {FormBuilder, Validators, FormGroup, FormControl} from '@angular/forms';
 import {AuthService} from '../../midpoint/auth/auth.service';
 import { Router } from '@angular/router';
 import * as CODE_CONF from '../../midpoint/config/codes/codes.dev';
@@ -21,12 +21,15 @@ export class LoginComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router) {
 
-    this.loginForm = fb.group({
-      'username': [null, Validators.required],
-      'password': [null, Validators.required]
+    this.loginForm = new FormGroup({
+      username: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required])
     });
 
   }
+
+  get username() { return this.loginForm.get('username'); }
+  get password() { return this.loginForm.get('password'); }
 
   ngOnInit() {
 
@@ -34,40 +37,44 @@ export class LoginComponent implements OnInit {
 
   onSubmit(input) {
 
-    if (!input.username || !input.password) {
-      this.loginForm.controls['username'].markAsTouched();
-      this.loginForm.controls['password'].markAsTouched();
+    if (!this.loginForm.valid) {
+      this.username.markAsTouched();
+      this.password.markAsTouched();
+    } else {
+      this.callLoginSvc(input);
     }
 
-    if (!this.loginForm.valid) { /* TODO - trigger wiggle animation ? */ } else {
-      this.authService.logIn(input).subscribe(response => {
+  }
 
-        if (response.response.success && response.token) {
-          this.authService.storeUserData(response.user, response.token);
-          this.alertsService.alertSuccess({title: 'Logged In', body: 'You\'ve been successfully logged in!'}, 2500);
-          this.router.navigate(['/']);
-        } else {
-          this.alertsService.alertDanger({title: 'Unexpected Error', body: 'An unexpected error occurred: 0x00E'}, 5000);
+  callLoginSvc(input) {
+    this.authService.logIn(input).subscribe(response => {
+
+      if (response.response.success && response.token) {
+        this.authService.storeUserData(response.user, response.token);
+        this.alertsService.alertSuccess({title: 'Logged In', body: 'You\'ve been successfully logged in!'}, 2500);
+        this.router.navigate(['/'])
+      } else {
+        // no token or success
+        this.alertsService.alertDanger({ title: response.response.name || 'Unexpected', body: response.response.message || 'Unexpected error occurred.' }, 5000);
+      }
+
+    }, error => {
+      error = error.error.response || error.error;
+
+      switch (error.name) {
+        case CODE_CONF.getCodeByName('USERNAME_MISMATCH').name: {
+          this.username.setErrors({ 'no-match' : true }); break;
         }
-
-      }, error => {
-        error = error.error.response || error.error;
-
-        switch (error.name) {
-          case CODE_CONF.getCodeByName('USERNAME_MISMATCH').name: {
-            this.loginForm.controls['username'].setErrors({'no-match': 'true'}); break;
-          }
-          case CODE_CONF.getCodeByName('PASSWORD_MISMATCH').name: {
-            this.loginForm.controls['password'].setErrors({'no-match': 'true'}); break;
-          }
-          default: {
-            this.alertsService.alertDanger({title: 'Unexpected Error', body: 'An unexpected error occurred: 0x00F'}, 5000); break;
-          }
+        case CODE_CONF.getCodeByName('PASSWORD_MISMATCH').name: {
+          this.password.setErrors({ 'no-match' : true }); break;
         }
+        default: {
+          this.alertsService.alertDanger({ title: error.name || error.status || 'Error', body: error.message || JSON.stringify(error) || 'Unidentified error' }, 5000);
+          break;
+        }
+      }
 
-      });
-    }
-
+    })
   }
 
 }

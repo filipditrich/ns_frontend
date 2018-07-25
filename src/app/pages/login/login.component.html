@@ -4,17 +4,17 @@
       <h1 class="text-center text-uppercase color-main">Login</h1>
     </header>
     <form class="form login-form" [formGroup]="loginForm" (submit)="onSubmit(loginForm.value)">
-      <div class="group d-flex flex-column" [ngClass]="{'error' : !loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
+      <div class="group d-flex flex-column" [ngClass]="{ 'error' : username.invalid && (username.dirty || username.touched) }">
         <input type="text" id="username" formControlName="username" autocomplete="username">
         <label for="username">Username</label>
-        <small class="text-danger" *ngIf="!loginForm.controls['username'].valid && !loginForm.controls['username'].errors['no-match'] && loginForm.controls['username'].touched">Username is required</small>
-        <small class="text-danger" *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].errors['no-match'] && loginForm.controls['username'].touched">Invalid Username</small>
+        <small class="text-danger" *ngIf="username.hasError('required') && (username.dirty || username.touched)">Username is required</small>
+        <small class="text-danger" *ngIf="username.hasError('no-match')">Username is invalid</small>
       </div>
-      <div class="group d-flex flex-column" [ngClass]="{'error' : !loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+      <div class="group d-flex flex-column" [ngClass]="{ 'error' : password.invalid && (password.dirty || password.touched) }">
         <input type="password" id="password" formControlName="password" autocomplete="current-password">
         <label for="password">Password</label>
-        <small class="text-danger" *ngIf="!loginForm.controls['password'].valid && !loginForm.controls['password'].errors['no-match'] && loginForm.controls['password'].touched">Pasword is required</small>
-        <small class="text-danger" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].errors['no-match'] && loginForm.controls['password'].touched">Invalid Password</small>
+        <small class="text-danger" *ngIf="password.hasError('required') && (password.dirty || password.touched)">Username is required</small>
+        <small class="text-danger" *ngIf="password.hasError('no-match')">Password is invalid</small>
       </div>
       <div class="group d-flex flex-column">
         <input class="button" [ngClass]="{'btn-disabled': !loginForm.valid && loginForm.touched}" type="submit" value="Login">
