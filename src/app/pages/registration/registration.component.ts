@@ -30,6 +30,9 @@ export class RegistrationComponent implements OnInit {
       username: new FormControl(null, [
         Validators.required, Validators.minLength(5), Validators.maxLength(32), isUpperCase()
       ]),
+      name: new FormControl(null, [
+        Validators.required, Validators.minLength(5)
+      ]),
       team: new FormControl(),
       password: new FormControl(null, [
         Validators.required, passwordStrength()
@@ -40,6 +43,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   get username() { return this.registrationForm.get('username'); }
+  get name() { return this.registrationForm.get('name'); }
   get team() { return this.registrationForm.get('team'); }
   get password() { return this.registrationForm.get('password'); }
   get passwordSubmit() { return this.registrationForm.get('passwordSubmit'); }
@@ -66,6 +70,7 @@ export class RegistrationComponent implements OnInit {
       this.team.markAsTouched();
       this.password.markAsTouched();
       this.passwordSubmit.markAsTouched();
+      this.name.markAsTouched();
     } else {
       if (!this.submitted) {
         this.callRegistrationSvc(input);

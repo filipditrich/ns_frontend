@@ -66,5 +66,10 @@ export class AuthService {
     return this.http.post(`${getUrl('PWD_R')}/${hash}`, payload);
   }
 
+  // todo - transfer to admin svc
+  sendInvitations(emails: string | string[]): Observable<any> {
+    return this.http.post(getUrl('INV_REQ'), emails);
+  }
+
 
 }

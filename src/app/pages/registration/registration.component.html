@@ -7,9 +7,12 @@
       <h1 class="text-center text-uppercase color-main">Finish Registration</h1>
     </header>
     <form [formGroup]="registrationForm" (submit)="onSubmit(registrationForm.value)" class="form login-form row">
-      <div class="group d-flex flex-column col-lg-6">
-        <input type="text" id="name" readonly value="{{request ? request.name : null}}">
+      <div class="group d-flex flex-column col-lg-6"
+           [ngClass]="{ 'error' : name.invalid && (name.dirty || name.touched) && request.name == null }">
+        <input type="text" id="name" [readonly]="request.name != null" value="{{request ? request.name : null}}" formControlName="name">
         <label for="name">Name</label>
+        <small class="text-danger" *ngIf="name.hasError('required') && (name.dirty || name.touched) && request.name == null">Name is required</small>
+        <small class="text-danger" *ngIf="name.hasError('minlength') && request.name == null">Name is too short (min 5 characters)</small>
       </div>
       <div class="group d-flex flex-column col-lg-6">
         <input type="email" id="email" readonly value="{{request ? request.email : null}}">
@@ -22,8 +25,8 @@
         <small class="text-danger" *ngIf="username.hasError('required') && (username.dirty || username.touched)">Username is required</small>
         <small class="text-danger" *ngIf="username.hasError('minlength')">Username is too short (min 5 characters)</small>
         <small class="text-danger" *ngIf="username.hasError('maxlength')">Username is too long (max 20 characters)</small>
-        <small class="text-danger" *ngIf="username.hasError('in-use')">Username is in use. Please choose different.</small>
-        <small class="text-danger" *ngIf="username.hasError('is-upper-case') && username.value">For security reasons we only allow lowercase alphanumerics </small>
+        <small class="text-danger" *ngIf="username.hasError('in-use')">Username is in use. Please choose different</small>
+        <small class="text-danger" *ngIf="username.hasError('is-upper-case') && username.value">For security reasons we only allow lowercase alphanumerics</small>
       </div>
       <div class="group d-flex flex-column col-lg-6"
            [ngClass]="{ 'error' : team.invalid && (team.dirty || team.touched) }">

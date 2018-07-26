@@ -37,3 +37,35 @@
     margin: 0 5px;
   }
 }
+
+.add-input {
+  display: flex;
+  input {
+    flex-grow: 1;
+  }
+  .add-input-btn {
+    margin-left: 10px;
+    line-height: 24px;
+    padding: 10px;
+    width: 44px;
+    border-radius: 5px;
+    font-size: $fs_big;
+    color: $black;
+    outline: none;
+    text-align: center;
+    background-color: $text_5;
+    border: 1px solid $text_3;
+    cursor: pointer;
+  }
+}
+
+.dialog-window-secondary {
+  z-index: 998;
+}
+
+.close-button {
+  font-family: 'Ionicons', sans-serif;
+  cursor: pointer;
+  font-size: $fs_biggest;
+  outline: none;
+}

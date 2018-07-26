@@ -44,3 +44,15 @@ export function isUpperCase(): ValidatorFn {
   };
 
 }
+
+export function isEmail(): ValidatorFn {
+
+  return (control: AbstractControl): {[key: string]: any | null} => {
+    const regexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const valid = control.value ? regexp.test(control.value) : true;
+
+    return valid ? null : { 'email' : true };
+
+  }
+
+}

@@ -18,6 +18,8 @@ import {AuthGuard, PreventLogged} from './base/auth/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { OncreateDirective } from './base/directives/oncreate.directive';
 import { DialogsComponent } from './base/dialogs/dialogs.component';
+import {AdminRegistrationRequestsComponent} from './pages/admin/registration-requests/registration-requests.component';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 export function AppServiceProviderFactory(provider: AppService) {
   return () => provider.startupConfig();
@@ -33,7 +35,8 @@ export function AppServiceProviderFactory(provider: AppService) {
     RegistrationRequestComponent,
     RequestCredResetComponent,
     OncreateDirective,
-    DialogsComponent
+    DialogsComponent,
+    AdminRegistrationRequestsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ export function AppServiceProviderFactory(provider: AppService) {
     AppRouting,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   providers: [
     AlertsService,

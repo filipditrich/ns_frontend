@@ -72,12 +72,11 @@
         border-color: $error_dark;
         background-color: rgba($error_dark, 0.02);
         &:focus{
-          border-color: $main;
           & ~ label {
             color: $text_2
           }
           & ~ small {
-            opacity: 0.25;
+            opacity: 0.5;
           }
         }
       }

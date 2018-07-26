@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AlertsService } from '../../base/alerts/alerts.service';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../../base/auth/auth.service';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import * as CODE_CONF from '../../base/config/codes/codes.dev';
 import {DialogsService} from '../../base/dialogs/dialogs.service';
 
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
               private alertsService: AlertsService,
               private dialogService: DialogsService,
               private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
 
     this.loginForm = new FormGroup({
       username: new FormControl(null, [Validators.required]),
@@ -61,7 +62,8 @@ export class LoginComponent implements OnInit {
           title: 'Logged In',
           body: 'You\'ve been successfully logged in!'
         }, 2500);
-        this.router.navigate(['/']);
+        const returnUrl = this.route.snapshot.paramMap.get('return') || false;
+        this.router.navigate([returnUrl || '/']);
       } else {
         // no token or success
         this.submitted = false;

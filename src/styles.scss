@@ -2,6 +2,11 @@
 @import "assets/styles/forms";
 @import "assets/styles/buttons";
 @import "assets/styles/spinner";
+@import "assets/styles/dialogs";
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
 
 .page-wrapper {
   width: 100%;
