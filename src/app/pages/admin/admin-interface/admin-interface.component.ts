@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ns-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'ns-admin-interface',
+  templateUrl: './admin-interface.component.html',
+  styleUrls: ['./admin-interface.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AdminInterfaceComponent implements OnInit {
 
-  constructor() {
-
-  }
+  constructor() { }
 
   ngOnInit() {
-
   }
 
   checkAdmin() {

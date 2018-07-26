@@ -46,23 +46,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
-        if (response.response.success && response.token) {
-          this.authService.storeUserData(response.user, response.token);
-          this.alertsService.alertSuccess({title: 'Logged In', body: 'You\'ve been successfully logged in!'}, 2500);
-          this.router.navigate(['/dashboard']);
-        } else {
-          this.alertsService.alertDanger({title: 'Unexpected Error', body: 'An unexpected error occurred: 0x00E'}, 5000);
-        }
-=======
   callLoginSvc(input) {
     this.authService.logIn(input).subscribe(response => {
->>>>>>> af403e416e3eaf234a83a1ed27c682b884b9c85d
 
       if (response.response.success && response.token) {
         this.authService.storeUserData(response.user, response.token);
         this.alertsService.alertSuccess({title: 'Logged In', body: 'You\'ve been successfully logged in!'}, 2500);
-        this.router.navigate(['/'])
+        this.router.navigate(['/dashboard'])
       } else {
         // no token or success
         this.alertsService.alertDanger({ title: response.response.name || 'Unexpected', body: response.response.message || 'Unexpected error occurred.' }, 5000);

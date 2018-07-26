@@ -29,3 +29,11 @@
   color: $main;
 }
 
+body {
+  background-color: rgba($black, 0.5);
+}
+
+*:focus{
+  outline: none;
+}
+

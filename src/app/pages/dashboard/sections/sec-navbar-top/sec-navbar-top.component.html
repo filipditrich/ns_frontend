@@ -50,7 +50,7 @@
             </a>
           </li>
           <li>
-            <a [routerLink]="['/logout']">
+            <a (click)="logout()">
               <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf1b2;'" [attr.icon-size]="'lg'"></i>
               <span>Log Out</span>
               <i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf119;'" [attr.icon-size]="'lg'"></i>

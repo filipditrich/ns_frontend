@@ -10,6 +10,7 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {AdminComponent} from './pages/admin/admin.component';
 import {promise} from 'selenium-webdriver';
 import fullyResolved = promise.fullyResolved;
+import {SecMatchTileComponent} from './pages/dashboard/sections/sec-match-tile/sec-match-tile.component';
 
 const routes: Routes = [
   {
@@ -35,13 +36,14 @@ const routes: Routes = [
   {
     path: 'dashboard',
     redirectTo: 'dashboard',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin',
-    component: AdminComponent,
+    redirectTo: 'admin',
     pathMatch: 'full',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   }
 ];
 

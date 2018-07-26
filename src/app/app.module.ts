@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {DashboardModule} from './pages/dashboard/dashboard.module';
 import { AdminComponent } from './pages/admin/admin.component';
+import {AdminModule} from './pages/admin/admin.module';
 
 export function AppServiceProviderFactory(provider: AppService) {
   return () => provider.startupConfig();
@@ -42,7 +43,8 @@ export function AppServiceProviderFactory(provider: AppService) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardModule
+    DashboardModule,
+    AdminModule
   ],
   providers: [
     AlertsService,
