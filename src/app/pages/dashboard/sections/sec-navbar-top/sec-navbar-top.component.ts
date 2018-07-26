@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'sec-navbar-top',
@@ -10,7 +11,8 @@ export class SecNavbarTopComponent implements OnInit {
 
   public dropdownActive: boolean;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+              private _location:Location) { }
 
   ngOnInit() {
   }
@@ -21,6 +23,11 @@ export class SecNavbarTopComponent implements OnInit {
       sessionStorage.removeItem('user');
       this.router.navigate(['/']);
     }
+  }
+
+  pageBack() {
+    this._location.back();
+
   }
 
 }
