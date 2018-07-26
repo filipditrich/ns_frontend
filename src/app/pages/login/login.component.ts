@@ -5,6 +5,7 @@ import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms'
 import { AuthService } from '../../base/auth/auth.service';
 import { Router } from '@angular/router';
 import * as CODE_CONF from '../../base/config/codes/codes.dev';
+import {DialogsService} from '../../base/dialogs/dialogs.service';
 
 @Component({
   selector: 'ns-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private httpClient: HttpClient,
               private authService: AuthService,
               private alertsService: AlertsService,
+              private dialogService: DialogsService,
               private fb: FormBuilder,
               private router: Router) {
 

@@ -1,5 +1,5 @@
 <div [@alerts]="alerts.length" class="alert-container" dir="rtl">
-  <div *ngFor="let alert of alerts; let i = index" class="alert {{alertClass(alert)}}" dir="ltr" (mouseenter)="timers[i].pause()" (mouseleave)="timers[i].resume()">
+  <div *ngFor="let alert of alerts; let i = index" class="alert {{alertClass(alert)}}" dir="ltr" (mouseenter)="alertTimerEnter(alert, i)" (mouseleave)="alertTimerLeave(alert, i)">
     <header>
       <strong>{{alert.payload.title}}</strong>
       <button type="button" class="close" aria-label="Close" (click)="removeAlert(alert)">

@@ -4,7 +4,7 @@
       <div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>
     </div>
     <header>
-      <h1 class="text-center text-uppercase color-main">Login</h1>
+      <h1 class="text-center text-uppercase color-main" (click)="s()">Login</h1>
     </header>
     <form class="form login-form" [formGroup]="loginForm" (submit)="onSubmit(loginForm.value)">
       <div class="group d-flex flex-column" [ngClass]="{ 'error' : username.invalid && (username.dirty || username.touched) }">

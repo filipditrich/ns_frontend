@@ -48,6 +48,18 @@ export class AlertsComponent implements OnInit {
 
   }
 
+  alertTimerEnter(alert: Alert, i: number) {
+    if (alert.ttl !== Infinity) {
+      this.timers[i].pause();
+    }
+  }
+
+  alertTimerLeave(alert: Alert, i: number) {
+    if (alert.ttl !== Infinity) {
+      this.timers[i].resume();
+    }
+  }
+
   removeAlert(alert: Alert) {
     this.alerts = this.alerts.filter(x => x !== alert);
   }

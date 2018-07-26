@@ -17,6 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard, PreventLogged} from './base/auth/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { OncreateDirective } from './base/directives/oncreate.directive';
+import { DialogsComponent } from './base/dialogs/dialogs.component';
 
 export function AppServiceProviderFactory(provider: AppService) {
   return () => provider.startupConfig();
@@ -31,7 +32,8 @@ export function AppServiceProviderFactory(provider: AppService) {
     AlertsComponent,
     RegistrationRequestComponent,
     RequestCredResetComponent,
-    OncreateDirective
+    OncreateDirective,
+    DialogsComponent
   ],
   imports: [
     BrowserModule,
