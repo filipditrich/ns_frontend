@@ -86,7 +86,7 @@ export class RequestCredResetComponent implements OnInit {
 
     }, error => {
 
-      error = error.error.response || error.error;
+      error = !!error.error ? !!error.error.response ? error.error.response : error.error : error;
       this.submitted = false;
 
       switch (error.name) {
@@ -140,7 +140,7 @@ export class RequestCredResetComponent implements OnInit {
       }
 
     }, error => {
-      error = error.error.response || error.error;
+      error = !!error.error ? !!error.error.response ? error.error.response : error.error : error;
       console.log(error);
       this.submitted = false;
 

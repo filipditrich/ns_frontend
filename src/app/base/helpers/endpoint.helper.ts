@@ -1,5 +1,6 @@
 import * as CONF_ENDPOINTS from '../config/endpoints/endpoints.dev';
 import { API } from '../../../environments/environment';
+import {AuthService} from '../auth/auth.service';
 
 export function getUrl(id: string, worker: string = 'agent') {
   let port;
@@ -7,5 +8,7 @@ export function getUrl(id: string, worker: string = 'agent') {
     case 'agent': port = 3000; break;
     case 'backdrop': port = 3001; break;
   }
-  return `${API(port)}${CONF_ENDPOINTS.getUrlById(id, worker)}`;
+  const endpoint = CONF_ENDPOINTS.getUrlById(id, worker);
+
+  return endpoint === undefined ? `${API(port)}/` : `${API(port)}${endpoint}`;
 }

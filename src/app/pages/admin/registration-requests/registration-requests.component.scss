@@ -69,3 +69,34 @@
   font-size: $fs_biggest;
   outline: none;
 }
+
+@media screen and (max-width: 800px) {
+  .desktop-hidden {
+    display: initial;
+  }
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 800px) {
+  .desktop-hidden {
+    display: none;
+    max-width: 0;
+  }
+  .mobile-hidden {
+    display: initial;
+  }
+}
+
+.field-pre {
+  padding-right: 15px;
+  border-right: 1px solid #F5F7FA;
+  background-color: red;
+}
+
+/deep/ .muted {
+  opacity: 0.55 !important;
+  &:hover {
+    opacity: 1;
+  }
+}

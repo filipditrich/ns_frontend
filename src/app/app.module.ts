@@ -20,6 +20,7 @@ import { OncreateDirective } from './base/directives/oncreate.directive';
 import { DialogsComponent } from './base/dialogs/dialogs.component';
 import {AdminRegistrationRequestsComponent} from './pages/admin/registration-requests/registration-requests.component';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {ErrorHelper} from './base/helpers/error.helper';
 
 export function AppServiceProviderFactory(provider: AppService) {
   return () => provider.startupConfig();
@@ -51,6 +52,7 @@ export function AppServiceProviderFactory(provider: AppService) {
     AlertsService,
     AppService,
     HttpClient,
+    ErrorHelper,
     [AuthGuard],
     [PreventLogged],
     {

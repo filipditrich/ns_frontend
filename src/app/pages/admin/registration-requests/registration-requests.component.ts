@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {getUrl} from '../../../base/helpers/endpoint.helper';
 import {DialogsService} from '../../../base/dialogs/dialogs.service';
@@ -7,6 +7,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../base/auth/auth.service';
 import {AlertsService} from '../../../base/alerts/alerts.service';
 import {isEmail} from '../../../base/helpers/validator.helper';
+import {ErrorHelper} from '../../../base/helpers/error.helper';
+import * as moment from 'moment';
 
 @Component({
   selector: 'ns-registration-requests',
@@ -15,8 +17,16 @@ import {isEmail} from '../../../base/helpers/validator.helper';
 })
 export class AdminRegistrationRequestsComponent implements OnInit {
 
-  public rows = [];
+  // public rows = [];
   public temp = [];
+
+  public rows: any[] = [];
+  public expanded: any = {};
+  public timeout: any;
+
+  public mobile = false;
+
+
   public columns = [
     { name: 'Email' },
     { name: 'Name' },
@@ -31,29 +41,25 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   public inviteMoreForm: FormGroup;
   public invitationEmails = [];
 
-  @ViewChild(DatatableComponent) table: DatatableComponent;
+  @ViewChild('myTable') table: any;
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.mobile = event.target.innerWidth <= 768;
+  }
+
+  // @ViewChild(DatatableComponent) table: DatatableComponent;
 
   constructor(private http: HttpClient,
               private dialogService: DialogsService,
               private authService: AuthService,
-              private alertsService: AlertsService) {
-    this.http.get<any>(getUrl('LIST_REQS')).subscribe(response => {
-      console.log(response);
+              private alertsService: AlertsService,
+              private errorHelper: ErrorHelper) {
 
-      if (response.requests) {
-        this.rows = response.requests;
-        this.temp = [...response.requests];
-      }
-
-    }, error => {
-      console.log(error);
-    });
-
+    this.loadRequests();
 
     this.inviteOneForm = new FormGroup({
       email: new FormControl(null,  [ isEmail(), Validators.required ])
     });
-
     this.inviteMoreForm = new FormGroup({
       email: new FormControl(null, [ isEmail(), Validators.required ])
     });
@@ -64,7 +70,9 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   get moreEmail() { return this.inviteMoreForm.get('email'); }
 
   ngOnInit() {
+    this.mobile = window.innerWidth <= 768;
   }
+
 
   closeMoreEmail() {
     if (this.invitationEmails.length !== 0) {
@@ -72,7 +80,12 @@ export class AdminRegistrationRequestsComponent implements OnInit {
         title: 'Discard changes?',
         body: '<span>Do you really want to close this form and clear inputted email(s)?</span>',
         buttons: [
-          { class: 'btn-danger', text: 'Yes', action: () => { this.invitationEmails = []; this.moreEmailOpen = false; this.inviteMoreForm.reset(); this.dialogService.clearDialogs(); } },
+          { class: 'btn-danger', text: 'Yes', action: () => {
+            this.invitationEmails = [];
+            this.moreEmailOpen = false;
+            this.inviteMoreForm.reset();
+            this.dialogService.clearDialogs();
+          }},
           { class: 'btn-cancel', text: 'No', action: 'close' }
         ]
       });
@@ -93,6 +106,10 @@ export class AdminRegistrationRequestsComponent implements OnInit {
         this.moreEmail.setValue(null);
       }
     }
+  }
+
+  removeInvEmail(email) {
+    this.invitationEmails = this.invitationEmails.filter(x => x !== email);
   }
 
   sendEvite(email) {
@@ -116,6 +133,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
     this.moreEmailOpen = false; this.oneEmailOpen = false;
     this.inviteMoreForm.reset(); this.inviteOneForm.reset();
     this.dialogService.clearDialogs(); this.invitationEmails = [];
+
     this.authService.sendInvitations(emails).subscribe(response => {
 
       console.log(response);
@@ -132,35 +150,85 @@ export class AdminRegistrationRequestsComponent implements OnInit {
           body: `We weren't able to send a single invitation email. Please make sure the invitation email is valid and is not already in invitation list.<br><b>Failure emails:</b> ${response.unsent.join(', ')}.`
         }, 7500);
       } else {
-        this.alertsService.alertDanger({
-          title: response.response.name || 'Error',
-          body: response.response.status || 'Couldn\'t process'
-        }, 5000);
+        this.errorHelper.processedButFailed(response);
       }
 
     }, error => {
-      error = error.error.response || error.error;
 
-      console.log(error);
+      // optional error handling
+      // ...
+
+      // then generic (if no handle before)
+      this.errorHelper.handleGenericError(error);
+
     });
   }
 
-  removeInvEmail(email) {
-    this.invitationEmails = this.invitationEmails.filter(x => x !== email);
+  approveRequest(hash) {
+    // TODO - transport to admin svc
+    this.http.put<any>(`${getUrl('APPROVE')}/${hash}`, {}).subscribe(response => {
+
+      if (response.response.success) {
+        this.alertsService.alertSuccess({
+          title: 'Request Approved',
+          body: 'Request has been approved and the user can now register'
+        }, 7500);
+        this.loadRequests();
+      } else {
+        this.errorHelper.processedButFailed(response);
+      }
+
+    }, error => {
+      this.errorHelper.handleGenericError(error);
+    });
+  }
+
+  onSort(event) {
+    this.loadRequests();
+  }
+
+  onPage(event) {
+    this.loadRequests();
+  }
+
+  rowClass(row) {
+    return {
+      'muted' : row.approval.approved
+    }
+  }
+
+  loadRequests() {
+    // TODO - transport to admin svc
+    this.http.get<any>(getUrl('LIST_REQS')).subscribe(response => {
+
+      if (response.requests) {
+        this.rows = response.requests;
+        this.rows.forEach(row => {
+          row.requestedOn = moment(row.requestedOn).format('lll');
+        });
+        this.temp = [...response.requests];
+      } else {
+        this.errorHelper.processedButFailed(response);
+      }
+
+    }, error => {
+      this.errorHelper.handleGenericError(error);
+    });
   }
 
   updateFilter(event) {
     const val = event.target.value.toLowerCase();
-
-    // filter our data
-    const temp = this.temp.filter(function(d) {
-      return d.name.toLowerCase().indexOf(val) !== -1 || !val;
+    this.rows = this.temp.filter(function(d) {
+      return d.email.toLowerCase().indexOf(val) !== -1 || !val;
     });
-
-    // update the rows
-    this.rows = temp;
-    // Whenever the filter changes, always go back to the first page
     this.table.offset = 0;
+  }
+
+  toggleExpandRow(row) {
+    this.table.rowDetail.toggleExpandRow(row);
+  }
+
+  onDetailToggle(event) {
   }
 
 }

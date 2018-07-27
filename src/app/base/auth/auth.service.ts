@@ -68,6 +68,7 @@ export class AuthService {
 
   // todo - transfer to admin svc
   sendInvitations(emails: string | string[]): Observable<any> {
+    console.log(getUrl('INV_REQ'));
     return this.http.post(getUrl('INV_REQ'), emails);
   }
 

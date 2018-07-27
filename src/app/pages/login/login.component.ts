@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
       }
 
     }, error => {
-      error = error.error.response || error.error;
+      error = !!error.error ? !!error.error.response ? error.error.response : error.error : error;
       this.submitted = false;
 
       switch (error.name) {
