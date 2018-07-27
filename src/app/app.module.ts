@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material';
+
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -44,7 +46,8 @@ export function AppServiceProviderFactory(provider: AppService) {
     FormsModule,
     ReactiveFormsModule,
     DashboardModule,
-    AdminModule
+    AdminModule,
+    MatDatepickerModule
   ],
   providers: [
     AlertsService,

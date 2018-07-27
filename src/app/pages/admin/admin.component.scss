@@ -13,10 +13,11 @@
   width: 80%;
   margin: 20px auto;
   border: 3px solid $main;
-  z-index: 120;
+  z-index: 80;
   border-radius: 12px;
   transition: all 1s;
   box-shadow: 0 0px 10px rgba(0, 0, 0, .2);
+  cursor: pointer;
 }
 
 .tiles div h3 {
