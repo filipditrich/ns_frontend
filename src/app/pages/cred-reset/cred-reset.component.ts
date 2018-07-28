@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../base/auth/auth.service';
 import {AlertsService} from '../../base/alerts/alerts.service';
 import {passwordConfirmation, passwordStrength} from '../../base/helpers/validator.helper';
 import * as CODE_CONF from '../../base/config/codes/codes.dev';
+import {Title} from '@angular/platform-browser';
+import {CredResetService} from './cred-reset.service';
 
 @Component({
   selector: 'ns-cred-reset',
@@ -22,7 +24,10 @@ export class CredResetComponent implements OnInit {
               private authService: AuthService,
               private alertsService: AlertsService,
               private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private titleService: Title,
+              private credResetService: CredResetService,
+              private route: ActivatedRoute) {
 
     this.newPasswordForm = new FormGroup({
       password: new FormControl(null, [
@@ -31,22 +36,14 @@ export class CredResetComponent implements OnInit {
       passwordSubmit: new FormControl(null, [ Validators.required ])
     }, passwordConfirmation());
 
+    this.titleService.setTitle('Support » Password Reset');
+    this.hash = this.route.snapshot.paramMap.get('hash');
   }
 
   get password() { return this.newPasswordForm.get('password'); }
   get passwordSubmit() { return this.newPasswordForm.get('passwordSubmit'); }
 
   ngOnInit() {
-    // Check if the request hash is valid // TODO - transform this into AuthGuard
-    this.hash = this.router.url.split('/')[this.router.url.split('/').length - 1];
-    this.authService.checkPasswordResetRequest(this.hash).subscribe(result => {
-      if (result.response.success) {
-      } else {
-        this.router.navigate(['/request/registration']);
-      }
-    }, error => {
-      this.router.navigate(['/request/registration']);
-    });
   }
 
   onSubmit(input) {
@@ -63,7 +60,7 @@ export class CredResetComponent implements OnInit {
 
   callPasswordResetSvc(input) {
 
-    this.authService.createNewPassword(this.hash, input).subscribe(response => {
+    this.credResetService.createNewPassword(this.hash, input).subscribe(response => {
 
       if (response.response.success) {
         this.alertsService.alertSuccess({

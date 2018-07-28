@@ -5,6 +5,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../../base/auth/auth.service';
 import { AlertsService } from '../../../base/alerts/alerts.service';
 import * as CODE_CONF from '../../../base/config/codes/codes.dev';
+import {Title} from '@angular/platform-browser';
+import {RegistrationService} from '../registration.service';
 
 @Component({
   selector: 'ns-registration-request',
@@ -20,7 +22,9 @@ export class RegistrationRequestComponent implements OnInit {
               private authService: AuthService,
               private alertsService: AlertsService,
               private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private titleService: Title,
+              private registrationService: RegistrationService) {
 
     this.regReqForm = new FormGroup({
       name: new FormControl(null, [
@@ -30,6 +34,8 @@ export class RegistrationRequestComponent implements OnInit {
         Validators.required, Validators.email
       ])
     });
+
+    this.titleService.setTitle('Northern Stars » Registration Request');
 
   }
 
@@ -54,7 +60,7 @@ export class RegistrationRequestComponent implements OnInit {
 
   // TODO - interface
   makeRequest(input) {
-    this.authService.requestRegistration(input).subscribe(response => {
+    this.registrationService.requestRegistration(input).subscribe(response => {
       if (response.response.success) {
         this.alertsService.alertSuccess({ title: response.response.name || 'Success', body: response.response.message || 'Sent' }, 7500);
         this.router.navigate(['/login']); // TODO - page with you username is waiting to be accepted blah blah blah...

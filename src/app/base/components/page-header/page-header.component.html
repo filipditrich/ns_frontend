@@ -1,0 +1,9 @@
+<header class="page-header d-flex flex-grow-1">
+  <nav>
+    <h2>{{title}}</h2>
+    <div class="breadcrumbs">
+      <span *ngFor="let chunk of breadcrumbs"><a [routerLink]="['/' + chunk.fullPath]">{{chunk.name}}</a></span>
+      <span>{{title}}</span>
+    </div>
+  </nav>
+</header>

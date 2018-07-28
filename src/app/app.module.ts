@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, Title} from '@angular/platform-browser';
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 
@@ -14,13 +14,17 @@ import {AlertsService} from './base/alerts/alerts.service';
 import { RegistrationRequestComponent } from './pages/registration/registration-request/registration-request.component';
 import { RequestCredResetComponent } from './pages/cred-reset/request-cred-reset/request-cred-reset.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AuthGuard, PreventLogged} from './base/auth/auth.guard';
+import {AuthGuard, DataResolver, IsRequestHashValid, PreventLogged, RoleGuard} from './base/auth/auth.guard';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { OncreateDirective } from './base/directives/oncreate.directive';
 import { DialogsComponent } from './base/dialogs/dialogs.component';
 import {AdminRegistrationRequestsComponent} from './pages/admin/registration-requests/registration-requests.component';
 import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {ErrorHelper} from './base/helpers/error.helper';
+import { PageHeaderComponent } from './base/components/page-header/page-header.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SideBarComponent } from './base/components/side-bar/side-bar.component';
 
 export function AppServiceProviderFactory(provider: AppService) {
   return () => provider.startupConfig();
@@ -37,7 +41,11 @@ export function AppServiceProviderFactory(provider: AppService) {
     RequestCredResetComponent,
     OncreateDirective,
     DialogsComponent,
-    AdminRegistrationRequestsComponent
+    AdminRegistrationRequestsComponent,
+    PageHeaderComponent,
+    AdminComponent,
+    HomeComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +61,12 @@ export function AppServiceProviderFactory(provider: AppService) {
     AppService,
     HttpClient,
     ErrorHelper,
+    Title,
     [AuthGuard],
     [PreventLogged],
+    [IsRequestHashValid],
+    [RoleGuard],
+    DataResolver,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpHeadersInterceptor,

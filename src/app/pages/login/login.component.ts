@@ -6,6 +6,7 @@ import { AuthService } from '../../base/auth/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as CODE_CONF from '../../base/config/codes/codes.dev';
 import {DialogsService} from '../../base/dialogs/dialogs.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'ns-login',
@@ -23,12 +24,15 @@ export class LoginComponent implements OnInit {
               private dialogService: DialogsService,
               private fb: FormBuilder,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private titleService: Title) {
 
     this.loginForm = new FormGroup({
       username: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required])
     });
+
+    this.titleService.setTitle('Northern Stars » Login');
 
   }
 
@@ -57,12 +61,13 @@ export class LoginComponent implements OnInit {
     this.authService.logIn(input).subscribe(response => {
 
       if (response.response.success && response.token) {
-        this.authService.storeUserData(response.user, response.token);
+        AuthService.storeUserData(response.user, response.token);
         this.alertsService.alertSuccess({
           title: 'Logged In',
           body: 'You\'ve been successfully logged in!'
         }, 2500);
-        const returnUrl = this.route.snapshot.paramMap.get('return') || false;
+        const returnUrl = this.route.snapshot.queryParamMap.has('return') ? this.route.snapshot.queryParamMap.get('return') : false;
+        console.log(returnUrl);
         this.router.navigate([returnUrl || '/']);
       } else {
         // no token or success

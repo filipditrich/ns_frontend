@@ -66,17 +66,7 @@
   </div>
 
   <div class="row">
-    <header class="page-header d-flex py-4 px-2 col-12">
-      <nav>
-        <h2>Registration Requests</h2>
-        <div class="breadcrumbs">
-          <span><a href="#">Home</a></span>
-          <span><a href="#">Admin Panel</a></span>
-          <span>Registration Requests</span>
-        </div>
-      </nav>
-      <!--<button class="reset help-button"><span class="ionicons">&#xf197;</span></button>-->
-    </header>
+    <ns-page-header class="py-4 px-2 col-12"></ns-page-header>
 
     <div class="col-12 d-flex d-md-block">
       <section id="search" class="row flex-grow-1">
@@ -106,6 +96,7 @@
           [rowHeight]="'auto'"
           [rowClass]="rowClass"
           [limit]="10"
+          [sorts]="[{prop: 'approval.approved', dir: 'asc'}]"
           [messages]="{emptyMessage: 'No Requests to Show', totalMessage: 'request(s)'}"
           (sort)="onSort($event)"
           (page)="onPage($event)">
@@ -114,9 +105,9 @@
           <!-- Row Detail Template -->
           <ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow (toggle)="onDetailToggle($event)">
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template class="row">
-              <div class="col-12 p-0">
+              <div class="col-12 p-0 flex-grow-1">
                 <ul class="list-group text-muted small">
-                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || '---'}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.email}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Requested On:</b> {{row.requestedOn}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap">
@@ -147,18 +138,18 @@
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Name" [flexGrow]="1" [minWidth]="150" [sortable]="true">
+          <ngx-datatable-column name="Email" [flexGrow]="1" [minWidth]="150" [sortable]="true">
             <ng-template let-value="value" ngx-datatable-cell-template>
               {{value}}
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Email" [flexGrow]="1" *ngIf="!mobile" [sortable]="true" prop="email">
+          <ngx-datatable-column name="Name" [flexGrow]="1" *ngIf="!mobile" [sortable]="true" prop="name">
             <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
               <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
             </ng-template>
             <ng-template let-value="value" ngx-datatable-cell-template>
-              <span class="mobile-hidden">{{value}}</span>
+              <span class="mobile-hidden">{{value || '---'}}</span>
             </ng-template>
           </ngx-datatable-column>
 

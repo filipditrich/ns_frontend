@@ -9,6 +9,7 @@ import {AlertsService} from '../../../base/alerts/alerts.service';
 import {isEmail} from '../../../base/helpers/validator.helper';
 import {ErrorHelper} from '../../../base/helpers/error.helper';
 import * as moment from 'moment';
+import {RegistrationRequestService} from './registration-request.service';
 
 @Component({
   selector: 'ns-registration-requests',
@@ -53,7 +54,8 @@ export class AdminRegistrationRequestsComponent implements OnInit {
               private dialogService: DialogsService,
               private authService: AuthService,
               private alertsService: AlertsService,
-              private errorHelper: ErrorHelper) {
+              private errorHelper: ErrorHelper,
+              private adminRegReqSvc: RegistrationRequestService) {
 
     this.loadRequests();
 
@@ -134,7 +136,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
     this.inviteMoreForm.reset(); this.inviteOneForm.reset();
     this.dialogService.clearDialogs(); this.invitationEmails = [];
 
-    this.authService.sendInvitations(emails).subscribe(response => {
+    this.adminRegReqSvc.sendInvitations(emails).subscribe(response => {
 
       console.log(response);
 
@@ -165,8 +167,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   }
 
   approveRequest(hash) {
-    // TODO - transport to admin svc
-    this.http.put<any>(`${getUrl('APPROVE')}/${hash}`, {}).subscribe(response => {
+    this.adminRegReqSvc.approveRequest(hash).subscribe(response => {
 
       if (response.response.success) {
         this.alertsService.alertSuccess({
@@ -194,12 +195,11 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   rowClass(row) {
     return {
       'muted' : row.approval.approved
-    }
+    };
   }
 
   loadRequests() {
-    // TODO - transport to admin svc
-    this.http.get<any>(getUrl('LIST_REQS')).subscribe(response => {
+    this.adminRegReqSvc.listRequests().subscribe(response => {
 
       if (response.requests) {
         this.rows = response.requests;
@@ -226,9 +226,6 @@ export class AdminRegistrationRequestsComponent implements OnInit {
 
   toggleExpandRow(row) {
     this.table.rowDetail.toggleExpandRow(row);
-  }
-
-  onDetailToggle(event) {
   }
 
 }

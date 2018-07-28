@@ -1,0 +1,37 @@
+@import "../../../../assets/styles/variables";
+
+.page-header {
+
+  h2 {
+    text-transform: capitalize;
+  }
+
+  nav {
+    flex-grow: 1;
+  }
+
+  .help-button {
+
+    background: white;
+    min-width: 48px;
+    min-height: 48px;
+    text-align: center;
+    line-height: 48px;
+    color: $main;
+    font-size: $fs_large;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 10px 35px -5px rgba(black, 0.1);
+  }
+
+}
+
+.breadcrumbs {
+  font-size: $fs_small;
+  text-transform: capitalize;
+  span:not(:last-of-type)::after {
+    font-family: 'Ionicons', sans-serif;
+    content: '\f3d1';
+    margin: 0 5px;
+  }
+}

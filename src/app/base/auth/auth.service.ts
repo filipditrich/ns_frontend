@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ICredentials, IRegCredentials, IRegReqCredentials } from '../models/credentials.interface';
+import {ICredentials, ILoginResponse} from '../models/credentials.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -10,67 +10,27 @@ import { getUrl } from '../helpers/endpoint.helper';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  public token: string;
 
-  // TODO - authentication functions
-
-  // TODO - Observable<IResponse> ?
-  logIn(credentials: ICredentials): Observable<any> {
-    return this.http.post(getUrl('LOGIN'), credentials);
-  }
-
-  storeUserData(user, token) {
+  public static storeUserData(user, token) {
     user.token = token;
     sessionStorage.setItem('user', JSON.stringify(user));
   }
 
-  isLoggedIn() {
-    return this.isTokenValid();
-  }
+  constructor(private http: HttpClient) { }
 
   isTokenValid(token?: string) {
-    if (!token) {
-      const user = sessionStorage.getItem('user');
-      if (user) { token = JSON.parse(user).token || false; }
-    }
-
-    return token ? !new JwtHelperService().isTokenExpired(token) : false;
-
+    if (!token) { this.loadToken(); } else { this.token = token; }
+    return this.token ? !new JwtHelperService().isTokenExpired(this.token) : false;
   }
 
-  requestRegistration(credentials: IRegReqCredentials): Observable<any> {
-    return this.http.post(getUrl('REG_REQ'), credentials);
+  loadToken() {
+    const user = sessionStorage.getItem('user');
+    if (user) { this.token = JSON.parse(user).token || false; }
   }
 
-  checkRegistrationRequest(hash: string): Observable<any> {
-    return this.http.get(`${getUrl('REG_CHECK')}/${hash}`);
+  logIn(credentials: ICredentials): Observable<ILoginResponse> {
+    return this.http.post<ILoginResponse>(getUrl('LOGIN'), credentials);
   }
-
-  sendRegistrationRequest(hash: string, credentials: IRegCredentials): Observable<any> {
-    return this.http.post(`${getUrl('REG')}/${hash}`, credentials);
-  }
-
-  requestPasswordReset(payload): Observable<any> {
-    return this.http.post(getUrl('PWD_R'), payload);
-  }
-
-  sendUsernameToEmail(payload): Observable<any> {
-    return this.http.post(getUrl('USN_R'), payload);
-  }
-
-  checkPasswordResetRequest(hash: string): Observable<any> {
-    return this.http.get(`${getUrl('PWD_R_CHECK')}/${hash}`);
-  }
-
-  createNewPassword(hash: string, payload): Observable<any> {
-    return this.http.post(`${getUrl('PWD_R')}/${hash}`, payload);
-  }
-
-  // todo - transfer to admin svc
-  sendInvitations(emails: string | string[]): Observable<any> {
-    console.log(getUrl('INV_REQ'));
-    return this.http.post(getUrl('INV_REQ'), emails);
-  }
-
 
 }

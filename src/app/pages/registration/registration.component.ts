@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../base/auth/auth.service';
 import { AlertsService } from '../../base/alerts/alerts.service';
 import { isUpperCase, passwordConfirmation, passwordStrength } from '../../base/helpers/validator.helper';
 import * as CODE_CONF from '../../base/config/codes/codes.dev';
+import {Title} from '@angular/platform-browser';
+import {RegistrationService} from './registration.service';
 
 @Component({
   selector: 'ns-registration',
@@ -23,7 +25,10 @@ export class RegistrationComponent implements OnInit {
               private authService: AuthService,
               private alertsService: AlertsService,
               private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private titleService: Title,
+              private registrationService: RegistrationService,
+              private route: ActivatedRoute) {
 
     // TODO - Validators import settings from server (minlength, maxlength etc...)
     this.registrationForm = new FormGroup({
@@ -40,6 +45,8 @@ export class RegistrationComponent implements OnInit {
       passwordSubmit: new FormControl(null, [ Validators.required ])
     }, passwordConfirmation());
 
+    this.titleService.setTitle('Northern Stars » Registration');
+
   }
 
   get username() { return this.registrationForm.get('username'); }
@@ -49,17 +56,7 @@ export class RegistrationComponent implements OnInit {
   get passwordSubmit() { return this.registrationForm.get('passwordSubmit'); }
 
   ngOnInit() {
-    // Check if the request hash is valid
-    this.hash = this.router.url.split('/')[this.router.url.split('/').length - 1];
-    this.authService.checkRegistrationRequest(this.hash).subscribe(result => {
-      if (result.response.success && result.request) {
-        this.request = result.request;
-      } else {
-        this.router.navigate(['/request/registration']);
-      }
-    }, error => {
-      this.router.navigate(['/request/registration']);
-    });
+    this.request = this.route.snapshot.data.request;
     this.team.setValue('ns', { onlySelf: true });
   }
 
@@ -83,7 +80,7 @@ export class RegistrationComponent implements OnInit {
 
   // TODO - interface
   callRegistrationSvc(input) {
-    this.authService.sendRegistrationRequest(this.hash, input).subscribe(response => {
+    this.registrationService.sendRegistrationRequest(this.hash, input).subscribe(response => {
       this.submitted = false;
 
       if (response.response.success && response.user) {

@@ -5,6 +5,8 @@ import {AlertsService} from '../../../base/alerts/alerts.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import * as CODE_CONF from '../../../base/config/codes/codes.dev';
+import {Title} from '@angular/platform-browser';
+import {CredResetService} from '../cred-reset.service';
 
 @Component({
   selector: 'ns-request-cred-reset',
@@ -20,13 +22,17 @@ export class RequestCredResetComponent implements OnInit {
               private authService: AuthService,
               private alertsService: AlertsService,
               private fb: FormBuilder,
-              private router: Router) {
+              private router: Router,
+              private titleService: Title,
+              private credResetService: CredResetService) {
 
     this.resetReqForm = new FormGroup({
       type: new FormControl(null, [ Validators.required ]),
       username: new FormControl(null),
       email: new FormControl(null, [ Validators.email ])
     });
+
+    this.titleService.setTitle('Support » Request Credential Reset');
 
   }
 
@@ -68,7 +74,7 @@ export class RequestCredResetComponent implements OnInit {
   }
 
   requestPassword(input) {
-    this.authService.requestPasswordReset(input).subscribe(response => {
+    this.credResetService.requestPasswordReset(input).subscribe(response => {
 
       if (response.response.success) {
          this.alertsService.alertSuccess({
@@ -121,7 +127,7 @@ export class RequestCredResetComponent implements OnInit {
   }
 
   requestUsername(input) {
-    this.authService.sendUsernameToEmail(input).subscribe(response => {
+    this.credResetService.sendUsernameToEmail(input).subscribe(response => {
 
       console.log(response);
 
