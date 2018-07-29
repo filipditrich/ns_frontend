@@ -1,3 +1,11 @@
-<p>
-  sidebar works!
-</p>
+<div class="sidebar-wrap" [ngClass]="{ 'minified' : minified }">
+  <nav id="side-bar">
+    <a [routerLink]="['/user']" class="px-4"><i class="ionicons">&#xf448;</i><span>Home</span></a>
+    <span class="divider"></span>
+    <a [routerLink]="['/admin']" class="px-4"><i class="ionicons">&#xf493;</i><span>Admin</span></a>
+    <div class="bottom">
+      <span class="divider"></span>
+      <a [routerLink]="['/settings']" class="px-4"><i class="ionicons">&#xf15f;</i><span>Settings</span></a>
+    </div>
+  </nav>
+</div>

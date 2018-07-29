@@ -7,23 +7,28 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  public token: string;
-
   public static storeUserData(user: IUser, token: string) {
     user.token = token;
     sessionStorage.setItem('user', JSON.stringify(user));
   }
 
+  public static logOut() {
+    return new Promise(resolve => {
+      sessionStorage.removeItem('user');
+      resolve();
+    });
+  }
+
   constructor() { }
 
-  isTokenValid(token?: string) {
-    if (!token) { this.loadToken(); } else { this.token = token; }
-    return this.token ? !new JwtHelperService().isTokenExpired(this.token) : false;
+  isTokenValid() {
+    const token = this.loadToken();
+    return token ? !new JwtHelperService().isTokenExpired(token) : false;
   }
 
   loadToken() {
     const user = sessionStorage.getItem('user');
-    if (user) { this.token = JSON.parse(user).token || false }
+    return user ? JSON.parse(user).token : false;
   }
 
 }

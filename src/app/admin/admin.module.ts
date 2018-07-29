@@ -6,6 +6,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRegistrationRequestsComponent } from './pages/registration-requests/registration-requests.component';
 import { PageHeaderComponent } from '../shared/components/page-header/page-header.component';
+import {HeaderComponent} from '../shared/components/header/header.component';
+import {SidebarComponent} from '../shared/components/sidebar/sidebar.component';
+import {SharedModule} from '../shared/shared.module';
+import {AdminComponent} from './admin.component';
 
 @NgModule({
   imports: [
@@ -14,7 +18,8 @@ import { PageHeaderComponent } from '../shared/components/page-header/page-heade
     NgxDatatableModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule
   ],
-  declarations: [BaseComponent, AdminRegistrationRequestsComponent, PageHeaderComponent]
+  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent]
 })
 export class AdminModule { }

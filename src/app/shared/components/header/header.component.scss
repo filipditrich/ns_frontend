@@ -1,0 +1,114 @@
+@import '../../../../assets/styles/variables';
+
+#top-bar {
+  height: $menu_height;
+  border-bottom: 2px solid $text_4;
+  z-index: 995;
+
+
+  .menu-toggle {
+    font-size: $fs_larger;
+    cursor: pointer;
+    height: $menu_height;
+    width: 25px;
+    text-align: center;
+  }
+
+  .heading {
+    text-transform: uppercase;
+    font-size: $fs_small;
+    color: $main;
+    font-weight: 700;
+  }
+
+  .profile-drop {
+
+    position: relative;
+    z-index: 999;
+
+    & > button {
+      width: 25px;
+      text-align: center;
+    }
+
+    & > .profile-picture, & > button {
+      cursor: pointer;
+      transition: all 250ms;
+    }
+
+    &.activated {
+      & > .profile-picture { border-color: rgba($main, 0.5) }
+      & > button span { color: rgba($main, 0.5) }
+    }
+
+    .ns-dropdown-menu {
+
+      position: absolute;
+      top: calc(100% + 20px);
+      right: 0;
+      min-width: 175px;
+      background: white;
+      border: 1px solid $text_4;
+      border-radius: 5px;
+
+
+      .arrow-up {
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        position: absolute;
+        top: -10px;
+        right: 15px;
+        border: 1px solid;
+        border-color: $text_4 transparent transparent $text_4;
+        transform: rotate(45deg);
+      }
+
+      a {
+        padding: 0.75rem 1.5rem;
+        font-size: $fs_small;
+        display: flex;
+        align-items: center;
+        color: $text_2;
+        transition: color 250ms;
+        &:first-of-type:hover ~ .arrow-up{
+          background: $text_5;
+        }
+        &:hover {
+          text-decoration: none;
+          color: $main;
+          background: $text_5;
+        }
+
+        span {
+          margin-right: 5px;
+          font-size: $fs_bigger;
+          width: 25px;
+          text-align: center;
+        }
+      }
+
+      .divider {
+
+      }
+
+    }
+
+  }
+
+  @media only screen and (max-width: 768px) {
+    .ns-dropdown-menu {
+      width: calc(100vw - 20px);
+      right: -12px !important;
+    }
+  }
+
+}
+
+.light-grey-hover {
+  color: $text_3;
+  transition: color 250ms;
+  &:hover {
+    color: $main;
+  }
+}

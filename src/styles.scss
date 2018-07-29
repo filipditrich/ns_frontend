@@ -5,6 +5,7 @@
 @import "assets/styles/spinner";
 @import "assets/styles/dialogs";
 @import "assets/styles/tooltips";
+@import "assets/styles/profile-picture";
 
 @import '~@swimlane/ngx-datatable/release/index.css';
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
@@ -32,7 +33,10 @@ body {
   border-radius: 15px;
   box-shadow: 0 10px 35px -5px rgba(black, 0.1);
   overflow: hidden;
+}
 
+.sidebar-main-wrapper {
+  display: flex;
 }
 
 .color-main {

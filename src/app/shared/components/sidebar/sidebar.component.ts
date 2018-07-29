@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SidebarService} from './sidebar.service';
 
 @Component({
   selector: 'ns-sidebar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  minified: boolean;
+
+  constructor(private sidebarSvc: SidebarService) {
+  }
 
   ngOnInit() {
+    this.sidebarSvc.toggleMenu(true);
+    this.sidebarSvc.menuMinified.subscribe(state => this.minified = state);
   }
 
 }

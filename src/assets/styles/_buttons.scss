@@ -16,6 +16,9 @@ button{
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
+    &:focus, &:active {
+      outline: none;
+    }
   }
   &.button{
     @extend .button;

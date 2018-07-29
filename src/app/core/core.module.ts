@@ -3,8 +3,6 @@ import { CoreRouting } from './core.routing';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { HeaderComponent } from '../shared/components/header/header.component';
-import { SidebarComponent } from '../shared/components/sidebar/sidebar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpHeadersInterceptor } from './services/http.interceptor';
 import { PreloadInitializer } from './services/preload.initializer';
@@ -17,8 +15,7 @@ import { DialogsService } from './services/dialogs/dialogs.service';
 import { AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { PreviousRouteService } from './services/previous-route.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
-import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 export function PreloadInitializerProviderFactory(provider: PreloadInitializer) {
   return () => provider.startupConfig();
@@ -38,7 +35,7 @@ export function PreloadInitializerProviderFactory(provider: PreloadInitializer) 
     DialogsComponent,
     FormsModule
   ],
-  declarations: [LoginComponent, HeaderComponent, SidebarComponent, AlertsComponent, DialogsComponent, NotFoundComponent],
+  declarations: [LoginComponent, AlertsComponent, DialogsComponent, NotFoundComponent, LogoutComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS,
       useClass: HttpHeadersInterceptor,
@@ -52,8 +49,8 @@ export function PreloadInitializerProviderFactory(provider: PreloadInitializer) 
     DialogsService,
     PreviousRouteService,
 
-    [AuthGuard],
     [PreventLogged],
+    [AuthGuard],
     [RoleGuard]
   ]
 })
