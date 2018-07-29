@@ -54,6 +54,9 @@
       }
       button {
         font-size: $fs_small;
+        &:focus, &:active {
+          outline: none;
+        }
       }
     }
 

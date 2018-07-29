@@ -28,6 +28,10 @@ export class AlertsService {
     this.sendAlert(new IAlert({ type: AlertType.Info, payload, ttl, redirectUrl }));
   }
 
+  alertWarning(payload: IAlertPayload, ttl: number = Infinity, redirectUrl: string = null) {
+    this.sendAlert(new IAlert({ type: AlertType.Warning, payload, ttl, redirectUrl }));
+  }
+
   alertDanger(payload: IAlertPayload, ttl: number = Infinity, redirectUrl: string = null) {
     this.sendAlert(new IAlert({ type: AlertType.Danger, payload, ttl, redirectUrl }));
   }

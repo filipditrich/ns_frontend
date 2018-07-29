@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResource } from '../models/config.interface';
+import { API } from '../../../environments/environment';
 
 import * as _cc from '../config/codes.config';
 import * as _ec from '../config/endpoints.config';
-import { API } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'

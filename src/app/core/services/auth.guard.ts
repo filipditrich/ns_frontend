@@ -21,9 +21,8 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['/login'], { queryParams: { return: state.url } })
         .then(() => {
           const hasBeenLogged = sessionStorage.getItem('user') || false;
-          // TODO - alertWarning (-new alert type)
           if (hasBeenLogged) {
-            this.alertsService.alertDanger({
+            this.alertsService.alertWarning({
               title: 'Token expired',
               body: 'Your session token has expired, please log in to revoke it.'
             }, 5000);
@@ -57,8 +56,7 @@ export class PreventLogged implements CanActivate {
     if (this.authService.isTokenValid()) {
       console.log(this.previousRouteSvc.getPreviousUrl());
       this.router.navigate(['/user']).then(() => {
-        // TODO - alertWarning instead of danger (-new alert type)
-        this.alertsService.alertDanger({
+        this.alertsService.alertWarning({
           title: 'Prevention',
           body: 'You are already logged in, no need to access this page.'
         }, 5000);

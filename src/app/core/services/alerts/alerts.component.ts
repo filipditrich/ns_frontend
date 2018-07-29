@@ -75,6 +75,8 @@ export class AlertsComponent implements OnInit {
         return 'alert-info';
       case AlertType.Success:
         return 'alert-success';
+      case AlertType.Warning:
+        return 'alert-warning';
     }
   }
 
