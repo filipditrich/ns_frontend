@@ -17,6 +17,8 @@ import { DialogsService } from './services/dialogs/dialogs.service';
 import { AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { PreviousRouteService } from './services/previous-route.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import {LoadingBarHttpClientModule} from '@ngx-loading-bar/http-client';
+import {LoadingBarRouterModule} from '@ngx-loading-bar/router';
 
 export function PreloadInitializerProviderFactory(provider: PreloadInitializer) {
   return () => provider.startupConfig();
