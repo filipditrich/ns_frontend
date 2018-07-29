@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e5d730d-6b4f-48a3-a61a-4b32c95cd37c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/core/enums/alerts.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/enums/alerts.enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/alerts/alerts.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/alerts/alerts.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/preload.initializer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/preload.initializer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/core.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/core.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/core.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/core.routing.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -72,35 +68,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <file leaf-file-name="core.routing.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/core.routing.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="525">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.guard.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/services/auth.guard.ts">
+      <file leaf-file-name="not-found.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alerts.component.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss">
+      <file leaf-file-name="not-found.component.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+            <state relative-caret-position="45">
+              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="not-found.component.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.component.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/pages/login/login.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" lean-forward="true" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -171,9 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/auth/pages/registration/request/request.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/auth/pages/registration/registration.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/auth/pages/reset/reset.service.ts" />
         <option value="$PROJECT_DIR$/src/app/core/enums/check.enum.ts" />
         <option value="$PROJECT_DIR$/src/app/core/helpers/validators.helper.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/pages/registration/registration.service.ts" />
@@ -222,6 +230,9 @@
         <option value="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/auth.guard.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/core/core.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.html" />
       </list>
     </option>
   </component>
@@ -287,7 +298,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
@@ -295,8 +306,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="alerts" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="not-found" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -355,12 +375,12 @@
       <workItem from="1532674173538" duration="12928000" />
       <workItem from="1532708576840" duration="19879000" />
       <workItem from="1532735621547" duration="28915000" />
-      <workItem from="1532812342223" duration="10038000" />
+      <workItem from="1532812342223" duration="10774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110783000" />
+    <option name="totallyTimeSpent" value="111519000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -380,7 +400,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.3281046" />
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.25882354" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.31764707" />
       <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32941177" />
       <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49673203" visible="true" weight="0.18872704" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -424,43 +444,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.module.spec.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/pages/reset/reset.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/pages/reset/reset.service.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/pages/reset/reset.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/services/request-validator.guard.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -719,13 +702,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -739,17 +726,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="37" lean-forward="true" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/core/core.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+        <state relative-caret-position="525">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/pages/login/login.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/pages/not-found/not-found.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
         </state>
       </provider>
     </entry>

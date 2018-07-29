@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { UserRoles } from './enums/user.enum';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [PreventLogged]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogsService } from './services/dialogs/dialogs.service';
 import { AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { PreviousRouteService } from './services/previous-route.service';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export function PreloadInitializerProviderFactory(provider: PreloadInitializer) {
   return () => provider.startupConfig();
@@ -35,7 +36,7 @@ export function PreloadInitializerProviderFactory(provider: PreloadInitializer) 
     DialogsComponent,
     FormsModule
   ],
-  declarations: [LoginComponent, HeaderComponent, SidebarComponent, AlertsComponent, DialogsComponent],
+  declarations: [LoginComponent, HeaderComponent, SidebarComponent, AlertsComponent, DialogsComponent, NotFoundComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS,
       useClass: HttpHeadersInterceptor,
