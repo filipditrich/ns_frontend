@@ -36,10 +36,10 @@ export class PreloadInitializer {
           _cc.updateCodes(result.codes);
           console.log('[%s] Codes', _cc.getCodeByName('RESOURCE_LOADED').name);
         } else {
-          console.error('[ERR_LOADING] Codes');
+          console.error('[ERR_LOADING] Codes', result);
         }
       }, error => {
-        console.error('[ERR_LOADING] Codes');
+        console.error('[ERR_LOADING] Codes', error);
       });
   }
 
@@ -55,10 +55,10 @@ export class PreloadInitializer {
           _ec.updateEndpointGroup('agent', result.endpoints);
           console.log('[%s] Endpoints', _cc.getCodeByName('RESOURCE_LOADED').name);
         } else {
-          console.error('[ERR_LOADING] Endpoints');
+          console.error('[ERR_LOADING] Endpoints', result);
         }
       }, error => {
-        console.error('[ERR_LOADING] Endpoints');
+        console.error('[ERR_LOADING] Endpoints', error);
       });
   }
 

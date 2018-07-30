@@ -85,18 +85,35 @@
     
     & > a {
       cursor: pointer;
+      position: relative;
+    }
+    &.selected > a {
+      color: white;
+      background: $main;
     }
 
     &.expanded {
       .sidebar-subgroup { max-height: 100px; }
-      & > a { color: $main }
     }
 
     .sidebar-subgroup {
       max-height: 0;
       overflow: hidden;
       transition: all 250ms;
-      background: rgba($main, 0.1);
+      background: $text_5;
+      box-shadow: inset 0px 25px 25px -10px rgba(black, 0.025), inset 0px -25px 25px -10px rgba(black, 0.025);
+      a {
+        color: $text_2;
+      }
+      a > span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      a.selected {
+        color: $main;
+        position: relative;
+      }
     }
 
   }
