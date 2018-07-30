@@ -4,6 +4,9 @@ import { AuthService } from './auth/auth.service';
 import { AlertsService } from './alerts/alerts.service';
 import { ErrorHelper } from '../helpers/error.helper';
 import { PreviousRouteService } from './previous-route.service';
+import {HttpClient} from '@angular/common/http';
+import {API} from '../../../environments/environment';
+import {getUrl} from '../config/endpoints.config';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -39,7 +42,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-  };
+  }
 
 }
 

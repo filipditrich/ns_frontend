@@ -5,6 +5,7 @@ import { API } from '../../../environments/environment';
 
 import * as _cc from '../config/codes.config';
 import * as _ec from '../config/endpoints.config';
+import {ErrorHelper} from '../helpers/error.helper';
 
 
 @Injectable({
@@ -35,11 +36,10 @@ export class PreloadInitializer {
           _cc.updateCodes(result.codes);
           console.log('[%s] Codes', _cc.getCodeByName('RESOURCE_LOADED').name);
         } else {
-          // codes were not received
+          console.error('[ERR_LOADING] Codes');
         }
       }, error => {
-        // TODO - popups / alerts ???
-        console.log(error);
+        console.error('[ERR_LOADING] Codes');
       });
   }
 
@@ -55,11 +55,10 @@ export class PreloadInitializer {
           _ec.updateEndpointGroup('agent', result.endpoints);
           console.log('[%s] Endpoints', _cc.getCodeByName('RESOURCE_LOADED').name);
         } else {
-          // endpoints were not received
+          console.error('[ERR_LOADING] Endpoints');
         }
       }, error => {
-        // TODO - popups / alerts ???
-        console.log(error);
+        console.error('[ERR_LOADING] Endpoints');
       });
   }
 

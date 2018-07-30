@@ -12,10 +12,11 @@ import { DialogsComponent } from './services/dialogs/dialogs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogsService } from './services/dialogs/dialogs.service';
-import { AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
+import {AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { PreviousRouteService } from './services/previous-route.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import {ErrorHelper} from './helpers/error.helper';
 
 export function PreloadInitializerProviderFactory(provider: PreloadInitializer) {
   return () => provider.startupConfig();

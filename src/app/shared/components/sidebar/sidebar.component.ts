@@ -10,7 +10,17 @@ export class SidebarComponent implements OnInit {
 
   minified: boolean;
 
+  groups = {
+    admin: {
+      expanded: true
+    }
+  };
+
   constructor(private sidebarSvc: SidebarService) {
+  }
+
+  expandGroup(group) {
+    this.groups[group].expanded = !this.groups[group].expanded;
   }
 
   ngOnInit() {

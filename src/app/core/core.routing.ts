@@ -4,8 +4,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { UserRoles } from './enums/user.enum';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import {SidebarComponent} from '../shared/components/sidebar/sidebar.component';
-import {LogoutComponent} from './pages/logout/logout.component';
+import { SidebarComponent } from '../shared/components/sidebar/sidebar.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const routes: Routes = [
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent
-  },
+  }
 ];
 
 @NgModule({

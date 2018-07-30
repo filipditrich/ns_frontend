@@ -9,6 +9,7 @@ import { Title } from '@angular/platform-browser';
 import { AuthService } from '../../services/auth/auth.service';
 
 import * as _cc from '../../config/codes.config';
+import {ErrorHelper} from '../../helpers/error.helper';
 
 @Component({
   selector: 'ns-login',
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
-              private titleService: Title) {
+              private titleService: Title,
+              private errorHelper: ErrorHelper) {
 
     this.loginForm = new FormGroup({
       username: new FormControl(null, [Validators.required]),
@@ -80,8 +82,8 @@ export class LoginComponent implements OnInit {
         }, 5000);
       }
 
-    }, error => {
-      error = !!error.error ? !!error.error.response ? error.error.response : error.error : error;
+    }, err => {
+      const error = !!err.error ? !!err.error.response ? err.error.response : err.error : err;
       this.submitted = false;
 
       switch (error.name) {
@@ -92,10 +94,7 @@ export class LoginComponent implements OnInit {
           this.password.setErrors({ 'no-match' : true }); break;
         }
         default: {
-          this.alertsService.alertDanger({
-            title: error.name || error.status || 'Error',
-            body: error.message || JSON.stringify(error) || 'Unidentified error'
-          }, 5000);
+          this.errorHelper.handleGenericError(err);
           break;
         }
       }

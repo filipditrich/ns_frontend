@@ -2,7 +2,13 @@
   <nav id="side-bar">
     <a [routerLink]="['/user']" class="px-4"><i class="ionicons">&#xf448;</i><span>Home</span></a>
     <span class="divider"></span>
-    <a [routerLink]="['/admin']" class="px-4"><i class="ionicons">&#xf493;</i><span>Admin</span></a>
+    <div class="sidebar-group" [ngClass]="{ 'expanded' : groups.admin.expanded }">
+      <a (click)="expandGroup('admin')" class="px-4"><i class="ionicons">&#xf493;</i><span>Admin</span></a>
+      <div class="sidebar-subgroup">
+        <a [routerLink]="['/admin']" class="px-4"><i class="ionicons">&#xf413;</i><span>Reg</span></a>
+        <a [routerLink]="['/admin']" class="px-4"><i class="ionicons">&#xf323;</i><span>Test</span></a>
+      </div>
+    </div>
     <div class="bottom">
       <span class="divider"></span>
       <a [routerLink]="['/settings']" class="px-4"><i class="ionicons">&#xf15f;</i><span>Settings</span></a>
