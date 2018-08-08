@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e5d730d-6b4f-48a3-a61a-4b32c95cd37c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.links.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -44,35 +44,35 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="23" />
+          <entry key="html" value="26" />
           <entry key="json" value="2" />
-          <entry key="scss" value="27" />
-          <entry key="ts" value="54" />
+          <entry key="scss" value="31" />
+          <entry key="ts" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="23" />
+          <entry key="HTML" value="26" />
           <entry key="JSON" value="2" />
-          <entry key="SCSS" value="27" />
-          <entry key="TypeScript" value="54" />
+          <entry key="SCSS" value="31" />
+          <entry key="TypeScript" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="4768" />
-          <entry key="scss" value="3449" />
-          <entry key="ts" value="6404" />
+          <entry key="html" value="5241" />
+          <entry key="scss" value="3768" />
+          <entry key="ts" value="8688" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="4765" />
+          <entry key="HTML" value="5238" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="SCSS" value="3449" />
-          <entry key="TypeScript" value="6404" />
+          <entry key="SCSS" value="3768" />
+          <entry key="TypeScript" value="8688" />
         </counts>
       </usages-collector>
     </session>
@@ -85,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
+            <state relative-caret-position="105">
+              <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
               <folding>
                 <element signature="e#728#734#1" expanded="true" />
               </folding>
@@ -97,47 +97,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="591">
+              <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+            <state relative-caret-position="516">
+              <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.links.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="45" lean-forward="true" selection-start-column="45" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -154,12 +148,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hash</find>
-      <find>class=&quot;mr-3 ionicons&quot;</find>
-      <find>*ngIf=&quot;!minified&quot;</find>
       <find>red</find>
       <find>1.5</find>
-      <find>minified</find>
       <find>rout</find>
       <find>boot</find>
       <find>app</find>
@@ -184,6 +174,10 @@
       <find>isTokenV</find>
       <find>Token h</find>
       <find>+1</find>
+      <find>text_</find>
+      <find>rgba($main, 0.075)</find>
+      <find>minified</find>
+      <find>top-bar</find>
     </findStrings>
     <replaceStrings>
       <replace>newPasswordForm</replace>
@@ -200,6 +194,8 @@
       <replace>IAlert</replace>
       <replace>minificated</replace>
       <replace>_cc</replace>
+      <replace>$main_white</replace>
+      <replace>menu_open</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -208,8 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/auth/pages/reset/request/request.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/auth/pages/registration/registration.component.ts" />
         <option value="$PROJECT_DIR$/src/app/auth/pages/registration/request/request.component.ts" />
         <option value="$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.ts" />
         <option value="$PROJECT_DIR$/src/app/core/enums/alerts.enum.ts" />
@@ -240,7 +234,6 @@
         <option value="$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.scss" />
         <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.service.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" />
         <option value="$PROJECT_DIR$/src/app/core/pages/logout/logout.component.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/alerts/alerts.component.scss" />
@@ -253,12 +246,15 @@
         <option value="$PROJECT_DIR$/src/app/core/helpers/error.helper.ts" />
         <option value="$PROJECT_DIR$/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/preload.initializer.ts" />
-        <option value="$PROJECT_DIR$/src/assets/styles/_variables.scss" />
         <option value="$PROJECT_DIR$/src/styles.scss" />
-        <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" />
+        <option value="$PROJECT_DIR$/src/assets/styles/_variables.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" />
         <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.links.ts" />
+        <option value="$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" />
       </list>
     </option>
   </component>
@@ -314,33 +310,15 @@
               <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="sidebar" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -406,12 +384,12 @@
       <workItem from="1532812342223" duration="13514000" />
       <workItem from="1532851858704" duration="13343000" />
       <workItem from="1532943524989" duration="3734000" />
-      <workItem from="1533708504741" duration="4566000" />
+      <workItem from="1533708504741" duration="10250000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140098000" />
+    <option name="totallyTimeSpent" value="145782000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,10 +407,10 @@
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Favorites" order="1" sideWeight="0.5072626" side_tool="true" weight="0.14646997" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49273744" visible="true" weight="0.14646997" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49273744" visible="true" weight="0.14646997" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32941177" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.105" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.107" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32941177" />
@@ -475,8 +453,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/core/components/loader/loader.component.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/core/components/loader/loader.component.scss" />
     <entry file="file://$PROJECT_DIR$/src/app/core/pages/login/login.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -608,13 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -640,13 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -680,13 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="3" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/admin.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -725,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -746,16 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -763,34 +701,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
+        <state relative-caret-position="105">
+          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
           <folding>
             <element signature="e#728#734#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        <state relative-caret-position="591">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="75">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/admin.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" lean-forward="true" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.links.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

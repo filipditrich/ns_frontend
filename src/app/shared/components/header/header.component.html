@@ -1,5 +1,5 @@
-<div class="container-fluid" class="bg-danger">
-  <nav id="top-bar" class="bg-white d-flex p-4 align-items-center justify-content-between">
+<section id="top-bar">
+  <nav id="top-nav" class="bg-white d-flex p-4 align-items-center justify-content-between">
     <button class="reset menu-toggle light-grey-hover" (click)="expandMenu()">
       <span class="ionicons">&#xf1c3;</span>
     </button>
@@ -13,13 +13,13 @@
         <span class="ionicons">&#xf280;</span>
       </button>
       <div class="ns-dropdown-menu reset d-flex flex-column" *ngIf="dropdownOpen">
-        <a [routerLink]="['/login']"><span class="ionicons">&#xf419;</span>Your Profile</a>
-        <a [routerLink]="['/settings']"><span class="ionicons">&#xf15e;</span>Settings</a>
+        <a [routerLink]="['/login']"><span class="ionicons">&#xf41a;</span>Your Profile</a>
+        <a [routerLink]="['/settings']"><span class="ionicons">&#xf412;</span>Settings</a>
         <span class="divider"></span>
-        <a [routerLink]="['/logout']"><span class="ionicons">&#xf1b2;</span>Log Out</a>
+        <a [routerLink]="['/logout']"><span class="ionicons">&#xf31f;</span>Log Out</a>
         <span class="arrow-up"></span>
       </div>
     </div>
-
   </nav>
-</div>
+  <div class="shadow-layer" *ngIf="dropdownOpen" (click)="dropdownOpen = !dropdownOpen"></div>
+</section>

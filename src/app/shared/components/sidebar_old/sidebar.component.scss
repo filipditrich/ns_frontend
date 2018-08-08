@@ -16,10 +16,10 @@
   transition: all 250ms, z-index 0s linear 250ms;
 
   @media only screen and (max-width: 768px) {
-    &.minified #side-bar {
+    &.menu_open #side-bar {
       transform: translateX(-100%);
     }
-    &.minified {
+    &.menu_open {
       z-index: -999;
       opacity: 0;
     }
@@ -31,7 +31,7 @@
     }
   }
 
-  &.minified #side-bar {
+  &.menu_open #side-bar {
     max-width: calc(3rem + 25px);
     min-width: calc(3rem + 25px);
     a > span { display: none; }

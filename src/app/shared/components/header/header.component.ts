@@ -13,7 +13,7 @@ import {SidebarService} from '../sidebar/sidebar.service';
 export class HeaderComponent implements OnInit {
 
   public dropdownOpen = false;
-  minified: boolean;
+  menu_open: boolean;
 
   constructor(private router: Router,
               private errorHelper: ErrorHelper,
@@ -21,11 +21,11 @@ export class HeaderComponent implements OnInit {
               private sidebarSvc: SidebarService) { }
 
   ngOnInit() {
-    this.sidebarSvc.menuMinified.subscribe(state => this.minified = state);
+    this.sidebarSvc.menuMinified.subscribe(state => this.menu_open = state);
   }
 
   expandMenu() {
-    this.sidebarSvc.toggleMenu(!this.minified);
+    this.sidebarSvc.toggleMenu(!this.menu_open);
   }
 
 }

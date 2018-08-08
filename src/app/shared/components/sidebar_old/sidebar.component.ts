@@ -8,7 +8,7 @@ import {SidebarService} from './sidebar.service';
 })
 export class SidebarComponent implements OnInit {
 
-  minified: boolean;
+  menu_open: boolean;
 
   groups = {
     admin: {
@@ -25,7 +25,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.sidebarSvc.toggleMenu(true);
-    this.sidebarSvc.menuMinified.subscribe(state => this.minified = state);
+    this.sidebarSvc.menuMinified.subscribe(state => this.menu_open = state);
   }
 
 }

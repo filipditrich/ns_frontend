@@ -1,21 +1,27 @@
-<section id="side-bar" [ngClass]="{ 'open' : minified }">
+<section id="side-bar" [ngClass]="{ 'open' : menu_open }">
   <nav id="side-menu">
+    <header (click)="toggleMenu()"><i class="ionicons">&#xf406;</i>Close</header>
     <div class="content">
-      <header (click)="toggleMenu()"><i class="ionicons">&#xf406;</i>Close</header>
-      <a [routerLink]="['/user']" class="selected"><i class="ionicons">&#xf448;</i>Home</a>
-      <a [routerLink]="['/user']"><i class="ionicons">&#xf3de;</i>Matches</a>
-      <div class="menu-group">
-        <header>Administrator</header>
-        <a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf1ac;</i>Registration Requests</a>
+
+      <div class="menu-group" *ngFor="let group of groups">
+        <header *ngIf="group.title">{{group.title}}</header>
+        <a *ngFor="let link of group.children" [routerLink]="[link.path]" [ngClass]="{ 'selected' : link.active }"><i class="ionicons" [innerHTML]="link.icon"></i>{{link.title}}</a>
       </div>
-      <div class="menu-group">
-        <a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf134;</i>Report a Problem</a>
-        <a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf412;</i>Settings</a>
-      </div>
+
+      <!--<a [routerLink]="['/user']" class="selected"><i class="ionicons">&#xf448;</i>Home</a>-->
+      <!--<a [routerLink]="['/user']"><i class="ionicons">&#xf3de;</i>Matches</a>-->
+      <!--<div class="menu-group">-->
+        <!--<header>Administrator</header>-->
+        <!--<a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf1ac;</i>Registration Requests</a>-->
+      <!--</div>-->
+      <!--<div class="menu-group">-->
+        <!--<a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf134;</i>Report a Problem</a>-->
+        <!--<a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf412;</i>Settings</a>-->
+      <!--</div>-->
       <footer class="text-muted">
         <span>&copy; 2018 Visionary, s.r.o.</span>
       </footer>
     </div>
   </nav>
-  <div class="shadow-layer" *ngIf="minified" (click)="toggleMenu()"></div>
+  <div class="shadow-layer" *ngIf="menu_open" (click)="toggleMenu()"></div>
 </section>

@@ -1,9 +1,10 @@
 @import '../../../../assets/styles/variables';
 
-#top-bar {
+#top-nav {
   height: $menu_height;
   border-bottom: 2px solid $text_4;
   z-index: $zi-sidebar - 1;
+  position: relative;
 
 
   .menu-toggle {
@@ -50,6 +51,7 @@
       background: white;
       border: 1px solid $text_4;
       border-radius: 5px;
+      box-shadow: 0 15px 25px rgba(black, 0.25);
 
 
       .arrow-up {
@@ -65,31 +67,27 @@
       }
 
       a {
-        padding: 0.75rem 1.5rem;
+        padding: 10px 15px;
         font-size: $fs_small;
         display: flex;
         align-items: center;
         color: $text_2;
         transition: color 250ms;
         &:first-of-type:hover ~ .arrow-up{
-          background: $text_5;
+          background: $main_white;
         }
         &:hover {
           text-decoration: none;
           color: $main;
-          background: $text_5;
+          background: $main_white;
         }
 
         span {
           margin-right: 5px;
-          font-size: $fs_bigger;
-          width: 25px;
+          font-size: $fs_biggest;
+          width: 32px;
           text-align: center;
         }
-      }
-
-      .divider {
-
       }
 
     }
@@ -103,6 +101,11 @@
     }
   }
 
+}
+
+.shadow-layer {
+  background: transparent;
+  z-index: $zi-sidebar - 2;
 }
 
 .light-grey-hover {
