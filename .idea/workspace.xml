@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e5d730d-6b4f-48a3-a61a-4b32c95cd37c" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/preload.initializer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/preload.initializer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/styles/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/styles/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -21,49 +30,49 @@
     <session id="1536725905">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="Angular2LanguageService" value="4" />
-          <entry key="TsLintLanguageService" value="4" />
+          <entry key="Angular2LanguageService" value="5" />
+          <entry key="TsLintLanguageService" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="14" />
+          <entry key="html" value="23" />
           <entry key="json" value="2" />
-          <entry key="scss" value="19" />
-          <entry key="ts" value="50" />
+          <entry key="scss" value="27" />
+          <entry key="ts" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="14" />
+          <entry key="HTML" value="23" />
           <entry key="JSON" value="2" />
-          <entry key="SCSS" value="19" />
-          <entry key="TypeScript" value="50" />
+          <entry key="SCSS" value="27" />
+          <entry key="TypeScript" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="4134" />
-          <entry key="scss" value="2113" />
-          <entry key="ts" value="6372" />
+          <entry key="html" value="4768" />
+          <entry key="scss" value="3449" />
+          <entry key="ts" value="6404" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="4131" />
+          <entry key="HTML" value="4765" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="SCSS" value="2113" />
-          <entry key="TypeScript" value="6372" />
+          <entry key="SCSS" value="3449" />
+          <entry key="TypeScript" value="6404" />
         </counts>
       </usages-collector>
     </session>
@@ -72,44 +81,62 @@
     <favorites_list name="ns_frontend" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="45">
+              <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#728#734#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="140" selection-start-line="8" selection-start-column="140" selection-end-line="8" selection-end-column="140" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+            <state relative-caret-position="295">
+              <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/services/preload.initializer.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
-              <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
+            <state relative-caret-position="270">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
               <folding>
-                <element signature="e#0#43#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -127,7 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>requestRe</find>
       <find>hash</find>
       <find>class=&quot;mr-3 ionicons&quot;</find>
       <find>*ngIf=&quot;!minified&quot;</find>
@@ -157,6 +183,7 @@
       <find>500px</find>
       <find>isTokenV</find>
       <find>Token h</find>
+      <find>+1</find>
     </findStrings>
     <replaceStrings>
       <replace>newPasswordForm</replace>
@@ -200,13 +227,11 @@
         <option value="$PROJECT_DIR$/src/app/app.component.scss" />
         <option value="$PROJECT_DIR$/src/assets/styles/_buttons.scss" />
         <option value="$PROJECT_DIR$/src/assets/styles/_profile-picture.scss" />
-        <option value="$PROJECT_DIR$/src/assets/styles/_variables.scss" />
         <option value="$PROJECT_DIR$/src/app/user/pages/base/base.component.html" />
         <option value="$PROJECT_DIR$/src/app/user/user.component.scss" />
         <option value="$PROJECT_DIR$/src/app/app.component.html" />
         <option value="$PROJECT_DIR$/src/app/user/user.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/user/user.component.html" />
-        <option value="$PROJECT_DIR$/src/styles.scss" />
         <option value="$PROJECT_DIR$/src/app/user/user.module.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/shared.module.ts" />
         <option value="$PROJECT_DIR$/src/app/admin/admin.routing.ts" />
@@ -214,7 +239,6 @@
         <option value="$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.html" />
         <option value="$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.scss" />
         <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" />
         <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" />
         <option value="$PROJECT_DIR$/src/app/core/pages/logout/logout.component.ts" />
@@ -228,10 +252,13 @@
         <option value="$PROJECT_DIR$/src/app/core/core.module.ts" />
         <option value="$PROJECT_DIR$/src/app/core/helpers/error.helper.ts" />
         <option value="$PROJECT_DIR$/src/environments/environment.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/preload.initializer.ts" />
+        <option value="$PROJECT_DIR$/src/assets/styles/_variables.scss" />
+        <option value="$PROJECT_DIR$/src/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/components/header/header.component.scss" />
       </list>
     </option>
   </component>
@@ -264,7 +291,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,21 +314,6 @@
               <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -312,6 +323,15 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="shared" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
@@ -322,16 +342,11 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="sidebar" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="environments" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,6 +362,9 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/shared/components" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/shared/components" />
       <recent name="$PROJECT_DIR$/src/app/core/services/auth" />
@@ -387,12 +405,13 @@
       <workItem from="1532735621547" duration="28915000" />
       <workItem from="1532812342223" duration="13514000" />
       <workItem from="1532851858704" duration="13343000" />
-      <workItem from="1532943524989" duration="3227000" />
+      <workItem from="1532943524989" duration="3734000" />
+      <workItem from="1533708504741" duration="4566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135025000" />
+    <option name="totallyTimeSpent" value="140098000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -404,16 +423,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1109" extended-state="6" />
+    <frame x="0" y="22" width="1920" height="1109" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
-      <window_info id="Favorites" order="1" sideWeight="0.5063731" side_tool="true" weight="0.14646997" />
+      <window_info id="Favorites" order="1" sideWeight="0.5072626" side_tool="true" weight="0.14646997" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4936269" visible="true" weight="0.14646997" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49273744" visible="true" weight="0.14646997" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32941177" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.105" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.105" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32941177" />
@@ -456,14 +475,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/core/components/loader/loader.component.html" />
-    <entry file="file://$PROJECT_DIR$/src/app/core/pages/login/login.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/core/components/loader/loader.component.ts" />
     <entry file="file://$PROJECT_DIR$/src/app/core/components/loader/loader.component.scss" />
     <entry file="file://$PROJECT_DIR$/src/app/core/pages/login/login.component.html">
@@ -518,13 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="88" selection-start-line="21" selection-start-column="88" selection-end-line="21" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/styles/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -604,13 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/admin/pages/registration-requests/registration-requests.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -643,27 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -725,9 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="45" column="31" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,37 +711,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/services/preload.initializer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/styles/_variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar_old/sidebar.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="104" lean-forward="true" selection-start-line="8" selection-start-column="104" selection-end-line="8" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="390">
+          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/services/preload.initializer.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="140" selection-start-line="8" selection-start-column="140" selection-end-line="8" selection-end-column="140" />
+        <state relative-caret-position="45">
+          <caret line="3" column="74" selection-start-line="3" selection-start-column="74" selection-end-line="3" selection-end-column="74" />
+          <folding>
+            <element signature="e#728#734#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="98" column="23" lean-forward="true" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+        <state relative-caret-position="295">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>

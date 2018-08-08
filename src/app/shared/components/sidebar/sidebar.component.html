@@ -1,17 +1,21 @@
-<div class="sidebar-wrap" [ngClass]="{ 'minified' : minified }">
-  <nav id="side-bar">
-    <a [routerLink]="['/user']" class="px-4"><i class="ionicons">&#xf448;</i><span>Home</span></a>
-    <span class="divider"></span>
-    <div class="sidebar-group selected" [ngClass]="{ 'expanded' : groups.admin.expanded }">
-      <a (click)="expandGroup('admin')" class="px-4"><i class="ionicons">&#xf450;</i><span>Admin</span></a>
-      <div class="sidebar-subgroup">
-        <a [routerLink]="['/admin']" class="px-4"><i class="ionicons">&#xf18a;</i><span>Admin Panel</span></a>
-        <a [routerLink]="['/admin/registration-requests']" class="px-4 selected"><i class="ionicons">&#xf1ac;</i><span>Registration Requests</span></a>
+<section id="side-bar" [ngClass]="{ 'open' : minified }">
+  <nav id="side-menu">
+    <div class="content">
+      <header (click)="toggleMenu()"><i class="ionicons">&#xf406;</i>Close</header>
+      <a [routerLink]="['/user']" class="selected"><i class="ionicons">&#xf448;</i>Home</a>
+      <a [routerLink]="['/user']"><i class="ionicons">&#xf3de;</i>Matches</a>
+      <div class="menu-group">
+        <header>Administrator</header>
+        <a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf1ac;</i>Registration Requests</a>
       </div>
-    </div>
-    <div class="bottom">
-      <span class="divider"></span>
-      <a [routerLink]="['/settings']" class="px-4"><i class="ionicons">&#xf15f;</i><span>Settings</span></a>
+      <div class="menu-group">
+        <a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf134;</i>Report a Problem</a>
+        <a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf412;</i>Settings</a>
+      </div>
+      <footer class="text-muted">
+        <span>&copy; 2018 Visionary, s.r.o.</span>
+      </footer>
     </div>
   </nav>
-</div>
+  <div class="shadow-layer" *ngIf="minified" (click)="toggleMenu()"></div>
+</section>

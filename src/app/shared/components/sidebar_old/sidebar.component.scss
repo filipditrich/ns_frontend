@@ -1,0 +1,133 @@
+@import '../../../../assets/styles/variables';
+
+@media only screen and (max-width: 768px) {
+  .sidebar-wrap {
+    width: 100vw;
+    background: rgba(black, 0.75);
+    position: absolute;
+  }
+}
+
+.sidebar-wrap {
+  height: calc(100vh - #{$menu_height});
+  max-height: calc(100vh - #{$menu_height});
+  z-index: 995;
+  overflow: scroll;
+  transition: all 250ms, z-index 0s linear 250ms;
+
+  @media only screen and (max-width: 768px) {
+    &.minified #side-bar {
+      transform: translateX(-100%);
+    }
+    &.minified {
+      z-index: -999;
+      opacity: 0;
+    }
+    #side-bar {
+      max-width: 85vw;
+      a {
+        font-size: $fs_bigger;
+      }
+    }
+  }
+
+  &.minified #side-bar {
+    max-width: calc(3rem + 25px);
+    min-width: calc(3rem + 25px);
+    a > span { display: none; }
+    a > i { margin: 0; }
+  }
+
+}
+
+#side-bar {
+  max-height: 100%;
+  height: 100%;
+  border-right: 2px solid $text_4;
+  background: white;
+  max-width: 250px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  transition: max-width 750ms, transform 500ms;
+  transition-delay: -100ms;
+
+  a {
+    display: flex;
+    align-items: center;
+    color: rgba($text_2, 0.75);
+    transition: color 250ms;
+    min-height: 3rem;
+    font-size: $fs_smaller;
+    font-weight: 500;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+      color: $main;
+      background: $text_5;
+    }
+
+    i {
+
+      text-align: center;
+      font-size: $fs_biggest;
+      margin-right: 15px;
+      width: 25px
+    }
+
+  }
+
+  .sidebar-group {
+
+    display: flex;
+    flex-direction: column;
+    
+    & > a {
+      cursor: pointer;
+      position: relative;
+    }
+    &.selected > a {
+      color: white;
+      background: $main;
+    }
+
+    &.expanded {
+      .sidebar-subgroup { max-height: 100px; }
+    }
+
+    .sidebar-subgroup {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 250ms;
+      background: $text_5;
+      box-shadow: inset 0px 25px 25px -10px rgba(black, 0.025), inset 0px -25px 25px -10px rgba(black, 0.025);
+      a {
+        color: $text_2;
+      }
+      a > span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      a.selected {
+        color: $main;
+        position: relative;
+      }
+    }
+
+  }
+
+  .divider {
+    background: $text_4;
+    width: 100%;
+    height: 1px;
+    display: block;
+  }
+
+  .bottom {
+    margin-top: auto;
+  }
+
+
+}

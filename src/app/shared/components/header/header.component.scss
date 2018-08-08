@@ -3,7 +3,7 @@
 #top-bar {
   height: $menu_height;
   border-bottom: 2px solid $text_4;
-  z-index: 995;
+  z-index: $zi-sidebar - 1;
 
 
   .menu-toggle {
@@ -24,7 +24,7 @@
   .profile-drop {
 
     position: relative;
-    z-index: 999;
+    z-index: $zi-sidebar - 1;
 
     & > button {
       width: 25px;

@@ -1,133 +1,111 @@
 @import '../../../../assets/styles/variables';
 
-@media only screen and (max-width: 768px) {
-  .sidebar-wrap {
+#side-bar {
+  width: 0;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zi-sidebar;
+  transition: all 0ms linear 250ms;
+
+  &.open {
     width: 100vw;
-    background: rgba(black, 0.75);
-    position: absolute;
+    height: 100vh;
+    transition: all 0ms linear 0ms;
+    #side-menu {
+      transform: translateX(0);
+    }
+    .shadow-layer {
+      opacity: 0.8;
+    }
   }
-}
+  #side-menu {
+    height: 100%;
+    width: auto;
+    background: white;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transform: translateX(-100%);
+    transition: transform 250ms;
 
-.sidebar-wrap {
-  height: calc(100vh - #{$menu_height});
-  max-height: calc(100vh - #{$menu_height});
-  z-index: 995;
-  overflow: scroll;
-  transition: all 250ms, z-index 0s linear 250ms;
-
-  @media only screen and (max-width: 768px) {
-    &.minified #side-bar {
-      transform: translateX(-100%);
-    }
-    &.minified {
-      z-index: -999;
-      opacity: 0;
-    }
-    #side-bar {
-      max-width: 85vw;
-      a {
-        font-size: $fs_bigger;
+    .content {
+      padding-bottom: 10px;
+      & > header {
+        display: flex;
+        align-items: center;
+        height: $menu_height;
+        margin-bottom: 10px;
+        padding: 0 15px;
+        text-transform: uppercase;
+        font-size: $fs_smaller;
+        cursor: pointer;
+        color: $text_1;
+        font-weight: 700;
+        border-bottom: 2px solid $text_4;
+        &:hover {
+          color: $main
+        }
+        i {
+          font-size: $fs_larger;
+          margin-right: 10px;
+        }
+      }
+      footer {
+        font-size: $fs_smallest;
+        padding: 10px 15px;
       }
     }
-  }
 
-  &.minified #side-bar {
-    max-width: calc(3rem + 25px);
-    min-width: calc(3rem + 25px);
-    a > span { display: none; }
-    a > i { margin: 0; }
-  }
-
-}
-
-#side-bar {
-  max-height: 100%;
-  height: 100%;
-  border-right: 2px solid $text_4;
-  background: white;
-  max-width: 250px;
-  min-width: 200px;
-  display: flex;
-  flex-direction: column;
-  transition: max-width 750ms, transform 500ms;
-  transition-delay: -100ms;
-
-  a {
-    display: flex;
-    align-items: center;
-    color: rgba($text_2, 0.75);
-    transition: color 250ms;
-    min-height: 3rem;
-    font-size: $fs_smaller;
-    font-weight: 500;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    &:hover, &:focus, &:active {
-      text-decoration: none;
-      color: $main;
-      background: $text_5;
+    .content, .menu-group {
+      display: flex;
+      flex-direction: column;
     }
 
-    i {
-
-      text-align: center;
-      font-size: $fs_biggest;
-      margin-right: 15px;
-      width: 25px
-    }
-
-  }
-
-  .sidebar-group {
-
-    display: flex;
-    flex-direction: column;
-    
-    & > a {
-      cursor: pointer;
-      position: relative;
-    }
-    &.selected > a {
-      color: white;
-      background: $main;
-    }
-
-    &.expanded {
-      .sidebar-subgroup { max-height: 100px; }
-    }
-
-    .sidebar-subgroup {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 250ms;
-      background: $text_5;
-      box-shadow: inset 0px 25px 25px -10px rgba(black, 0.025), inset 0px -25px 25px -10px rgba(black, 0.025);
-      a {
+    .menu-group {
+      header {
+        padding: 10px 15px;
+        text-transform: uppercase;
+        font-size: $fs_smallest;
         color: $text_2;
       }
-      a > span {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+      border: 1px solid;
+      border-color: $text_4 transparent $text_4 transparent;
+    }
+
+    a {
+      padding: 10px 15px 10px 10px;
+      font-size: $fs_smaller;
+      color: $text_1;
+      &.selected {
+        font-weight: 600;
+        background: rgba($main, 0.075);
+        i {
+          color: $main;
+        }
       }
-      a.selected {
-        color: $main;
-        position: relative;
+      &:hover {
+        background: rgba($main, 0.075);
+        text-decoration: none;
       }
+      display: flex;
+      align-items: center;
+
+      i {
+        width: 32px;
+        text-align: center;
+        margin-right: 10px;
+        font-size: $fs_biggest;
+      }
+
     }
 
   }
 
-  .divider {
-    background: $text_4;
-    width: 100%;
-    height: 1px;
-    display: block;
+  .shadow-layer {
+    opacity: 0;
+    background: black;
   }
-
-  .bottom {
-    margin-top: auto;
-  }
-
 
 }

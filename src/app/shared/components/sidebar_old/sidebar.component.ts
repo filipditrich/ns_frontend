@@ -23,10 +23,6 @@ export class SidebarComponent implements OnInit {
     this.groups[group].expanded = !this.groups[group].expanded;
   }
 
-  toggleMenu() {
-    this.sidebarSvc.toggleMenu(!this.minified);
-  }
-
   ngOnInit() {
     this.sidebarSvc.toggleMenu(true);
     this.sidebarSvc.menuMinified.subscribe(state => this.minified = state);
