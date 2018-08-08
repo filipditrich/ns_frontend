@@ -11,7 +11,7 @@ export class RegistrationRequestsService {
   constructor(private http: HttpClient) { }
 
   sendInvitations(emails: string | string[]): Observable<any> {
-    console.log(getUrl('INV_REQ'));
+    // TODO - on backend
     return this.http.post(getUrl('INV_REQ'), emails);
   }
 

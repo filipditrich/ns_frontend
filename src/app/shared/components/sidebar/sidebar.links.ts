@@ -22,7 +22,7 @@ export const groups: IMenuGroup[] = [
       {
         id: 'admin_panel',
         path: '/admin',
-        icon: '&#xf1ac;',
+        icon: '&#xf15d;',
         title: 'Main Panel',
         roles: [ UserRoles.Admin ]
       },

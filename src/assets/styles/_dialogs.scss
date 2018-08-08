@@ -1,3 +1,5 @@
+@import "variables";
+
 .dialog-window {
   position: fixed;
   width: 100vw;
@@ -5,7 +7,7 @@
   overflow: scroll;
   top: 0;
   left: 0;
-  z-index: 99999;
+  z-index: $zi-modals;
   background: rgba(black, 0.75);
   display: flex;
 

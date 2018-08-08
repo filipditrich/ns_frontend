@@ -1,4 +1,4 @@
-import {UserRoles} from '../enums/user.enum';
+import { UserRoles } from '../enums/user.enum';
 
 export interface IMenuGroup {
   id: string;

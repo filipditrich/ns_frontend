@@ -33,7 +33,7 @@
 }
 
 .dialog-window-secondary {
-  z-index: 998;
+  z-index: $zi-modals - 1;
 }
 
 .close-button {
