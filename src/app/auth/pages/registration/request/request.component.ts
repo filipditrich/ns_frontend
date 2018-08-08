@@ -65,20 +65,20 @@ export class RegistrationRequestComponent implements OnInit {
       if (response.response.success) {
         // TODO - page with you request is waiting to be accepted blah blah blah...
         this.router.navigate(['/login']).then(() => {
-          this.alertsService.alertSuccess({ title: response.response.name || 'Success', body: response.response.message || 'Sent' }, 7500);
+          this.alertsService.alertSuccess({
+            title: 'Registration Request Sent!',
+            body: 'Your registration request has been successfully sent. An email with further instructions has been sent to you as well.'
+          }, 7500);
         }).catch(error => {
           this.errorHelper.handleGenericError(error);
-        })
+        });
       } else {
         this.submitted = false;
-        this.alertsService.alertDanger({
-          title: response.response.name || 'Error',
-          body: response.response.message || response.response
-        }, 5000);
+        this.errorHelper.processedButFailed(response);
       }
 
-    }, error => {
-      error = !!error.error ? !!error.error.response ? error.error.response : error.error : error;
+    }, err => {
+      const error = !!err.error ? !!err.error.response ? err.error.response : err.error : err;
       this.submitted = false;
 
       switch (error.name) {
@@ -89,11 +89,7 @@ export class RegistrationRequestComponent implements OnInit {
           this.email.setErrors({ 'in-use' : true }); break;
         }
         default: {
-          this.alertsService.alertDanger({
-            title: error.name || error.status || 'Error',
-            body: error.message || JSON.stringify(error) || 'Unidentified error'
-          }, 5000);
-          break;
+          this.errorHelper.handleGenericError(err);
         }
       }
 
