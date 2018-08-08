@@ -19,11 +19,18 @@ export const groups: IMenuGroup[] = [
     id: 'admin',
     title: 'Administrator',
     children: [
+      // {
+      //   id: 'admin_panel',
+      //   path: '/admin',
+      //   icon: '&#xf15d;',
+      //   title: 'Main Panel',
+      //   roles: [ UserRoles.Admin ]
+      // },
       {
-        id: 'admin_panel',
-        path: '/admin',
-        icon: '&#xf15d;',
-        title: 'Main Panel',
+        id: 'user_management',
+        path: '/admin/user-management',
+        icon: '&#xf161;',
+        title: 'User Management',
         roles: [ UserRoles.Admin ]
       },
       {

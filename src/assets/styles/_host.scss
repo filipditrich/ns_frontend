@@ -1,6 +1,6 @@
-@import "../../../../assets/styles/variables";
+@import "variables";
 
-:host {
+@mixin classicHost() {
   width: 100%;
   max-height: calc(100vh - #{$menu_height});
   min-height: calc(100vh - #{$menu_height});

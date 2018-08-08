@@ -104,11 +104,11 @@
 
 
           <!-- Row Detail Template -->
-          <ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow (toggle)="onDetailToggle($event)">
+          <ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow>
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template class="row">
               <div class="col-12 p-0 flex-grow-1">
                 <ul class="list-group text-muted small">
-                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || '---'}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || 'n/a'}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.email}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Requested On:</b> {{row.requestedOn}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap">
@@ -150,7 +150,7 @@
               <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
             </ng-template>
             <ng-template let-value="value" ngx-datatable-cell-template>
-              <span class="mobile-hidden">{{value || '---'}}</span>
+              <span class="mobile-hidden">{{value || 'n/a'}}</span>
             </ng-template>
           </ngx-datatable-column>
 

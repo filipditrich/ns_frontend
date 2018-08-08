@@ -37,22 +37,26 @@ export class SidebarComponent implements OnInit {
   }
 
   setNavigationLinks() {
-    const _roles = JSON.parse(sessionStorage.getItem('user')).roles;
+    const _user = JSON.parse(sessionStorage.getItem('user'));
     const _url = this.router.url;
 
-    // filter links so that the user can see links that
-    // he is supposed to be able to access
-    this.groups = groups.filter(
-      group => group.children.some(
-        child => child.roles.some(
-          role => _roles.includes(role))));
+    if (!_user || !_user.roles) {
+      // empty ?
+    } else {
+      // filter links so that the user can see links that
+      // he is supposed to be able to access
+      this.groups = groups.filter(
+        group => group.children.some(
+          child => child.roles.some(
+            role => _user.roles.includes(role))));
 
-    // set active class
-    this.groups.forEach(group => {
-      group.children.forEach(child => {
-        child.active = child.path === _url;
+      // set active class
+      this.groups.forEach(group => {
+        group.children.forEach(child => {
+          child.active = child.path === _url;
+        });
       });
-    });
+    }
   }
 
 }
