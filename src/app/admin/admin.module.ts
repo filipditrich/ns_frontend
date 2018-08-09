@@ -8,6 +8,8 @@ import { AdminRegistrationRequestsComponent } from './pages/registration-request
 import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin.component';
 import { AdminUserManagementComponent } from './pages/user-management/user-management.component';
+import { AdminEditUserComponent } from './pages/user-management/edit-user/edit-user.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -16,8 +18,9 @@ import { AdminUserManagementComponent } from './pages/user-management/user-manag
     NgxDatatableModule,
     ReactiveFormsModule,
     FormsModule,
+    NgSelectModule,
     SharedModule
   ],
-  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent]
+  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent]
 })
 export class AdminModule { }

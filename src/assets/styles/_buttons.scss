@@ -16,6 +16,7 @@ button{
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
     -webkit-appearance: none;
+    cursor: pointer;
     &:focus, &:active {
       outline: none;
     }
@@ -68,6 +69,13 @@ button{
     opacity: 0.55;
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  &.btn-action {
+    background: transparent;
+    i {
+      font-size: $fs_bigger;
+    }
   }
 
 }

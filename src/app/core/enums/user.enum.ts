@@ -1,4 +1,13 @@
 export enum UserRoles {
-  Admin = 'admin',
-  Player = 'player'
+  admin = 'admin',
+  player = 'player'
+}
+
+export namespace UserRoles {
+  export function values() {
+    console.log(UserRoles);
+    return Object.keys(UserRoles).filter(
+      (type) => isNaN(<any>type) && type !== 'values'
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import {UserRoles} from '../../../core/enums/user.enum';
 import {IMenuGroup} from '../../../core/models/menulinks.interface';
 
-const allRoles = [ UserRoles.Player, UserRoles.Player ];
+const allRoles = [ UserRoles.player, UserRoles.player ];
 
 export const groups: IMenuGroup[] = [
   {
@@ -24,21 +24,21 @@ export const groups: IMenuGroup[] = [
       //   path: '/admin',
       //   icon: '&#xf15d;',
       //   title: 'Main Panel',
-      //   roles: [ UserRoles.Admin ]
+      //   roles: [ UserRoles.admin ]
       // },
       {
         id: 'user_management',
         path: '/admin/user-management',
         icon: '&#xf161;',
         title: 'User Management',
-        roles: [ UserRoles.Admin ]
+        roles: [ UserRoles.admin ]
       },
       {
         id: 'registration_requests',
         path: '/admin/registration-requests',
         icon: '&#xf1ac;',
         title: 'Registration Requests',
-        roles: [ UserRoles.Admin ]
+        roles: [ UserRoles.admin ]
       }
     ]
   },

@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 export function findByProp(o, prop, val, retprop = '') {
   if (o == null) { return false; }
   if ( o[prop] === val ) {
@@ -36,4 +38,28 @@ export function AlertTimeout(callback, delay) {
 
   this.resume();
 
+}
+
+function arraysEqual(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = arr1.length; i--;) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+export function isSame(arrayOne, arrayTwo) {
+  let a = arrayOne,
+      b = arrayTwo;
+
+  if (arrayOne.length <= arrayTwo.length) {
+    a = arrayTwo;
+    b = arrayOne;
+  }
+  return _.isEmpty(_.difference(a.sort(), b.sort()));
 }

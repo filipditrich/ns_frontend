@@ -2,6 +2,129 @@
 
   <div class="row">
     <ns-page-header class="py-4 px-2 col-12"></ns-page-header>
+
+    <div class="col-12 d-flex d-md-block mt-4">
+      <section id="search" class="row flex-grow-1">
+        <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0">
+          <div class="group d-flex flex-column m-0">
+            <input type="search" id="search-box">
+            <label for="search-box">Search users</label>
+          </div>
+        </form>
+        <div class="packix-tile bg-white p-4 my-2 my-md-0 d-flex justify-content-between flex-column col-sm-12 ml-md-4 col-md-auto">
+          <button class="button large btn-primary mb-3">Create New User</button>
+          <button class="button large btn-primary" (click)="loadUsers()">Refresh list</button>
+        </div>
+      </section>
+    </div>
+
+
+    <div class="col-sm-12 my-2 my-md-4">
+      <section id="table" class="row bg-white packix-tile p-0">
+        <ngx-datatable
+          #myTable
+          class="material col-12 p-0"
+          [rows]="rows"
+          [sortType]="'multi'"
+          [columnMode]="'force'"
+          [headerHeight]="'auto'"
+          [footerHeight]="'auto'"
+          [rowHeight]="'auto'"
+          [limit]="10"
+          [sorts]="[{prop: 'approval.approved', dir: 'asc'}]"
+          [messages]="{emptyMessage: 'No users found', totalMessage: 'users(s)'}"
+          (sort)="onSort($event)"
+          (page)="onPage($event)">
+
+
+          <!-- Row Detail Template -->
+          <!--<ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow>-->
+            <!--<ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template class="row">-->
+              <!--<div class="col-12 p-0 flex-grow-1">-->
+                <!--<ul class="list-group text-muted small">-->
+                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || 'n/a'}}</li>-->
+                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.email}}</li>-->
+                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Requested On:</b> {{row.requestedOn}}</li>-->
+                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap">-->
+                    <!--<b>Approved:</b>-->
+                    <!--<button class="button small btn-primary" *ngIf="!row.approval.approved" (click)="approveRequest(row.registration.registrationHash)">Approve</button>-->
+                    <!--<strong *ngIf="row.approval.approved && !!row.approval.approvedByUser"><small>by </small>{{row.approval.approvedByUser}}</strong>-->
+                    <!--<strong *ngIf="row.approval.approved && !(!!row.approval.approvedByUser)">{{row.approval.approved}}</strong>-->
+                  <!--</li>-->
+                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Registered:</b> {{row.registration.userRegistered}}</li>-->
+                <!--</ul>-->
+              <!--</div>-->
+            <!--</ng-template>-->
+          <!--</ngx-datatable-row-detail>-->
+
+          <!-- Column Templates -->
+          <ngx-datatable-column
+            [width]="50"
+            [resizeable]="false"
+            [sortable]="false"
+            [draggable]="false"
+            [canAutoResize]="false"
+            *ngIf="mobile">
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+              <a href="javascript:void(0)"
+                 title="Expand/Collapse Row"
+                 (click)="toggleExpandRow(row)"
+                 class="desktop-hidden ionicons">{{expanded ? '&#xf280;' : '&#xf284;'}}</a>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Actions" sortable="false" prop="_id" [flexGrow]="0">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+              {{column.name}}
+            </ng-template>
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              <button class="reset button btn-action p-2 text-danger" (click)="deleteUser(value)">
+                <i class="ionicons">&#xf4c5;</i>
+              </button>
+              <button class="reset button btn-action p-2 text-info">
+                <i class="ionicons">&#xf165;</i>
+              </button>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Username" [flexGrow]="1" [sortable]="true">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Email" [flexGrow]="1" *ngIf="!mobile" [sortable]="true" prop="email">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+              <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <span class="mobile-hidden">{{value}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Name" [flexGrow]="1" *ngIf="!mobile" [sortable]="true" prop="name">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+              <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <span class="mobile-hidden">{{value || 'n/a'}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Roles" [flexGrow]="1" *ngIf="!mobile" [sortable]="true" prop="roles">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+              <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <span class="mobile-hidden">{{value.join(', ')}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+      </section>
+    </div>
+
+
   </div>
 
 </div>

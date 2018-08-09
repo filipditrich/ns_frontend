@@ -1,7 +1,7 @@
 import { environment } from '../../../environments/environment';
 import { AlertsService } from '../services/alerts/alerts.service';
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +31,34 @@ export class ErrorHelper {
           break;
         }
         default: {
-          this.alertsService.alertDanger({
-            title: error.name,
-            body: !!error.message ? error.message : (!!error.stack && !environment.production) ? error.stack : null
-          }, 7500);
+          if (error.name === 'INVALID_TOKEN') {
+            this.router.navigate(['/login'], { queryParams: { return: this.router.url } })
+              .then(() => {
+                const hasBeenLogged = sessionStorage.getItem('user') || false;
+                if (hasBeenLogged) {
+                  this.alertsService.alertWarning({
+                    title: 'Token expired',
+                    body: 'Your session token has expired, please log in to revoke it.'
+                  }, 5000);
+                } else {
+                  this.alertsService.alertDanger({
+                    title: 'You are not logged in',
+                    body: 'Please log in before accessing this page'
+                  }, 5000);
+                }
+              })
+              .catch(caught => {
+                this.alertsService.alertDanger({
+                  title: caught.name,
+                  body: !!caught.message ? caught.message : (!!caught.stack && !environment.production) ? caught.stack : null
+                }, 7500);
+              });
+          } else {
+            this.alertsService.alertDanger({
+              title: error.name,
+              body: !!error.message ? error.message : (!!error.stack && !environment.production) ? error.stack : null
+            }, 7500);
+          }
           break;
         }
       }

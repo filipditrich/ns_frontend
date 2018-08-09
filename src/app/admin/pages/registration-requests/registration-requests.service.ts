@@ -20,7 +20,7 @@ export class RegistrationRequestsService {
   }
 
   listRequests(): Observable<any> {
-    return this.http.get<any>(getUrl('LIST_REQS'));
+    return this.http.get<any>(`${getUrl('ADMIN')}/read/registration-requests`);
   }
 
 }

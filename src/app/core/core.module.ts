@@ -16,7 +16,7 @@ import {AuthGuard, PreventLogged, RoleGuard } from './services/auth.guard';
 import { PreviousRouteService } from './services/previous-route.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LogoutComponent } from './pages/logout/logout.component';
-import {ErrorHelper} from './helpers/error.helper';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 export function PreloadInitializerProviderFactory(provider: PreloadInitializer) {
   return () => provider.startupConfig();
@@ -28,7 +28,9 @@ export function PreloadInitializerProviderFactory(provider: PreloadInitializer) 
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CoreRouting
+    CoreRouting,
+    FormsModule,
+    NgSelectModule
   ],
   exports: [
     RouterModule,

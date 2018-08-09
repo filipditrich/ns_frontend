@@ -137,14 +137,21 @@ export class AdminRegistrationRequestsComponent implements OnInit {
 
       if (response.response.success && response.sent.length !== 0) {
         const total = Array.isArray(emails.emails) ? emails.emails.length : 1;
-        this.alertsService.alertSuccess({
-          title: 'Invitations sent!',
-          body: `We have successfully sent ${response.sent.length} out of ${total} invitation emails.`
-        }, 5000);
+        if (response.sent.lenth !== total) {
+          this.alertsService.alertWarning({
+            title: 'Invitations sent',
+            body: `We were able to send only ${response.sent.length} out of ${total} invitation emails. <br><b>Failure emails:</b><br> ${response.unsent.join(',<br>')}`
+          }, 5000);
+        } else {
+          this.alertsService.alertSuccess({
+            title: 'Invitations sent!',
+            body: `We have successfully sent ${response.sent.length} out of ${total} invitation emails.`
+          }, 5000);
+        }
       } else if (response.response.success && response.sent.length === 0 && response.unsent.length !== 0) {
         this.alertsService.alertDanger({
           title: 'Error sending invitations',
-          body: `We weren't able to send a single invitation email. Please make sure the invitation email is valid and is not already in invitation list.<br><b>Failure emails:</b> ${response.unsent.join(', ')}.`
+          body: `We weren't able to send a single invitation email. Please make sure the invitation email is valid and is not already in invitation list.<br><b>Failure emails:</b><br> ${response.unsent.join(',<br>')}`
         }, 7500);
       } else {
         this.errorHelper.processedButFailed(response);
@@ -196,12 +203,12 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   loadRequests() {
     this.adminRegReqSvc.listRequests().subscribe(response => {
 
-      if (response.requests) {
-        this.rows = response.requests;
+      if (response.output) {
+        this.rows = response.output;
         this.rows.forEach(row => {
           row.requestedOn = moment(row.requestedOn).format('lll');
         });
-        this.temp = [...response.requests];
+        this.temp = [...response.output];
       } else {
         this.errorHelper.processedButFailed(response);
       }
