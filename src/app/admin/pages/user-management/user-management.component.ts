@@ -3,6 +3,7 @@ import {AdminUserManagementService} from './user-management.service';
 import {ErrorHelper} from '../../../core/helpers/error.helper';
 import * as moment from 'moment';
 import {DialogsService} from '../../../core/services/dialogs/dialogs.service';
+import {AlertsService} from '../../../core/services/alerts/alerts.service';
 
 @Component({
   selector: 'ns-user-management',
@@ -23,7 +24,8 @@ export class AdminUserManagementComponent implements OnInit {
 
   constructor(private userMgmntSvc: AdminUserManagementService,
               private errorHelper: ErrorHelper,
-              private dialogsService: DialogsService) {
+              private dialogsService: DialogsService,
+              private alertsService: AlertsService) {
 
     this.loadUsers();
 
@@ -46,9 +48,24 @@ export class AdminUserManagementComponent implements OnInit {
         {
           class: 'btn-danger',
           text: 'Delete',
-          action: () => console.log('this would delete the selected user with id:' + id)
+          action: () => { this.removeUser(id); this.loadUsers(); }
         }
       ]
+    });
+  }
+
+  removeUser(id) {
+    this.userMgmntSvc.deleteUser(id).subscribe(response => {
+      if (response.response.success) {
+        this.alertsService.alertSuccess({
+          title: 'Deleted',
+          body: 'User successfully deleted.'
+        }, 5000);
+      } else {
+        this.errorHelper.processedButFailed(response);
+      }
+    }, error => {
+      this.errorHelper.handleGenericError(error);
     });
   }
 

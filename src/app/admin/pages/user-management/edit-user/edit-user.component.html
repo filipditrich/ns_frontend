@@ -6,6 +6,10 @@
       <div class="col-12">
         <form class="form row" [formGroup]="form" (submit)="onSubmit(form.value)">
 
+          <div class="loader-container" *ngIf="submitted">
+            <div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>
+          </div>
+
           <div class="packix-tile bg-white col-12 p-3">
             <div class="row">
               <div class="group d-flex flex-column col-lg-6"

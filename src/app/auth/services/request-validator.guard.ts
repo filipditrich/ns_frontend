@@ -8,6 +8,7 @@ import { throwError } from 'rxjs/internal/observable/throwError';
 import { catchError, map } from 'rxjs/operators';
 import { AlertsService } from '../../core/services/alerts/alerts.service';
 import { ErrorHelper } from '../../core/helpers/error.helper';
+import {AdminUserManagementService} from '../../admin/pages/user-management/user-management.service';
 
 
 @Injectable()
@@ -17,7 +18,8 @@ export class IsRequestHashValid implements CanActivate {
               private credResetSvc: CredResetService,
               private alertsSvc: AlertsService,
               private errorHelper: ErrorHelper,
-              private router: Router) {
+              private router: Router,
+              private userMgmtSvc: AdminUserManagementService) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
@@ -77,6 +79,32 @@ export class IsRequestHashValid implements CanActivate {
           });
         });
       }
+      case CheckType.EditUser: {
+        return new Observable<any>(observer => {
+          this.userMgmtSvc.getUser(hash).subscribe(response => {
+            if (response.response.success) {
+              observer.next(true);
+              observer.complete();
+            } else {
+              this.router.navigate(['/']).then(() => {
+                this.errorHelper.processedButFailed(response);
+              }).catch(error => {
+                this.errorHelper.handleGenericError(error);
+              });
+              observer.next(false);
+              observer.complete();
+            }
+          }, err => {
+            this.router.navigate(['/']).then(() => {
+              this.errorHelper.handleGenericError(err);
+            }).catch(error => {
+              this.errorHelper.handleGenericError(error);
+            });
+            observer.next(false);
+            observer.complete();
+          });
+        });
+      }
     }
   }
 }
@@ -84,18 +112,38 @@ export class IsRequestHashValid implements CanActivate {
 @Injectable()
 export class DataResolver implements Resolve<any> {
 
-  constructor(private registrationSvc: RegistrationService) { }
+  constructor(private registrationSvc: RegistrationService,
+              private userMgmtSvc: AdminUserManagementService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    return this.registrationSvc.checkRegistrationRequest(route.paramMap.get('hash')).pipe(map(result => {
-      if (result.response.success && result.request) {
-        return result.request;
-      } else {
-        return throwError(new Error(result.response));
+    const hash = route.paramMap.get('hash');
+    const type = route.data['checkType'];
+
+    switch (type) {
+      case CheckType.Registration: {
+        return this.registrationSvc.checkRegistrationRequest(hash).pipe(map(result => {
+          if (result.response.success && result.request) {
+            return result.request;
+          } else {
+            return throwError(new Error(result.response));
+          }
+        }), catchError(error => {
+          return throwError(new Error(error));
+        }));
       }
-    }), catchError(error => {
-      return throwError(new Error(error));
-    }));
+      case CheckType.EditUser: {
+        return this.userMgmtSvc.getUser(hash).pipe(map(result => {
+          if (result.response.success && result.output) {
+            return result.output[0];
+          } else {
+            return throwError(new Error(result.response));
+          }
+        }), catchError(error => {
+          return throwError(new Error(error));
+        }));
+      }
+    }
+
   }
 
 }

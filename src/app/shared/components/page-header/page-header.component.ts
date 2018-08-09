@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import {ObjectIdRegExp} from '../../../core/enums/regexp.enum';
 
 @Component({
   selector: 'ns-page-header',
@@ -20,6 +21,7 @@ export class PageHeaderComponent implements OnInit {
     // Get URL path
     this.path = this.router.url.split('/');
     if (this.path[0] === '') { this.path.splice(0, 1); }
+    this.path = this.path.filter(x => !ObjectIdRegExp.test(x));
 
     // Generate Breadcrumbs array
     this.path.forEach((path, index) => {

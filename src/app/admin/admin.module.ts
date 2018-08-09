@@ -10,6 +10,8 @@ import { AdminComponent } from './admin.component';
 import { AdminUserManagementComponent } from './pages/user-management/user-management.component';
 import { AdminEditUserComponent } from './pages/user-management/edit-user/edit-user.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {DataResolver, IsRequestHashValid} from '../auth/services/request-validator.guard';
+import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
 
 @NgModule({
   imports: [
@@ -21,6 +23,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
     NgSelectModule,
     SharedModule
   ],
-  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent]
+  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent],
+  providers: [
+    [IsRequestHashValid],
+    [DataResolver],
+    [AuthGuard],
+    [RoleGuard]
+  ]
 })
 export class AdminModule { }

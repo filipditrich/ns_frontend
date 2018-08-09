@@ -5,6 +5,10 @@ import { AdminRegistrationRequestsComponent } from './pages/registration-request
 import { AdminComponent } from './admin.component';
 import { AdminUserManagementComponent } from './pages/user-management/user-management.component';
 import {AdminEditUserComponent} from './pages/user-management/edit-user/edit-user.component';
+import {DataResolver, IsRequestHashValid} from '../auth/services/request-validator.guard';
+import {CheckType} from '../core/enums/check.enum';
+import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
+import {UserRoles} from '../core/enums/user.enum';
 
 const routes: Routes = [
   {
@@ -13,9 +17,16 @@ const routes: Routes = [
     children: [
       { path: '', component: BaseComponent },
       { path: 'registration-requests', component: AdminRegistrationRequestsComponent },
-      { path: 'user-management', component: AdminUserManagementComponent },
-      { path: 'edit-user', component: AdminEditUserComponent }
-    ]
+      { path: 'user-management',
+        children: [
+          { path: '', component: AdminUserManagementComponent },
+          { path: 'edit-user/:hash',
+            component: AdminEditUserComponent,
+            canActivate: [IsRequestHashValid],
+            resolve: { request: DataResolver },
+            data: { checkType: CheckType.EditUser }
+          }]
+      }]
   }
 ];
 

@@ -18,4 +18,12 @@ export class AdminUserManagementService {
     return this.http.get<any>(`${getUrl('ADMIN')}/read/users/${id}`);
   }
 
+  updateUser(id, update): Observable<any> {
+    return this.http.put<any>(`${getUrl('ADMIN')}/update/users/${id}`, update);
+  }
+
+  deleteUser(id): Observable<any> {
+    return this.http.delete<any>(`${getUrl('ADMIN')}/delete/users/${id}`);
+  }
+
 }

@@ -1,4 +1,5 @@
 export enum CheckType {
   Registration,
-  PasswordReset
+  PasswordReset,
+  EditUser
 }

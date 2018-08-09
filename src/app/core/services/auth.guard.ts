@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from '@angular/router';
 import { AuthService } from './auth/auth.service';
 import { AlertsService } from './alerts/alerts.service';
 import { ErrorHelper } from '../helpers/error.helper';
@@ -7,17 +7,21 @@ import { PreviousRouteService } from './previous-route.service';
 import {HttpClient} from '@angular/common/http';
 import {API} from '../../../environments/environment';
 import {getUrl} from '../config/endpoints.config';
+import {findByProp} from '../helpers/functions.helper';
+import {UserRoles} from '../enums/user.enum';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanActivateChild {
 
   constructor(private authService: AuthService,
               private router: Router,
               private errorHelper: ErrorHelper,
               private alertsService: AlertsService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) { return this.resolve(route, state); }
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) { return this.resolve(route, state); }
 
+  resolve(route, state) {
     if (this.authService.isTokenValid()) {
       return true;
     } else {
@@ -41,7 +45,6 @@ export class AuthGuard implements CanActivate {
         });
       return false;
     }
-
   }
 
 }
@@ -74,14 +77,18 @@ export class PreventLogged implements CanActivate {
 }
 
 @Injectable()
-export class RoleGuard implements CanActivate {
+export class RoleGuard implements CanActivate, CanActivateChild {
 
   constructor(private router: Router,
               private alertsService: AlertsService,
               private errorHelper: ErrorHelper,
               private previousRouteSvc: PreviousRouteService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) { return this.resolve(route, state); }
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) { return this.resolve(route, state); }
+
+
+  resolve(route, state) {
     const userRoles = JSON.parse(sessionStorage.getItem('user')).roles;
     const allowed = route.data['roles'];
 

@@ -7,12 +7,12 @@
       <section id="search" class="row flex-grow-1">
         <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0">
           <div class="group d-flex flex-column m-0">
-            <input type="search" id="search-box">
+            <input type="search" id="search-box" (keyup)="updateFilter($event)">
             <label for="search-box">Search users</label>
           </div>
         </form>
         <div class="packix-tile bg-white p-4 my-2 my-md-0 d-flex justify-content-between flex-column col-sm-12 ml-md-4 col-md-auto">
-          <button class="button large btn-primary mb-3">Create New User</button>
+          <button class="button large btn-primary mb-3 btn-disabled">Create New User</button>
           <button class="button large btn-primary" (click)="loadUsers()">Refresh list</button>
         </div>
       </section>
@@ -81,7 +81,7 @@
               <button class="reset button btn-action p-2 text-danger" (click)="deleteUser(value)">
                 <i class="ionicons">&#xf4c5;</i>
               </button>
-              <button class="reset button btn-action p-2 text-info">
+              <button class="reset button btn-action p-2 text-info" [routerLink]="['edit-user/' + value]">
                 <i class="ionicons">&#xf165;</i>
               </button>
             </ng-template>

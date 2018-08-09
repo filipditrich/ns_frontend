@@ -7,6 +7,7 @@ import { UserRoles } from '../../../../core/enums/user.enum';
 import { isEmail, isUpperCase } from '../../../../core/helpers/validators.helper';
 import {AlertsService} from '../../../../core/services/alerts/alerts.service';
 import {isSame} from '../../../../core/helpers/functions.helper';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'ns-edit-user',
@@ -18,11 +19,14 @@ export class AdminEditUserComponent implements OnInit {
   public form: FormGroup;
   public authRoles = UserRoles.values();
   public user: IUser;
-  public userOriginal: IUser;
+  public hash: string;
+  public submitted = false;
 
   constructor(private userMgmtSvc: AdminUserManagementService,
               private errorHelper: ErrorHelper,
-              private alertsService: AlertsService) {
+              private alertsService: AlertsService,
+              private route: ActivatedRoute,
+              private router: Router) {
 
     this.form = new FormGroup({
       username: new FormControl(null, [
@@ -47,30 +51,41 @@ export class AdminEditUserComponent implements OnInit {
   get roles() { return this.form.get('roles'); }
 
   ngOnInit() {
-    this.userMgmtSvc.getUser('5b6ac9b682aaec0913b71f36').subscribe(response => {
-      this.user = response.output[0];
-      this.userOriginal = this.user;
-      this.roles.setValue(this.user.roles);
-      this.email.setValue(this.user.email || 'n/a');
-      this.name.setValue(this.user.name || 'n/a');
-      this.username.setValue(this.user.username || 'n/a');
-    }, error => {
-      this.errorHelper.handleGenericError(error);
-    });
+    this.user = this.route.snapshot.data.request;
+    this.hash = this.route.snapshot.paramMap.get('hash');
+    this.roles.setValue(this.user.roles);
+    this.email.setValue(this.user.email || 'n/a');
+    this.name.setValue(this.user.name || 'n/a');
+    this.username.setValue(this.user.username || 'n/a');
   }
 
-  onSubmit(values) {
-    console.log(values, this.user);
+  onSubmit(input) {
+    const update = { update: input };
     if (!this.form.valid) {
       this.name.markAsTouched();
       this.username.markAsTouched();
       this.email.markAsTouched();
       this.roles.markAsTouched();
     } else {
-      this.alertsService.alertSuccess({
-        title: 'Saved',
-        body: 'Changes to user successfully saved.'
-      }, 5000);
+      this.submitted = true;
+      this.userMgmtSvc.updateUser(this.hash, update).subscribe(response => {
+        if (response.response.success) {
+          this.router.navigate([this.router.url]).then(() => {
+            this.alertsService.alertSuccess({
+              title: 'Saved',
+              body: 'Changes successfully saved.'
+            }, 5000);
+          }).catch(error => {
+            this.errorHelper.handleGenericError(error);
+          });
+        } else {
+          this.errorHelper.processedButFailed(response);
+        }
+        this.submitted = false;
+      }, error => {
+        this.errorHelper.handleGenericError(error);
+        this.submitted = false;
+      });
     }
   }
 

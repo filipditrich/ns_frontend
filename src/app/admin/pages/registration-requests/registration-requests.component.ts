@@ -137,7 +137,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
 
       if (response.response.success && response.sent.length !== 0) {
         const total = Array.isArray(emails.emails) ? emails.emails.length : 1;
-        if (response.sent.lenth !== total) {
+        if (response.sent.length !== total) {
           this.alertsService.alertWarning({
             title: 'Invitations sent',
             body: `We were able to send only ${response.sent.length} out of ${total} invitation emails. <br><b>Failure emails:</b><br> ${response.unsent.join(',<br>')}`
