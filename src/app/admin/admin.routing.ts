@@ -16,7 +16,7 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
-      { path: '', component: BaseComponent },
+      { path: '', redirectTo: 'user-management', pathMatch: 'full' },
       { path: 'registration-requests', component: AdminRegistrationRequestsComponent },
       { path: 'user-management',
         children: [

@@ -12,5 +12,6 @@ export interface IMenuLink {
   icon: string;
   title: string;
   active?: boolean;
+  disabled?: boolean;
   roles: UserRoles[];
 }

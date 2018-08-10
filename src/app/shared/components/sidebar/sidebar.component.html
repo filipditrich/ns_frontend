@@ -5,21 +5,11 @@
 
       <div class="menu-group" *ngFor="let group of groups">
         <header *ngIf="group.title">{{group.title}}</header>
-        <a *ngFor="let link of group.children" [routerLink]="[link.path]" [ngClass]="{ 'selected' : link.active }"><i class="ionicons" [innerHTML]="link.icon"></i>{{link.title}}</a>
+        <a *ngFor="let link of group.children" [routerLink]="[link.path]" [ngClass]="{ 'selected' : link.active, 'link-disabled' : link.disabled }"><i class="ionicons" [innerHTML]="link.icon"></i>{{link.title}}</a>
       </div>
 
-      <!--<a [routerLink]="['/user']" class="selected"><i class="ionicons">&#xf448;</i>Home</a>-->
-      <!--<a [routerLink]="['/user']"><i class="ionicons">&#xf3de;</i>Matches</a>-->
-      <!--<div class="menu-group">-->
-        <!--<header>Administrator</header>-->
-        <!--<a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf1ac;</i>Registration Requests</a>-->
-      <!--</div>-->
-      <!--<div class="menu-group">-->
-        <!--<a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf134;</i>Report a Problem</a>-->
-        <!--<a [routerLink]="['/admin/registration-requests']"><i class="ionicons">&#xf412;</i>Settings</a>-->
-      <!--</div>-->
       <footer class="text-muted">
-        <span>&copy; 2018 Visionary, s.r.o.</span>
+        <span>TeamApp alpha v. 0.6.2</span>
       </footer>
     </div>
   </nav>

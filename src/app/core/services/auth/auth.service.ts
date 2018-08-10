@@ -9,6 +9,7 @@ export class AuthService {
 
   public static storeUserData(user: IUser, token: string) {
     user.token = token;
+    user.roles.sort();
     sessionStorage.setItem('user', JSON.stringify(user));
   }
 

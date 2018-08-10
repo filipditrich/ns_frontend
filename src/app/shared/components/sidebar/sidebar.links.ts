@@ -12,7 +12,8 @@ export const groups: IMenuGroup[] = [
       path: '/user',
       icon: '&#xf448;',
       title: 'Home',
-      roles: allRoles
+      roles: allRoles,
+      disabled: true
     }]
   },
   {
@@ -24,7 +25,8 @@ export const groups: IMenuGroup[] = [
         path: '/admin',
         icon: '&#xf4b0;',
         title: 'Dashboard',
-        roles: [ UserRoles.admin ]
+        roles: [ UserRoles.admin ],
+        disabled: true
       },
       {
         id: 'user_management',
@@ -51,14 +53,16 @@ export const groups: IMenuGroup[] = [
         path: '/support/report-problem',
         icon: '&#xf134;',
         title: 'Report a Problem',
-        roles: allRoles
+        roles: allRoles,
+        disabled: true
       },
       {
         id: 'settings',
         path: '/settings',
         icon: '&#xf412;',
         title: 'Settings',
-        roles: allRoles
+        roles: allRoles,
+        disabled: true
       }
     ]
   }

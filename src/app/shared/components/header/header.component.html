@@ -6,15 +6,15 @@
     <h1 class="heading m-0">Northern Stars</h1>
 
     <div class="profile-drop d-flex" [ngClass]="{ 'activated' : dropdownOpen }">
-      <div class="profile-picture small round" [attr.ns-jersey-number]="96" (click)="dropdownOpen = !dropdownOpen">
-        <img src="../../../../assets/images/profile.jpeg" alt="Profile Image">
+      <div class="profile-picture small round" [attr.ns-jersey-number]="user.team || user.roles[0][0].toUpperCase() " (click)="dropdownOpen = !dropdownOpen">
+        <!--<img src="../../../../assets/images/profile.jpeg" alt="Profile Image">-->
       </div>
       <button class="reset light-grey-hover" (click)="dropdownOpen = !dropdownOpen">
         <span class="ionicons">&#xf280;</span>
       </button>
       <div class="ns-dropdown-menu reset d-flex flex-column" *ngIf="dropdownOpen">
-        <a [routerLink]="['/login']"><span class="ionicons">&#xf41a;</span>Your Profile</a>
-        <a [routerLink]="['/settings']"><span class="ionicons">&#xf412;</span>Settings</a>
+        <a [routerLink]="['/login']" class="link-disabled"><span class="ionicons">&#xf41a;</span>Your Profile</a>
+        <a [routerLink]="['/settings']" class="link-disabled"><span class="ionicons">&#xf412;</span>Settings</a>
         <span class="divider"></span>
         <a [routerLink]="['/logout']"><span class="ionicons">&#xf31f;</span>Log Out</a>
         <span class="arrow-up"></span>

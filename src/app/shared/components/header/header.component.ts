@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ErrorHelper} from '../../../core/helpers/error.helper';
 import {AlertsService} from '../../../core/services/alerts/alerts.service';
 import {SidebarService} from '../sidebar/sidebar.service';
+import {IUser} from '../../../core/models/user.interface';
 
 @Component({
   selector: 'ns-header',
@@ -13,6 +14,7 @@ import {SidebarService} from '../sidebar/sidebar.service';
 export class HeaderComponent implements OnInit {
 
   public dropdownOpen = false;
+  public user: IUser;
   menu_open: boolean;
 
   constructor(private router: Router,
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.sidebarSvc.menuMinified.subscribe(state => this.menu_open = state);
+    this.user = JSON.parse(sessionStorage.getItem('user'));
   }
 
   expandMenu() {
