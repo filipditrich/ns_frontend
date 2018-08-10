@@ -9,6 +9,7 @@ import {DataResolver, IsRequestHashValid} from '../auth/services/request-validat
 import {CheckType} from '../core/enums/check.enum';
 import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
 import {UserRoles} from '../core/enums/user.enum';
+import {AdminCreateUserComponent} from './pages/user-management/create-user/create-user.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,9 @@ const routes: Routes = [
             canActivate: [IsRequestHashValid],
             resolve: { request: DataResolver },
             data: { checkType: CheckType.EditUser }
-          }]
+          },
+          { path: 'create-user', component: AdminCreateUserComponent }
+        ]
       }]
   }
 ];

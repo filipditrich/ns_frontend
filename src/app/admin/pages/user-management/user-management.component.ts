@@ -4,6 +4,7 @@ import {ErrorHelper} from '../../../core/helpers/error.helper';
 import * as moment from 'moment';
 import {DialogsService} from '../../../core/services/dialogs/dialogs.service';
 import {AlertsService} from '../../../core/services/alerts/alerts.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'ns-user-management',
@@ -15,6 +16,7 @@ export class AdminUserManagementComponent implements OnInit {
   public mobile: boolean;
   public rows: any[] = [];
   public temp = [];
+  public form: FormGroup;
 
   @ViewChild('myTable') table: any;
   @HostListener('window:resize', ['$event'])
@@ -29,10 +31,19 @@ export class AdminUserManagementComponent implements OnInit {
 
     this.loadUsers();
 
+    this.form = new FormGroup({
+      filterBy: new FormControl(null),
+      search: new FormControl(null)
+    });
+
   }
+
+  get filterBy() { return this.form.get('filterBy'); }
+  get search() { return this.form.get('search'); }
 
   ngOnInit() {
     this.mobile = window.innerWidth <= 768;
+    this.filterBy.setValue('email', { onlySelf: true });
   }
 
   deleteUser(id) {
@@ -48,7 +59,7 @@ export class AdminUserManagementComponent implements OnInit {
         {
           class: 'btn-danger',
           text: 'Delete',
-          action: () => { this.removeUser(id); this.loadUsers(); }
+          action: () => this.removeUser(id)
         }
       ]
     });
@@ -61,6 +72,7 @@ export class AdminUserManagementComponent implements OnInit {
           title: 'Deleted',
           body: 'User successfully deleted.'
         }, 5000);
+        this.loadUsers();
       } else {
         this.errorHelper.processedButFailed(response);
       }
@@ -84,7 +96,7 @@ export class AdminUserManagementComponent implements OnInit {
   }
 
   onSort(event) {
-    this.loadUsers();
+    // this.loadUsers();
   }
 
   onPage(event) {
@@ -97,10 +109,11 @@ export class AdminUserManagementComponent implements OnInit {
     };
   }
 
-  updateFilter(event) {
-    const val = event.target.value.toLowerCase();
+  updateFilter() {
+    const val = this.search.value;
+    const filterBy = this.filterBy.value || 'email';
     this.rows = this.temp.filter(function(d) {
-      return d.email.toLowerCase().indexOf(val) !== -1 || !val;
+      return d[filterBy].toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.table.offset = 0;
   }

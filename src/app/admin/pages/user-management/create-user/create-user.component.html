@@ -1,0 +1,105 @@
+<div class="container">
+
+  <div class="row">
+    <ns-page-header class="py-4 px-2 col-12"></ns-page-header>
+
+    <div class="col-12">
+      <form class="form row" [formGroup]="form" (submit)="onSubmit(form.value)">
+
+        <div class="loader-container" *ngIf="submitted">
+          <div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>
+        </div>
+
+        <div class="packix-tile bg-white col-12 p-3">
+          <div class="row">
+
+            <div class="group d-flex flex-column col-lg-12"
+                 [ngClass]="{ 'error' : name.invalid && (name.dirty || name.touched) }">
+              <input type="text" id="name" formControlName="name">
+              <label for="name">Name</label>
+              <small class="text-danger" *ngIf="name.hasError('required') && (name.dirty || name.touched)">Name is required</small>
+              <small class="text-danger" *ngIf="name.hasError('minlength')">Name is too short (min 5 characters)</small>
+            </div>
+
+            <div class="group d-flex flex-column col-lg-6"
+                 [ngClass]="{ 'error' : username.invalid && (username.dirty || username.touched) }">
+              <input type="text" id="username" formControlName="username" required>
+              <label for="username">Username</label>
+              <small class="text-danger" *ngIf="username.hasError('required') && (username.dirty || username.touched)">Username is required</small>
+              <small class="text-danger" *ngIf="username.hasError('minlength')">Username is too short (min 5 characters)</small>
+              <small class="text-danger" *ngIf="username.hasError('maxlength')">Username is too long (max 20 characters)</small>
+              <small class="text-danger" *ngIf="username.hasError('in-use')">Username is in use. Please choose different</small>
+              <small class="text-danger" *ngIf="username.hasError('is-upper-case') && username.value">For security reasons we only allow lowercase alphanumerics</small>
+            </div>
+
+            <div class="group d-flex flex-column col-lg-6"
+                 [ngClass]="{ 'error' : roles.invalid && (roles.dirty || roles.touched) }">
+              <ng-select
+                [items]="authRoles"
+                [multiple]="true"
+                [closeOnSelect]="false"
+                bindLabel="roles"
+                formControlName="roles"
+                class="ng-select-input-custom">
+              </ng-select>
+              <label>Roles</label>
+              <small class="text-danger" *ngIf="roles.hasError('required') && (roles.dirty || roles.touched)">You must specify at least one role</small>
+            </div>
+
+            <div class="group d-flex flex-column col-lg-6"
+                 [ngClass]="{ 'error' : team.invalid && (team.dirty || team.touched) }">
+              <select class="form-control" id="team" [formControlName]="'team'">
+                <option value="ns">Northern Stars</option>
+                <option value="other">Other</option>
+              </select>
+              <label for="team">Team</label>
+              <small class="text-danger" *ngIf="team.hasError('required')">Team is required</small>
+            </div>
+
+            <div class="group d-flex flex-column col-lg-6" [ngClass]="{ 'error' : email.invalid && (email.dirty || email.touched) }">
+              <input type="email" id="email" formControlName="email">
+              <label for="email">Email</label>
+              <small class="text-danger" *ngIf="email.hasError('required') && (email.dirty || email.touched)">Email is required</small>
+              <small class="text-danger" *ngIf="email.hasError('email')">Invalid Email</small>
+              <small class="text-danger" *ngIf="email.hasError('in-use')">Email is already in use</small>
+            </div>
+
+            <div class="group d-flex flex-column col-lg-6"
+                 [ngClass]="{ 'error': password.hasError('required') && (password.dirty || password.touched) }">
+              <input type="password" id="password" formControlName="password">
+              <label for="password">Password</label>
+              <div class="progress mt-2" style="height: 5px" *ngIf="!password.hasError('required')">
+                <div class="progress-bar"
+                     [ngStyle]="{ 'width': 'calc((100% / 3) * ' + (password.getError('passwordStrength') ? password.getError('passwordStrength').strength : 3) }"
+                     [ngClass]="{
+               'bg-danger' : password.getError('passwordStrength')?.strength === 1,
+               'bg-warning' : password.getError('passwordStrength')?.strength === 2,
+               'bg-success' : !password.hasError('passwordStrength') }"></div>
+              </div>
+              <small class="text-danger" *ngIf="password.hasError('required') && (password.dirty || password.touched)">Password is required</small>
+            </div>
+
+            <div class="group d-flex flex-column col-lg-6"
+                 [ngClass]="{ 'error' : passwordSubmit.invalid && (passwordSubmit.dirty || passwordSubmit.touched) }">
+              <input type="password" id="passwordSubmit" formControlName="passwordSubmit">
+              <label for="passwordSubmit">Confirm Password</label>
+              <small class="text-danger" *ngIf="passwordSubmit.hasError('required') && (passwordSubmit.dirty || passwordSubmit.touched)">Password Confirmation is required</small>
+              <small class="text-danger" *ngIf="form.hasError('passwordConfirmation') && password.value !== null && (passwordSubmit.dirty || passwordSubmit.touched)">Passwords do not match</small>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="packix-tile bg-white col-12 my-4 py-3 d-flex flex-column flex-md-row">
+          <div class="group d-flex align-items-center mx-3">
+            <input type="checkbox" id="sendEmail" formControlName="sendEmail">
+            <label class="non-order mx-2" for="sendEmail">Send email to the new user</label>
+          </div>
+          <input type="submit" class="button large mx-3 flex-grow-1 flex-md-grow-0 ml-0 ml-md-auto" value="Create User" [ngClass]="{'btn-disabled': !form.valid && form.touched }">
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>

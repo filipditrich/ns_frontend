@@ -18,7 +18,7 @@ import {ErrorHelper} from '../../helpers/error.helper';
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm: FormGroup;
+  public form: FormGroup;
   public submitted = false;
 
   constructor(private httpClient: HttpClient,
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
               private titleService: Title,
               private errorHelper: ErrorHelper) {
 
-    this.loginForm = new FormGroup({
+    this.form = new FormGroup({
       username: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required])
     });
@@ -41,15 +41,15 @@ export class LoginComponent implements OnInit {
 
   }
 
-  get username() { return this.loginForm.get('username'); }
-  get password() { return this.loginForm.get('password'); }
+  get username() { return this.form.get('username'); }
+  get password() { return this.form.get('password'); }
 
   ngOnInit() {
   }
 
   onSubmit(input) {
 
-    if (!this.loginForm.valid) {
+    if (!this.form.valid) {
       this.username.markAsTouched();
       this.password.markAsTouched();
     } else {

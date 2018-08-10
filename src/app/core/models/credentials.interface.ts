@@ -1,3 +1,6 @@
+import {Team} from '../enums/team.enum';
+import {UserRoles} from '../enums/user.enum';
+
 export interface ICredentials {
   username: string;
   password: string;
@@ -15,5 +18,9 @@ export interface IRegistrationRequest {
 export interface IRegistrationCredentials {
   username: string;
   password: string;
-  team: string;
+  name: string;
+  email?: string;
+  team: Team;
+  roles?: UserRoles;
+
 }

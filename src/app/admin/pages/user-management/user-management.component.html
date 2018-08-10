@@ -5,14 +5,22 @@
 
     <div class="col-12 d-flex d-md-block mt-4">
       <section id="search" class="row flex-grow-1">
-        <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0">
-          <div class="group d-flex flex-column m-0">
-            <input type="search" id="search-box" (keyup)="updateFilter($event)">
+        <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0 d-flex flex-wrap" [formGroup]="form">
+          <div class="group d-flex flex-column col-md-8">
+            <input type="search" id="search-box" (keyup)="updateFilter()" formControlName="search">
             <label for="search-box">Search users</label>
+          </div>
+          <div class="group d-flex flex-column col-md-4">
+            <select class="form-control" id="filterBy" formControlName="filterBy" (change)="updateFilter()">
+              <option value="email">Email</option>
+              <option value="name">Name</option>
+              <option value="username">Username</option>
+            </select>
+            <label for="filterBy">Filter By</label>
           </div>
         </form>
         <div class="packix-tile bg-white p-4 my-2 my-md-0 d-flex justify-content-between flex-column col-sm-12 ml-md-4 col-md-auto">
-          <button class="button large btn-primary mb-3 btn-disabled">Create New User</button>
+          <button class="button large btn-primary mb-3" [routerLink]="['create-user']">Create New User</button>
           <button class="button large btn-primary" (click)="loadUsers()">Refresh list</button>
         </div>
       </section>
@@ -38,24 +46,18 @@
 
 
           <!-- Row Detail Template -->
-          <!--<ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow>-->
-            <!--<ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template class="row">-->
-              <!--<div class="col-12 p-0 flex-grow-1">-->
-                <!--<ul class="list-group text-muted small">-->
-                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || 'n/a'}}</li>-->
-                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.email}}</li>-->
-                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Requested On:</b> {{row.requestedOn}}</li>-->
-                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap">-->
-                    <!--<b>Approved:</b>-->
-                    <!--<button class="button small btn-primary" *ngIf="!row.approval.approved" (click)="approveRequest(row.registration.registrationHash)">Approve</button>-->
-                    <!--<strong *ngIf="row.approval.approved && !!row.approval.approvedByUser"><small>by </small>{{row.approval.approvedByUser}}</strong>-->
-                    <!--<strong *ngIf="row.approval.approved && !(!!row.approval.approvedByUser)">{{row.approval.approved}}</strong>-->
-                  <!--</li>-->
-                  <!--<li class="list-group-item justify-content-between d-flex flex-wrap"><b>Registered:</b> {{row.registration.userRegistered}}</li>-->
-                <!--</ul>-->
-              <!--</div>-->
-            <!--</ng-template>-->
-          <!--</ngx-datatable-row-detail>-->
+          <ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow>
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template class="row">
+              <div class="col-12 p-0 flex-grow-1">
+                <ul class="list-group text-muted small">
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Username:</b> {{row.username}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.email}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || 'n/a'}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Roles:</b> {{row.roles}}</li>
+                </ul>
+              </div>
+            </ng-template>
+          </ngx-datatable-row-detail>
 
           <!-- Column Templates -->
           <ngx-datatable-column
@@ -78,11 +80,13 @@
               {{column.name}}
             </ng-template>
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              <button class="reset button btn-action p-2 text-danger" (click)="deleteUser(value)">
+              <button class="reset button btn-action p-2 text-danger" (click)="deleteUser(value)"
+                      [attr.ns-tooltip]="'Delete'" [attr.ns-tooltip-position]="'right'">
                 <i class="ionicons">&#xf4c5;</i>
               </button>
-              <button class="reset button btn-action p-2 text-info" [routerLink]="['edit-user/' + value]">
-                <i class="ionicons">&#xf165;</i>
+              <button class="reset button btn-action p-2 text-dark" [routerLink]="['edit-user/' + value]"
+                      [attr.ns-tooltip]="'Edit'" [attr.ns-tooltip-position]="'right'">
+                <i class="ionicons">&#xf416;</i>
               </button>
             </ng-template>
           </ngx-datatable-column>

@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
 
   public hash: string;
   public request: any;
-  public registrationForm: FormGroup;
+  public form: FormGroup;
   public submitted = false;
 
   constructor(private httpClient: HttpClient,
@@ -35,7 +35,7 @@ export class RegistrationComponent implements OnInit {
               private errorHelper: ErrorHelper) {
 
     // TODO - Validators import settings from server (minlength, maxlength etc...)
-    this.registrationForm = new FormGroup({
+    this.form = new FormGroup({
       username: new FormControl(null, [
         Validators.required, Validators.minLength(5), Validators.maxLength(32), isUpperCase()
       ]),
@@ -53,11 +53,11 @@ export class RegistrationComponent implements OnInit {
 
   }
 
-  get username() { return this.registrationForm.get('username'); }
-  get name() { return this.registrationForm.get('name'); }
-  get team() { return this.registrationForm.get('team'); }
-  get password() { return this.registrationForm.get('password'); }
-  get passwordSubmit() { return this.registrationForm.get('passwordSubmit'); }
+  get username() { return this.form.get('username'); }
+  get name() { return this.form.get('name'); }
+  get team() { return this.form.get('team'); }
+  get password() { return this.form.get('password'); }
+  get passwordSubmit() { return this.form.get('passwordSubmit'); }
 
   ngOnInit() {
     this.request = this.route.snapshot.data.request;
@@ -68,7 +68,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(input) {
 
-    if (!this.registrationForm.valid) {
+    if (!this.form.valid) {
       this.username.markAsTouched();
       this.team.markAsTouched();
       this.password.markAsTouched();

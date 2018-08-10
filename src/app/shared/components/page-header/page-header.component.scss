@@ -4,24 +4,40 @@
 
   h2 {
     text-transform: capitalize;
+    display: flex;
+    align-items: center;
   }
 
   nav {
     flex-grow: 1;
   }
 
-  .help-button {
+  .back-button {
 
     background: white;
-    min-width: 48px;
-    min-height: 48px;
+    //padding: 10px;
+    width: 42px;
+    height: 42px;
     text-align: center;
-    line-height: 48px;
     color: $main;
     font-size: $fs_large;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 10px 35px -5px rgba(black, 0.1);
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 250ms;
+
+    &:hover {
+      box-shadow: 0 10px 35px -5px rgba(black, 0.25);
+    }
+
+    &:focus, &:active {
+      transform: scale(0.85);
+    }
+
   }
 
 }

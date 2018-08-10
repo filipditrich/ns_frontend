@@ -6,7 +6,7 @@
     <header>
       <h1 class="text-center text-uppercase color-main">Login</h1>
     </header>
-    <form class="form login-form" [formGroup]="loginForm" (submit)="onSubmit(loginForm.value)">
+    <form class="form login-form" [formGroup]="form" (submit)="onSubmit(form.value)">
       <div class="group d-flex flex-column" [ngClass]="{ 'error' : username.invalid && (username.dirty || username.touched) }">
         <input type="text" id="username" formControlName="username" autocomplete="username">
         <label for="username">Username</label>
@@ -20,7 +20,7 @@
         <small class="text-danger" *ngIf="password.hasError('no-match')">Password is invalid</small>
       </div>
       <div class="group d-flex flex-column">
-        <input class="button" [ngClass]="{'btn-disabled': !loginForm.valid && loginForm.touched}" type="submit" value="Login">
+        <input class="button" [ngClass]="{'btn-disabled': !form.valid && form.touched}" type="submit" value="Login">
       </div>
     </form>
     <footer class="row">

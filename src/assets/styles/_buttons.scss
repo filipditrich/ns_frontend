@@ -72,9 +72,17 @@ button{
   }
 
   &.btn-action {
-    background: transparent;
+    background: white;
+    box-shadow: none;
+    margin: 0 5px;
+    opacity: 0.75;
+
+    &:hover {
+      box-shadow: none;
+      opacity: 1;
+    }
     i {
-      font-size: $fs_bigger;
+      font-size: $fs_biggest;
     }
   }
 

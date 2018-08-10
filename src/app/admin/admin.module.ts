@@ -12,6 +12,7 @@ import { AdminEditUserComponent } from './pages/user-management/edit-user/edit-u
 import { NgSelectModule } from '@ng-select/ng-select';
 import {DataResolver, IsRequestHashValid} from '../auth/services/request-validator.guard';
 import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
+import { AdminCreateUserComponent } from './pages/user-management/create-user/create-user.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
     NgSelectModule,
     SharedModule
   ],
-  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent],
+  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent, AdminCreateUserComponent],
   providers: [
     [IsRequestHashValid],
     [DataResolver],

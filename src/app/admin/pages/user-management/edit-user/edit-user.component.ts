@@ -60,7 +60,6 @@ export class AdminEditUserComponent implements OnInit {
   }
 
   onSubmit(input) {
-    const update = { update: input };
     if (!this.form.valid) {
       this.name.markAsTouched();
       this.username.markAsTouched();
@@ -68,7 +67,7 @@ export class AdminEditUserComponent implements OnInit {
       this.roles.markAsTouched();
     } else {
       this.submitted = true;
-      this.userMgmtSvc.updateUser(this.hash, update).subscribe(response => {
+      this.userMgmtSvc.updateUser(this.hash, input).subscribe(response => {
         if (response.response.success) {
           this.router.navigate([this.router.url]).then(() => {
             this.alertsService.alertSuccess({

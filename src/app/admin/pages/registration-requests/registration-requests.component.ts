@@ -35,6 +35,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   public oneEmailOpen = false;
   public moreEmailOpen = false;
 
+  public form: FormGroup;
   public inviteOneForm: FormGroup;
   public inviteMoreForm: FormGroup;
   public invitationEmails = [];
@@ -60,14 +61,21 @@ export class AdminRegistrationRequestsComponent implements OnInit {
     this.inviteMoreForm = new FormGroup({
       email: new FormControl(null, [ isEmail(), Validators.required ])
     });
+    this.form = new FormGroup({
+      search: new FormControl(null),
+      filterBy: new FormControl(null)
+    });
 
   }
 
   get oneEmail() { return this.inviteOneForm.get('email'); }
   get moreEmail() { return this.inviteMoreForm.get('email'); }
+  get search() { return this.form.get('search'); }
+  get filterBy() { return this.form.get('filterBy'); }
 
   ngOnInit() {
     this.mobile = window.innerWidth <= 768;
+    this.filterBy.setValue('email', { onlySelf: true });
   }
 
 
@@ -133,8 +141,6 @@ export class AdminRegistrationRequestsComponent implements OnInit {
 
     this.adminRegReqSvc.sendInvitations(emails).subscribe(response => {
 
-      console.log(response);
-
       if (response.response.success && response.sent.length !== 0) {
         const total = Array.isArray(emails.emails) ? emails.emails.length : 1;
         if (response.sent.length !== total) {
@@ -142,11 +148,13 @@ export class AdminRegistrationRequestsComponent implements OnInit {
             title: 'Invitations sent',
             body: `We were able to send only ${response.sent.length} out of ${total} invitation emails. <br><b>Failure emails:</b><br> ${response.unsent.join(',<br>')}`
           }, 5000);
+          this.loadRequests();
         } else {
           this.alertsService.alertSuccess({
             title: 'Invitations sent!',
             body: `We have successfully sent ${response.sent.length} out of ${total} invitation emails.`
           }, 5000);
+          this.loadRequests();
         }
       } else if (response.response.success && response.sent.length === 0 && response.unsent.length !== 0) {
         this.alertsService.alertDanger({
@@ -187,7 +195,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
   }
 
   onSort(event) {
-    this.loadRequests();
+    // this.loadRequests();
   }
 
   onPage(event) {
@@ -207,6 +215,7 @@ export class AdminRegistrationRequestsComponent implements OnInit {
         this.rows = response.output;
         this.rows.forEach(row => {
           row.requestedOn = moment(row.requestedOn).format('lll');
+          row.name = !!row.name ? row.name : 'n/a';
         });
         this.temp = [...response.output];
       } else {
@@ -218,10 +227,11 @@ export class AdminRegistrationRequestsComponent implements OnInit {
     });
   }
 
-  updateFilter(event) {
-    const val = event.target.value.toLowerCase();
+  updateFilter() {
+    const val = this.search.value;
+    const filterBy = this.filterBy.value || 'email';
     this.rows = this.temp.filter(function(d) {
-      return d.email.toLowerCase().indexOf(val) !== -1 || !val;
+      return d[filterBy].toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.table.offset = 0;
   }

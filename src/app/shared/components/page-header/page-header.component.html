@@ -1,6 +1,11 @@
 <header class="page-header d-flex flex-grow-1">
   <nav>
-    <h2>{{title}}</h2>
+    <h2>
+      <!--<div class="back-button" (click)="back()">-->
+        <!--<span class="ionicons">&#xf3cf;</span>-->
+      <!--</div>-->
+      {{title}}
+    </h2>
     <div class="breadcrumbs">
       <span *ngFor="let chunk of breadcrumbs"><a [routerLink]="['/' + chunk.fullPath]">{{chunk.name}}</a></span>
       <span *ngIf="breadcrumbs.length >= 1">{{title}}</span>

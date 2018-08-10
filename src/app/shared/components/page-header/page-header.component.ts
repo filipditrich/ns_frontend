@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import {ObjectIdRegExp} from '../../../core/enums/regexp.enum';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'ns-page-header',
@@ -16,7 +17,8 @@ export class PageHeaderComponent implements OnInit {
   public breadcrumbs: any[] = [];
 
   constructor(private router: Router,
-              private titleService: Title) {
+              private titleService: Title,
+              private location: Location) {
 
     // Get URL path
     this.path = this.router.url.split('/');
@@ -40,6 +42,10 @@ export class PageHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  back() {
+    this.location.back();
   }
 
 }

@@ -71,10 +71,17 @@
 
     <div class="col-12 d-flex d-md-block mt-4">
       <section id="search" class="row flex-grow-1">
-        <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0">
-          <div class="group d-flex flex-column m-0">
-            <input type="search" id="search-box" (keyup)="updateFilter($event)">
+        <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0 d-flex flex-wrap" [formGroup]="form">
+          <div class="group d-flex flex-column col-md-8">
+            <input type="search" id="search-box" (keyup)="updateFilter()" formControlName="search">
             <label for="search-box">Search requests</label>
+          </div>
+          <div class="group d-flex flex-column col-md-4">
+            <select class="form-control" id="filterBy" formControlName="filterBy" (change)="updateFilter()">
+              <option value="email">Email</option>
+              <option value="name">Name</option>
+            </select>
+            <label for="filterBy">Filter By</label>
           </div>
         </form>
         <div class="packix-tile bg-white p-4 my-2 my-md-0 d-flex justify-content-between flex-column col-sm-12 ml-md-4 col-md-auto">
@@ -145,7 +152,7 @@
             </ng-template>
           </ngx-datatable-column>
 
-          <ngx-datatable-column name="Name" [flexGrow]="1" *ngIf="!mobile" [sortable]="true" prop="name">
+          <ngx-datatable-column name="Name" [flexGrow]="1" *ngIf="!mobile" [sortable]="true">
             <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
               <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
             </ng-template>
