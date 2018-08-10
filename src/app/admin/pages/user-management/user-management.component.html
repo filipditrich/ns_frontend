@@ -53,7 +53,7 @@
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Username:</b> {{row.username}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.email}}</li>
                   <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.name || 'n/a'}}</li>
-                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Roles:</b> {{row.roles}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Roles:</b> {{row.roles.sort()}}</li>
                 </ul>
               </div>
             </ng-template>
@@ -120,7 +120,7 @@
               <span class="mobile-hidden" (click)="sort()">{{column.name}}</span>
             </ng-template>
             <ng-template let-value="value" ngx-datatable-cell-template>
-              <span class="mobile-hidden">{{value.join(', ')}}</span>
+              <span class="mobile-hidden">{{value.sort().join(', ')}}</span>
             </ng-template>
           </ngx-datatable-column>
 

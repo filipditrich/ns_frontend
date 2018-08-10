@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e5d730d-6b4f-48a3-a61a-4b32c95cd37c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/admin.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/admin.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/models/user.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/models/user.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.links.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/sidebar/sidebar.links.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -42,24 +33,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="html" value="84" />
+          <entry key="html" value="85" />
           <entry key="json" value="2" />
           <entry key="scss" value="77" />
-          <entry key="ts" value="159" />
+          <entry key="ts" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="84" />
+          <entry key="HTML" value="85" />
           <entry key="JSON" value="2" />
           <entry key="SCSS" value="77" />
-          <entry key="TypeScript" value="159" />
+          <entry key="TypeScript" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="9024" />
+          <entry key="html" value="9037" />
           <entry key="scss" value="5255" />
           <entry key="ts" value="15638" />
           <entry key="txt" value="46" />
@@ -67,7 +58,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="9021" />
+          <entry key="HTML" value="9034" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="46" />
           <entry key="SCSS" value="5255" />
@@ -80,50 +71,7 @@
     <favorites_list name="ns_frontend" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/models/user.interface.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/core/enums/user.enum.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -135,7 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onDeta</find>
       <find>---</find>
       <find>requests</find>
       <find>response.req</find>
@@ -165,6 +112,7 @@
       <find>setItem</find>
       <find>[disabled</find>
       <find>setIte</find>
+      <find>roles</find>
     </findStrings>
     <replaceStrings>
       <replace>newPasswordForm</replace>
@@ -236,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/app/admin/pages/user-management/create-user/create-user.component.html" />
         <option value="$PROJECT_DIR$/src/app/admin/pages/user-management/create-user/create-user.component.ts" />
         <option value="$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.html" />
         <option value="$PROJECT_DIR$/src/app/admin/pages/base/base.component.html" />
         <option value="$PROJECT_DIR$/src/app/admin/admin.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/core/models/menulinks.interface.ts" />
@@ -249,6 +196,7 @@
         <option value="$PROJECT_DIR$/src/app/core/enums/user.enum.ts" />
         <option value="$PROJECT_DIR$/src/app/core/models/user.interface.ts" />
         <option value="$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.html" />
       </list>
     </option>
   </component>
@@ -299,30 +247,6 @@
               <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ns_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ns_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -391,12 +315,12 @@
       <workItem from="1533756815641" duration="2274000" />
       <workItem from="1533797696310" duration="13484000" />
       <workItem from="1533834181485" duration="8794000" />
-      <workItem from="1533881549442" duration="13406000" />
+      <workItem from="1533881549442" duration="13836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187629000" />
+    <option name="totallyTimeSpent" value="188059000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,15 +333,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1109" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Favorites" order="1" sideWeight="0.5072626" side_tool="true" weight="0.14646997" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.49273744" visible="true" weight="0.15542677" />
+      <window_info active="true" content_ui="combo" id="Project" order="3" sideWeight="0.49273744" visible="true" weight="0.15542677" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32941177" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.196" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.129" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="TypeScript" order="5" weight="0.32941177" />
@@ -676,16 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="734">
-          <caret line="99" column="3" lean-forward="true" selection-start-line="99" selection-start-column="3" selection-end-line="99" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/styles/_buttons.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -742,13 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="124" column="87" selection-start-line="124" selection-start-column="77" selection-end-line="124" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" column="66" selection-start-line="86" selection-start-column="66" selection-end-line="86" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -827,17 +733,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/components/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/enums/user.enum.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -851,12 +760,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/core/services/auth/auth.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/core/enums/user.enum.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="123" column="26" lean-forward="true" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/admin/pages/user-management/user-management.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="711">
+          <caret line="99" column="3" lean-forward="true" selection-start-line="99" selection-start-column="3" selection-end-line="99" selection-end-column="3" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
