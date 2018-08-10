@@ -11,7 +11,7 @@
   <nav id="nav">
     <button (click)="pageBack()" class="reset hoverable" [attr.ns-tooltip]="'Return'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf3cf;'" [attr.icon-size]="'lg'"></i></button>
     <button [routerLink]="['/admin']" (click)="b()" class="reset hoverable" [attr.ns-tooltip]="'Search'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf20a;'" [attr.icon-size]="'lg'"></i></button>
-    <h1 class="heading">{{innerWidth > mobileSize ? 'Northern Stars' : 'NS'}} <span class="tag small" [attr.ns-tooltip]="'Version 0.2b'" [attr.ns-tooltip-position]="'bottom'">beta</span></h1>
+    <h1 class="heading" [routerLink]="['/dashboard']">{{innerWidth > mobileSize ? 'Northern Stars' : 'NS'}} <span class="tag small" [attr.ns-tooltip]="'Version 0.2b'" [attr.ns-tooltip-position]="'bottom'">beta</span></h1>
     <div class="dropdown dropdown-profile" [attr.ns-dropdown-open]="">
       <button class="reset hoverable" (click)="dropdownActive = !dropdownActive" [attr.ns-tooltip]="'Profile Dropdown'" [attr.ns-tooltip-position]="'bottom'"><i [attr.ns-role]="'icon'" [attr.icon-type]="'ionicons'" [attr.icon-code]="'&#xf419;'" [attr.icon-size]="'lg'"></i></button>
       <div class="dropdown-container" *ngIf="dropdownActive">

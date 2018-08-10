@@ -1,10 +1,21 @@
-<div class="container-fluid">
-  <div class="toolbar border-bottom border-light">
-    <!-- Chceme sem nějakej toolbar s filtrama atd? -->
-  </div>
-  <div class="d-flex">
-    <div *ngFor="">
-      <sec-match-tile></sec-match-tile>
+<div class="container">
+  <h1>Matches</h1>
+  <!--<div class="toolbar border-bottom border-light">-->
+    <!--&lt;!&ndash; Chceme sem nějakej toolbar s filtrama atd? &ndash;&gt;-->
+  <!--</div>-->
+  <div class="dialog-window">
+    <div *ngFor="let match of responseBody; let i = index" class="col-sm-5 col-md-4 col-lg-2 cl-xl-4 bg-white p-5">
+      <button *ngIf="checkAdmin()" (click)="deleteMatch(match)">Delete Match</button>
+      <h2>{{match.name}}</h2>
+      <ul>
+        <li>Místo: {{match.place}}</li>
+        <li>Čas: {{match.date | amDateFormat: 'DD.MM.YYYY'}} v {{match.date | amDateFormat: 'HH:mm'}}</li>
+        <li>Zůčastní se: {{match.players}}</li>
+      </ul>
+      <button *ngIf="checkPlayer() && !willParticipate(match)" (click)="participation('yes')">Zůčastním se</button>
+      <!--<button *ngIf="checkPlayer()" (click)="participation('maybe')">Možná</button>-->
+      <button *ngIf="checkPlayer() && !willParticipate(match)" (click)="participation('no')">Nezůčastním se</button>
     </div>
   </div>
+
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'sec-match-tile',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecMatchTileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    // this.http
+  }
 
   ngOnInit() {
   }

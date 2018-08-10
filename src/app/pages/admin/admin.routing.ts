@@ -11,7 +11,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {path: '', component: AdminInterfaceComponent, canActivate: [AuthGuard]},
-      {path: 'matches', component: AddMatchComponent, canActivate: [AuthGuard]}
+      {path: 'add-match', component: AddMatchComponent, canActivate: [AuthGuard]}
     ]
   }
 ];

@@ -2,26 +2,37 @@
   <div class="col-lg-10 bg-white p-5">
     <header>
       <h3 class="text-left text-uppercase color-black">Add match</h3>
+      <small>Today is: <b>{{today | amLocal | amDateFormat: 'DD.MM.YYYY'}}</b></small>
     </header>
     <form (submit)="onSubmit(addMatchForm.value)" [formGroup]="addMatchForm" class="form login-form row">
       <div class="group d-flex flex-column col-lg-6">
         <input type="string" id="name" formControlName="name">
-        <label for="date">Name</label>
+        <label for="name">Name</label>
+        <small class="text-danger" *ngIf="!addMatchForm.controls['time'].valid && !addMatchForm.controls['time'].errors['no-match'] && addMatchForm.controls['time'].touched">Name is required</small>
       </div>
       <div class="group d-flex flex-column col-lg-6">
-        <input type="string" id="date" formControlName="date">
+        <input type="date" id="date" formControlName="date">
         <label for="date">Date</label>
+        <small class="text-danger" *ngIf="!addMatchForm.controls['time'].valid && !addMatchForm.controls['time'].errors['no-match'] && addMatchForm.controls['time'].touched">Date is required</small>
       </div>
       <div class="group d-flex flex-column col-lg-6">
-        <input type="text" id="place" formControlName="place" required>
+        <input type="time" id="time" formControlName="time">
+        <label for="time">Time</label>
+        <small class="text-danger" *ngIf="!addMatchForm.controls['time'].valid && !addMatchForm.controls['time'].errors['no-match'] && addMatchForm.controls['time'].touched">Time is required</small>
+      </div>
+      <div class="group d-flex flex-column col-lg-6">
+        <input type="text" id="place" formControlName="place">
         <label for="place">Place</label>
+        <small class="text-danger" *ngIf="!addMatchForm.controls['time'].valid && !addMatchForm.controls['time'].errors['no-match'] && addMatchForm.controls['time'].touched">Place is required</small>
+
       </div>
       <div class="group d-flex flex-column col-lg-6">
         <textarea formControlName="info" id="info"></textarea>
         <label for="info">Some info about match</label>
       </div>
       <div class="group d-flex flex-column col-lg-12">
-        <input class="button" type="submit" value="Add match">
+        <input class="button" type="submit" value="Add match" [ngClass]="{'btn-disabled': !addMatchForm.valid && addMatchForm.touched}">
+
       </div>
     </form>
 </div>

@@ -4,13 +4,15 @@ import {DashboardComponent} from './dashboard.component';
 import {MatchesComponent} from './matches/matches.component';
 import {AuthGuard} from '../../midpoint/auth/auth.guard';
 import {AdminComponent} from '../admin/admin.component';
+import {DashboardInterfaceComponent} from './dashboard-interface/dashboard-interface.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
     children: [
-      {path: '', component: MatchesComponent, canActivate: [AuthGuard]}
+      {path: '', component: DashboardInterfaceComponent, canActivate: [AuthGuard]},
+      {path: 'matches', component: MatchesComponent, canActivate: [AuthGuard]}
     ]
   }
 ];

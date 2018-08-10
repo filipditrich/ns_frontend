@@ -15,14 +15,4 @@ export class AdminComponent implements OnInit {
 
   }
 
-  checkAdmin() {
-    let user = JSON.parse(sessionStorage.getItem('user'));
-    let roles = user.roles;
-    if(user && roles.indexOf('admin')>0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
 }
