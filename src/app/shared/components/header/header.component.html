@@ -6,7 +6,7 @@
     <h1 class="heading m-0">Northern Stars</h1>
 
     <div class="profile-drop d-flex" [ngClass]="{ 'activated' : dropdownOpen }">
-      <div class="profile-picture small round" [attr.ns-jersey-number]="user.team || user.roles[0][0].toUpperCase() " (click)="dropdownOpen = !dropdownOpen">
+      <div class="profile-picture small round" [attr.ns-jersey-number]="!!user.team ? user.team : user.roles[0][0].toUpperCase() " (click)="dropdownOpen = !dropdownOpen">
         <!--<img src="../../../../assets/images/profile.jpeg" alt="Profile Image">-->
       </div>
       <button class="reset light-grey-hover" (click)="dropdownOpen = !dropdownOpen">

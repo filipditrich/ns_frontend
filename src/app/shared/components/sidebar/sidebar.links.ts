@@ -29,6 +29,13 @@ export const groups: IMenuGroup[] = [
         disabled: true
       },
       {
+        id: 'match_manager',
+        path: '/admin/match-manager',
+        icon: '&#xf42d;',
+        title: 'Match Manager',
+        roles: [ UserRoles.admin ]
+      },
+      {
         id: 'user_management',
         path: '/admin/user-management',
         icon: '&#xf161;',

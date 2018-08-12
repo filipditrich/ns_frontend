@@ -1,0 +1,114 @@
+<div class="container">
+
+  <div class="row">
+    <ns-page-header class="py-4 px-2 col-12"></ns-page-header>
+
+    <div class="col-12 d-flex d-md-block mt-4">
+      <section id="search" class="row flex-grow-1">
+        <form class="form packix-tile bg-white p-4 my-2 my-md-0 flex-grow-1 col-sm-12 col-md-auto order-1 order-md-0 d-flex flex-wrap" [formGroup]="form">
+          <div class="group d-flex flex-column col-md-8">
+            <input type="search" id="search-box" (keyup)="updateFilter()" formControlName="search">
+            <label for="search-box">Search users</label>
+          </div>
+          <div class="group d-flex flex-column col-md-4">
+            <select class="form-control" id="filterBy" formControlName="filterBy" (change)="updateFilter()">
+              <option value="title">Title</option>
+              <option value="place">Place</option>
+            </select>
+            <label for="filterBy">Filter By</label>
+          </div>
+        </form>
+        <div class="packix-tile bg-white p-4 my-2 my-md-0 d-flex justify-content-between flex-column col-sm-12 ml-md-4 col-md-auto">
+          <button class="button large btn-primary mb-3" [routerLink]="['create-user']">Create New User</button>
+          <button class="button large btn-primary" (click)="loadMatches()">Refresh list</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="col-sm-12 my-2 my-md-4">
+      <section id="table" class="row bg-white packix-tile p-0">
+        <ngx-datatable
+          #myTable
+          class="material col-12 p-0"
+          [rows]="rows"
+          [sortType]="'multi'"
+          [columnMode]="'force'"
+          [headerHeight]="'auto'"
+          [footerHeight]="'auto'"
+          [rowHeight]="'auto'"
+          [limit]="10"
+          [sorts]="[{prop: 'approval.approved', dir: 'asc'}]"
+          [messages]="{emptyMessage: 'No matches found', totalMessage: 'match(es)'}"
+          (sort)="onSort($event)"
+          (page)="onPage($event)">
+
+
+          <!-- Row Detail Template -->
+          <ngx-datatable-row-detail [rowHeight]="'auto'" #myDetailRow>
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-row-detail-template class="row">
+              <div class="col-12 p-0 flex-grow-1">
+                <ul class="list-group text-muted small">
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Username:</b> {{row.title}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Email:</b> {{row.date}}</li>
+                  <li class="list-group-item justify-content-between d-flex flex-wrap"><b>Name:</b> {{row.place || 'n/a'}}</li>
+                </ul>
+              </div>
+            </ng-template>
+          </ngx-datatable-row-detail>
+
+          <!-- Column Templates -->
+          <ngx-datatable-column
+            [width]="50"
+            [resizeable]="false"
+            [sortable]="false"
+            [draggable]="false"
+            [canAutoResize]="false">
+            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+              <a href="javascript:void(0)"
+                 title="Expand/Collapse Row"
+                 (click)="toggleExpandRow(row)"
+                 class="desktop-hidden ionicons">{{expanded ? '&#xf280;' : '&#xf284;'}}</a>
+            </ng-template>
+          </ngx-datatable-column>
+
+          <!--<ngx-datatable-column name="Actions" sortable="false" prop="_id" [flexGrow]="0">-->
+            <!--<ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>-->
+              <!--{{column.name}}-->
+            <!--</ng-template>-->
+            <!--<ng-template let-row="row" let-value="value" ngx-datatable-cell-template>-->
+              <!--<button class="reset button btn-action p-2 text-danger" (click)="removeMatch(value)"-->
+                      <!--[attr.ns-tooltip]="'Delete'" [attr.ns-tooltip-position]="'right'">-->
+                <!--<i class="ionicons">&#xf4c5;</i>-->
+              <!--</button>-->
+              <!--<button class="reset button btn-action p-2 text-dark" [routerLink]="['edit-match/' + value]"-->
+                      <!--[attr.ns-tooltip]="'Edit'" [attr.ns-tooltip-position]="'right'">-->
+                <!--<i class="ionicons">&#xf416;</i>-->
+              <!--</button>-->
+            <!--</ng-template>-->
+          <!--</ngx-datatable-column>-->
+
+          <ngx-datatable-column name="Title" [flexGrow]="1" [sortable]="true" prop="title">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Date" [flexGrow]="1" [sortable]="true" prop="date">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+
+          <ngx-datatable-column name="Place" [flexGrow]="1" [sortable]="true" prop="place">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+
+        </ngx-datatable>
+      </section>
+    </div>
+
+  </div>
+
+</div>

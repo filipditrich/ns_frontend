@@ -1,6 +1,6 @@
 export enum Team {
-  ns = 'Northern Stars',
-  other = 'Other'
+  ns,
+  other
 }
 
 export namespace Team {

@@ -13,6 +13,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import {DataResolver, IsRequestHashValid} from '../auth/services/request-validator.guard';
 import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
 import { AdminCreateUserComponent } from './pages/user-management/create-user/create-user.component';
+import { MatchManagerComponent } from './pages/match-manager/match-manager.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { AdminCreateUserComponent } from './pages/user-management/create-user/cr
     NgSelectModule,
     SharedModule
   ],
-  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent, AdminCreateUserComponent],
+  declarations: [AdminComponent, BaseComponent, AdminRegistrationRequestsComponent, AdminUserManagementComponent, AdminEditUserComponent, AdminCreateUserComponent, MatchManagerComponent],
   providers: [
     [IsRequestHashValid],
     [DataResolver],

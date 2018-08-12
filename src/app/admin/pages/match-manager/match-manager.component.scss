@@ -1,0 +1,7 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/host";
+
+:host {
+  @include classicHost();
+}
+

@@ -10,6 +10,7 @@ import {CheckType} from '../core/enums/check.enum';
 import {AuthGuard, RoleGuard} from '../core/services/auth.guard';
 import {UserRoles} from '../core/enums/user.enum';
 import {AdminCreateUserComponent} from './pages/user-management/create-user/create-user.component';
+import {MatchManagerComponent} from './pages/match-manager/match-manager.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,9 @@ const routes: Routes = [
           },
           { path: 'create-user', component: AdminCreateUserComponent }
         ]
-      }]
+      },
+      { path: 'match-manager', component: MatchManagerComponent }
+    ]
   }
 ];
 

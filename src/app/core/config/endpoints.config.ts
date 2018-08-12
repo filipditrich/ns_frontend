@@ -22,6 +22,7 @@ export function getUrl(id: string, worker: string = EndpointGroup.Agent) {
   switch (worker) {
     case EndpointGroup.Agent: port = 3000; break;
     case EndpointGroup.Backdrop: port = 3001; break;
+    case EndpointGroup.Sport: port = 3002; break;
   }
   const endpoint = getUrlById(id, worker);
 
