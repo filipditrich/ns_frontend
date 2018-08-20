@@ -10,7 +10,7 @@ import { RegistrationService } from './registration.service';
 import { ErrorHelper } from '../../../core/helpers/error.helper';
 import { IRegistrationCredentials } from '../../../core/models/credentials.interface';
 
-import * as _cc from '../../../core/config/codes.config';
+import * as codeConfig from '../../../core/config/codes.config';
 
 @Component({
   selector: 'ns-registration',
@@ -49,8 +49,6 @@ export class RegistrationComponent implements OnInit {
       passwordSubmit: new FormControl(null, [ Validators.required ])
     }, passwordConfirmation());
 
-    this.titleService.setTitle('Northern Stars » Registration');
-
   }
 
   get username() { return this.form.get('username'); }
@@ -60,7 +58,11 @@ export class RegistrationComponent implements OnInit {
   get passwordSubmit() { return this.form.get('passwordSubmit'); }
 
   ngOnInit() {
-    this.request = this.route.snapshot.data.request;
+    this.route.data.subscribe(data => {
+      this.request = data.request;
+    }, error => {
+      console.log("FUCK ERRORR", error);
+    });
     this.hash = this.route.snapshot.paramMap.get('hash');
     this.team.setValue('ns', { onlySelf: true });
     if (this.request.name) { this.name.setValue(this.request.name); }
@@ -107,7 +109,7 @@ export class RegistrationComponent implements OnInit {
       this.submitted = false;
 
       switch (error.name) {
-        case _cc.getCodeByName('USERNAME_IN_USE').name: {
+        case codeConfig.getCodeByName('USERNAME_IN_USE', 'auth').name: {
           this.username.setErrors({ 'in-use' : true }); break;
         }
         default: {

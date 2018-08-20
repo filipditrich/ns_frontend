@@ -7,9 +7,8 @@ export const environment = {
   production: false,
 };
 
-export function API(port: number = 3000) {
-  return `http://localhost:${port}`;
-}
+export const APIRoot = 'http://localhost:4000';
+export const APIVersion = 'v1';
 
 /*
  * In development mode, to ignore zone related error stack frames such as

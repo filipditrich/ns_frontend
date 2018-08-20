@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
 import { CoreRouting } from './core.routing';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -17,6 +17,7 @@ import { PreviousRouteService } from './services/previous-route.service';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {GlobalErrorHandler} from './services/error-handler.provider';
 
 export function PreloadInitializerProviderFactory(provider: PreloadInitializer) {
   return () => provider.startupConfig();
@@ -47,6 +48,8 @@ export function PreloadInitializerProviderFactory(provider: PreloadInitializer) 
       useFactory: PreloadInitializerProviderFactory,
       deps: [PreloadInitializer],
       multi: true },
+    { provide: ErrorHandler,
+      useClass: GlobalErrorHandler },
 
     AlertsService,
     DialogsService,

@@ -12,15 +12,15 @@ export class RegistrationRequestsService {
 
   sendInvitations(emails: string | string[]): Observable<any> {
     // TODO - on backend
-    return this.http.post(getUrl('INV_REQ'), emails);
+    return this.http.post(getUrl('INV_REQ', 'admin'), emails);
   }
 
   approveRequest(hash: string): Observable<any> {
-    return this.http.put<any>(`${getUrl('APPROVE')}/${hash}`, {});
+    return this.http.put<any>(`${getUrl('APPROVE', 'admin')}/${hash}`, {});
   }
 
   listRequests(): Observable<any> {
-    return this.http.get<any>(`${getUrl('ADMIN')}/read/registration-requests`);
+    return this.http.get<any>(`${getUrl('ADMIN', 'admin')}/read/registration-requests`);
   }
 
 }

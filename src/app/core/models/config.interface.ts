@@ -4,8 +4,7 @@ import { Method } from '../enums/method.enum';
 
 export interface IResource {
   response: IResponse;
-  codes?: ICode | ICode[];
-  endpoints?: IEndpoint | IEndpoint[];
+  output: any;
 }
 
 export interface IEndpoint {

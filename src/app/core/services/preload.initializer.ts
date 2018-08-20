@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IResource } from '../models/config.interface';
-import { API } from '../../../environments/environment';
+import { APIRoot, APIVersion } from '../../../environments/environment';
+import { forEach } from 'lodash';
 
-import * as _cc from '../config/codes.config';
-import * as _ec from '../config/endpoints.config';
-import {ErrorHelper} from '../helpers/error.helper';
-import {EndpointGroup} from '../enums/endpoint.enum';
+import * as codes from '../config/codes.config';
+import * as endpoints from '../config/endpoints.config';
 
 
 @Injectable({
@@ -30,17 +29,17 @@ export class PreloadInitializer {
       .append('X-Secret', '937a43fc73c501dfa94d7dcf0cf668e0x7');
 
     // TODO - <any> => resource interface
-    return this.http.get<IResource>(`${API(3001)}/api/assembly/codes`, { headers })
+    return this.http.get<IResource>(`${APIRoot}/api/${APIVersion}/config/export/codes`, { headers })
       .toPromise()
       .then(result => {
-        if (result.codes) {
-          _cc.updateCodes(result.codes);
-          console.log('[%s] Codes', _cc.getCodeByName('RESOURCE_LOADED').name);
+        if (result.output) {
+          codes.updateCodes(result.output);
+          console.log(`[PRELOAD:OK]: ${codes.getCodeByName('RESOURCE_LOADED', 'system').name} - Codes`);
         } else {
-          console.error('[ERR_LOADING] Codes', result);
+          console.error('[PRELOAD:FAIL] Haven\'t received any codes!', result);
         }
       }, error => {
-        console.error('[ERR_LOADING] Codes', error);
+        console.error('[PRELOAD:FAIL] Error occurred while receiving codes!', error);
       });
   }
 
@@ -50,38 +49,18 @@ export class PreloadInitializer {
       .append('X-Secret', '937a43fc73c501dfa94d7dcf0cf668e0x7');
 
 
-    const promises = [];
-
-    EndpointGroup.values().forEach(worker => {
-      worker = worker.toLowerCase();
-      const promise = new Promise((resolve, reject) => {
-        this.http.get<IResource>(`${API(3001)}/api/assembly/routes/${worker}`, { headers }).toPromise()
-          .then(result => {
-            if (result.endpoints) {
-              _ec.updateEndpointGroup(worker, result.endpoints);
-              resolve();
-            } else {
-              reject('[ERR_LOADING] Endpoints: ' + result);
-            }
-          }, error => {
-            reject('[ERR_LOADING] Endpoints: ' + error);
-          });
+    return this.http.get<IResource>(`${APIRoot}/api/${APIVersion}/config/export/routes`, { headers })
+      .toPromise()
+      .then(result => {
+        if (result.output) {
+          endpoints.updateEndpoints(result.output);
+          console.log(`[PRELOAD:OK]: ${codes.getCodeByName('RESOURCE_LOADED', 'system').name} - Routes`);
+        } else {
+          console.error('[PRELOAD:FAIL] Haven\'t received any routes!', result);
+        }
+      }, error => {
+        console.error('[PRELOAD:FAIL] Error occurred while receiving routes!', error);
       });
-      promises.push(promise);
-    });
-
-    return Promise.all(promises);
-
   }
-
-  // obtainVariables(): Promise<any> {
-  //
-  //   const headers = new HttpHeaders()
-  //     .append('X-Secret', '937a43fc73c501dfa94d7dcf0cf668e0x7');
-  //
-  //
-  //   const promises = [];
-  //
-  // }
 
 }

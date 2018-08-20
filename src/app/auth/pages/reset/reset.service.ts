@@ -13,19 +13,20 @@ export class CredResetService {
   // TODO - Interfaces
 
   requestPasswordReset(payload): Observable<any> {
-    return this.http.post(getUrl('PWD_R'), payload);
+    return this.http.post(getUrl('PWD_FGT', 'auth'), payload);
   }
 
   sendUsernameToEmail(payload): Observable<any> {
-    return this.http.post(getUrl('USN_R'), payload);
+    return this.http.post(getUrl('USN_FGT', 'auth'), payload);
   }
 
   checkPasswordResetRequest(hash: string): Observable<any> {
-    return this.http.get<any>(`${getUrl('PWD_R_CHECK')}/${hash}`);
+    const check = { check: { resetHash: hash } };
+    return this.http.post<any>(`${getUrl('EXIST_CHECK', 'auth')}/pwd-reset-request`, check);
   }
 
   createNewPassword(hash: string, payload): Observable<any> {
-    return this.http.post(`${getUrl('PWD_R')}/${hash}`, payload);
+    return this.http.post(`${getUrl('PWD_RES', 'auth')}/${hash}`, payload);
   }
 
 

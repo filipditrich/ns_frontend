@@ -8,7 +8,7 @@ import {isEmail, isUpperCase, passwordConfirmation, passwordStrength} from '../.
 import {UserRoles} from '../../../../core/enums/user.enum';
 import {IUser} from '../../../../core/models/user.interface';
 import {IRegistrationCredentials} from '../../../../core/models/credentials.interface';
-import * as _cc from '../../../../core/config/codes.config';
+import * as codeConfig from '../../../../core/config/codes.config';
 
 @Component({
   selector: 'ns-create-user',
@@ -111,10 +111,10 @@ export class AdminCreateUserComponent implements OnInit {
         this.submitted = false;
 
         switch (error.name) {
-          case _cc.getCodeByName('USERNAME_IN_USE').name: {
+          case codeConfig.getCodeByName('USERNAME_IN_USE', 'auth').name: {
             this.username.setErrors({ 'in-use' : true }); break;
           }
-          case _cc.getCodeByName('EMAIL_ALREADY_IN_USE').name: {
+          case codeConfig.getCodeByName('EMAIL_ALREADY_IN_USE', 'auth').name: {
             this.email.setErrors({ 'in-use' : true }); break;
           }
           default: {

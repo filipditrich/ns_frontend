@@ -7,6 +7,6 @@ export function updateCodes(input: ICode | ICode[]) {
   CODES = input;
 }
 
-export function getCodeByName(name: string) {
-  return findByProp(CODES, 'name', name);
+export function getCodeByName(name: string, service) {
+  return findByProp(CODES[service], 'name', name);
 }

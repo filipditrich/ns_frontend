@@ -7,7 +7,7 @@ import { RegistrationService } from '../registration.service';
 import { AlertsService } from '../../../../core/services/alerts/alerts.service';
 import { ErrorHelper } from '../../../../core/helpers/error.helper';
 
-import * as _cc from '../../../../core/config/codes.config';
+import * as codeConfig from '../../../../core/config/codes.config';
 
 @Component({
   selector: 'ns-registration-request',
@@ -82,10 +82,10 @@ export class RegistrationRequestComponent implements OnInit {
       this.submitted = false;
 
       switch (error.name) {
-        case _cc.getCodeByName('REQUEST_WITH_EMAIL_ALREADY_MADE').name: {
+        case codeConfig.getCodeByName('REQUEST_WITH_EMAIL_ALREADY_MADE', 'auth').name: {
           this.email.setErrors({ 'in-use' : true }); break;
         }
-        case _cc.getCodeByName('EMAIL_ALREADY_IN_USE').name: {
+        case codeConfig.getCodeByName('EMAIL_ALREADY_IN_USE', 'auth').name: {
           this.email.setErrors({ 'in-use' : true }); break;
         }
         default: {

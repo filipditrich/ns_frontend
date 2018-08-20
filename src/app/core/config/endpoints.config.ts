@@ -1,30 +1,23 @@
-import { EndpointGroup } from '../enums/endpoint.enum';
 import { findByProp } from '../helpers/functions.helper';
-import { API } from '../../../environments/environment';
+import { APIRoot, APIVersion } from '../../../environments/environment';
 
 export let ENDPOINTS = {};
 
-export function updateEndpointGroup(group: string, endpoints: any) {
-  ENDPOINTS[group] = endpoints;
+export function updateEndpoints(input) {
+  ENDPOINTS = input;
 }
 
-export function getById(id: string, group: string = EndpointGroup.Agent) {
-  return findByProp(ENDPOINTS, 'id', id);
+export function getById(id: string, service: string) {
+  return findByProp(ENDPOINTS[service], 'id', id);
 }
 
-export function getUrlById(id: string, group: string = EndpointGroup.Agent) {
-  const res = findByProp(ENDPOINTS[group], 'id', id);
+export function getUrlById(id: string, service: string) {
+  const res = findByProp(ENDPOINTS[service], 'id', id);
   return res ? res.url : undefined;
 }
 
-export function getUrl(id: string, worker: string = EndpointGroup.Agent) {
-  let port;
-  switch (worker) {
-    case EndpointGroup.Agent: port = 3000; break;
-    case EndpointGroup.Backdrop: port = 3001; break;
-    case EndpointGroup.Sport: port = 3002; break;
-  }
-  const endpoint = getUrlById(id, worker);
-
-  return endpoint === undefined ? `${API(port)}/` : `${API(port)}${endpoint}`;
+export function getUrl(id: string, service) {
+  const endpoint = getUrlById(id, service);
+  console.log(endpoint);
+  return endpoint === undefined ?  `${APIRoot}` : `${APIRoot}/api/${APIVersion}/${service}${endpoint}`;
 }

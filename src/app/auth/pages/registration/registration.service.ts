@@ -12,14 +12,19 @@ export class RegistrationService {
   constructor(private http: HttpClient) { }
 
   requestRegistration(credentials: IRegistrationRequest): Observable<any> {
-    return this.http.post<any>(getUrl('REG_REQ'), credentials);
+    return this.http.post<any>(getUrl('REG_REQ', 'auth'), credentials);
   }
 
   checkRegistrationRequest(hash: string): Observable<any> {
-    return this.http.get<any>(`${getUrl('REG_CHECK')}/${hash}`);
+    const check = { check: { 'registration.registrationHash': hash } };
+    return this.http.post<any>(`${getUrl('EXIST_CHECK', 'auth')}/registration-request`, check);
+  }
+
+  getRegistrationRequest(hash: string): Observable<any> {
+    return this.http.get<any>(`${getUrl('REQ_REQ_GET', 'auth')}/${hash}`);
   }
 
   registerUser(hash: string, credentials: IRegistrationCredentials): Observable<any> {
-    return this.http.post<any>(`${getUrl('REG')}/${hash}`, credentials);
+    return this.http.post<any>(`${getUrl('REG', 'auth')}/${hash}`, credentials);
   }
 }

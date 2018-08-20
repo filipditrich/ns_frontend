@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from '../../services/auth/auth.service';
 
-import * as _cc from '../../config/codes.config';
+import * as codeConfig from '../../config/codes.config';
 import {ErrorHelper} from '../../helpers/error.helper';
 
 @Component({
@@ -87,10 +87,10 @@ export class LoginComponent implements OnInit {
       this.submitted = false;
 
       switch (error.name) {
-        case _cc.getCodeByName('USERNAME_MISMATCH').name: {
+        case codeConfig.getCodeByName('USERNAME_MISMATCH', 'auth').name: {
           this.username.setErrors({ 'no-match' : true }); break;
         }
-        case _cc.getCodeByName('PASSWORD_MISMATCH').name: {
+        case codeConfig.getCodeByName('PASSWORD_MISMATCH', 'auth').name: {
           this.password.setErrors({ 'no-match' : true }); break;
         }
         default: {

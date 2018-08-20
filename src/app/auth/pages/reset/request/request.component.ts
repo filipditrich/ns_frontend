@@ -8,7 +8,7 @@ import { AlertsService } from '../../../../core/services/alerts/alerts.service';
 import { CredResetService } from '../reset.service';
 import { ErrorHelper } from '../../../../core/helpers/error.helper';
 
-import * as _cc from '../../../../core/config/codes.config';
+import * as codeConfig from '../../../../core/config/codes.config';
 
 @Component({
   selector: 'ns-request-cred-reset',
@@ -99,7 +99,7 @@ export class ResetRequestComponent implements OnInit {
 
       switch (error.name) {
 
-        case _cc.getCodeByName('RESET_REQUEST_ALREADY_MADE').name: {
+        case codeConfig.getCodeByName('RESET_REQUEST_ALREADY_MADE', 'auth').name: {
           if (input.username) {
             this.username.setErrors({ 'req-dup' : true });
           } else {
@@ -107,7 +107,7 @@ export class ResetRequestComponent implements OnInit {
           }
           break;
         }
-        case _cc.getCodeByName('USER_NOT_FOUND').name: {
+        case codeConfig.getCodeByName('USER_NOT_FOUND', 'auth').name: {
           if (input.username) {
             this.username.setErrors({ 'not-found' : true });
           } else {
@@ -145,7 +145,7 @@ export class ResetRequestComponent implements OnInit {
       this.submitted = false;
 
       switch (error.name) {
-        case _cc.getCodeByName('EMAIL_NOT_FOUND').name: {
+        case codeConfig.getCodeByName('EMAIL_NOT_FOUND', 'auth').name: {
           this.email.setErrors({ 'not-found' : true }); break;
         }
         default: {

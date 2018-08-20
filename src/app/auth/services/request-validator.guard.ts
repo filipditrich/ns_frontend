@@ -30,7 +30,7 @@ export class IsRequestHashValid implements CanActivate {
       case CheckType.Registration: {
         return new Observable<boolean>(observer => {
           this.registrationSvc.checkRegistrationRequest(hash).subscribe(response => {
-            if (response.response.success && response.request) {
+            if (response.response.success) {
               observer.next(true);
               observer.complete();
             } else {
@@ -66,7 +66,7 @@ export class IsRequestHashValid implements CanActivate {
                 this.errorHelper.handleGenericError(error);
               });
               observer.next(false);
-              observer.complete()
+              observer.complete();
             }
           }, err => {
             this.router.navigate(['/login']).then(() => {
@@ -113,34 +113,52 @@ export class IsRequestHashValid implements CanActivate {
 export class DataResolver implements Resolve<any> {
 
   constructor(private registrationSvc: RegistrationService,
-              private userMgmtSvc: AdminUserManagementService) { }
+              private userMgmtSvc: AdminUserManagementService,
+              private router: Router,
+              private errorHelper: ErrorHelper) { }
 
-  resolve(route: ActivatedRouteSnapshot): Observable<any> {
+  resolve(route: ActivatedRouteSnapshot): Promise<any> {
     const hash = route.paramMap.get('hash');
     const type = route.data['checkType'];
 
     switch (type) {
       case CheckType.Registration: {
-        return this.registrationSvc.checkRegistrationRequest(hash).pipe(map(result => {
-          if (result.response.success && result.request) {
-            return result.request;
+        return this.registrationSvc.getRegistrationRequest(hash).toPromise().then(response => {
+          if (response.response.success && response.output) {
+            return response.output;
           } else {
-            return throwError(new Error(result.response));
+            this.router.navigate(['/']).then(() => {
+              this.errorHelper.processedButFailed(response);
+            });
+            return;
           }
-        }), catchError(error => {
-          return throwError(new Error(error));
-        }));
+        }).catch(error => {
+          this.router.navigate(['/']).then(() => {
+            this.errorHelper.handleGenericError(error);
+          }).catch(err => {
+            this.errorHelper.handleGenericError(err);
+          });
+          return;
+        });
       }
       case CheckType.EditUser: {
-        return this.userMgmtSvc.getUser(hash).pipe(map(result => {
-          if (result.response.success && result.output) {
-            return result.output[0];
+        return this.userMgmtSvc.getUser(hash).toPromise().then(response => {
+          if (response.response.success && response.output) {
+            return response.output[0];
           } else {
-            return throwError(new Error(result.response));
+            this.router.navigate(['/']).then(() => {
+              this.errorHelper.processedButFailed(response);
+            });
+            return;
           }
-        }), catchError(error => {
-          return throwError(new Error(error));
-        }));
+        }).catch(error => {
+          this.router.navigate(['/']).then(() => {
+            this.errorHelper.handleGenericError(error);
+          }).catch(err => {
+            this.errorHelper.handleGenericError(err);
+          });
+          return;
+        });
       }
     }
 

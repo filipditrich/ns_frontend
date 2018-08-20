@@ -9,7 +9,7 @@ import { passwordConfirmation, passwordStrength } from '../../../core/helpers/va
 import { CredResetService } from './reset.service';
 import { ErrorHelper } from '../../../core/helpers/error.helper';
 
-import * as _cc from '../../../core/config/codes.config';
+import * as codeConfig from '../../../core/config/codes.config';
 
 @Component({
   selector: 'ns-cred-reset',
@@ -85,7 +85,7 @@ export class ResetComponent implements OnInit {
       this.submitted = false;
 
       switch (error.name) {
-        case _cc.getCodeByName('NEW_PASSWORD_IS_OLD').name: {
+        case codeConfig.getCodeByName('NEW_PASSWORD_IS_OLD', 'auth').name: {
           this.password.setErrors({ 'new-is-old' : true }); break;
         }
         default: {

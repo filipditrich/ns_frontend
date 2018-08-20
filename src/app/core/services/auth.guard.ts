@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 import { AlertsService } from './alerts/alerts.service';
 import { ErrorHelper } from '../helpers/error.helper';
 import { PreviousRouteService } from './previous-route.service';
 import {HttpClient} from '@angular/common/http';
-import {API} from '../../../environments/environment';
+import {APIRoot, APIVersion} from '../../../environments/environment';
 import {getUrl} from '../config/endpoints.config';
 import {findByProp} from '../helpers/functions.helper';
 import {UserRoles} from '../enums/user.enum';
